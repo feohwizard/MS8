@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StockDataset" targetNamespace="http://tempuri.org/StockDataset.xsd" xmlns:mstns="http://tempuri.org/StockDataset.xsd" xmlns="http://tempuri.org/StockDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="CedemedConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CedemedConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Cedemed.My.MySettings.GlobalReference.Default.CedemedConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchasesTableAdapter" GeneratorDataComponentClassName="PurchasesTableAdapter" Name="Purchases" UserDataComponentName="PurchasesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CedemedConnectionString (MySettings)" DbObjectName="POSData.dbo.Purchases" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Expiry, MRRNo AS lotno, ISNULL
+                             ((SELECT        SUM(UnitSold) AS soldsum
+                                 FROM            Sales
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (expiry = Purchases.Expiry) AND (lotno = Purchases.MRRNo)), 0) AS stockout, ISNULL
+                             ((SELECT        SUM(Qty) AS invsum
+                                 FROM            Purchases AS Purchases_1
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (Expiry = Purchases.Expiry) AND (MRRNo = Purchases.MRRNo)), 0) AS inventory, ISNULL
+                             ((SELECT        SUM(Qty) AS transum
+                                 FROM            TranferItems AS trantran
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (Expiry = Purchases.Expiry) AND (lotno = Purchases.MRRNo)), 0) AS transfer, InvNo
+FROM            Purchases</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Expiry" DataSetColumn="Expiry" />
+              <Mapping SourceColumn="lotno" DataSetColumn="lotno" />
+              <Mapping SourceColumn="stockout" DataSetColumn="stockout" />
+              <Mapping SourceColumn="inventory" DataSetColumn="inventory" />
+              <Mapping SourceColumn="transfer" DataSetColumn="transfer" />
+              <Mapping SourceColumn="InvNo" DataSetColumn="InvNo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="CedemedConnectionString (MySettings)" DbObjectName="POSData.dbo.Purchases" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByItemNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByItemNo" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByItemNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Expiry, MRRNo AS lotno, ISNULL
+                             ((SELECT        SUM(UnitSold) AS soldsum
+                                 FROM            Sales
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (expiry = Purchases.Expiry) AND (lotno = Purchases.MRRNo)), 0) AS stockout, ISNULL
+                             ((SELECT        SUM(Qty) AS invsum
+                                 FROM            Purchases AS Purchases_1
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (Expiry = Purchases.Expiry) AND (MRRNo = Purchases.MRRNo)), 0) AS inventory, ISNULL
+                             ((SELECT        SUM(Qty) AS transum
+                                 FROM            TranferItems AS trantran
+                                 WHERE        (ItemNo = Purchases.ItemNo) AND (Expiry = Purchases.Expiry) AND (lotno = Purchases.MRRNo)), 0) AS transfer, InvNo
+FROM            Purchases
+WHERE        (ItemNo = @item)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="item" ColumnName="ItemNo" DataSourceName="POSData.dbo.Purchases" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@item" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ItemNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StockDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="StockDataset" msprop:Generator_UserDSName="StockDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Purchases" msprop:Generator_TableClassName="PurchasesDataTable" msprop:Generator_TableVarName="tablePurchases" msprop:Generator_TablePropName="Purchases" msprop:Generator_RowDeletingName="PurchasesRowDeleting" msprop:Generator_UserTableName="Purchases" msprop:Generator_RowChangingName="PurchasesRowChanging" msprop:Generator_RowEvHandlerName="PurchasesRowChangeEventHandler" msprop:Generator_RowDeletedName="PurchasesRowDeleted" msprop:Generator_RowEvArgName="PurchasesRowChangeEvent" msprop:Generator_RowChangedName="PurchasesRowChanged" msprop:Generator_RowClassName="PurchasesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expiry" msprop:Generator_ColumnVarNameInTable="columnExpiry" msprop:Generator_ColumnPropNameInRow="Expiry" msprop:Generator_ColumnPropNameInTable="ExpiryColumn" msprop:Generator_UserColumnName="Expiry" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="lotno" msprop:Generator_ColumnVarNameInTable="columnlotno" msprop:Generator_ColumnPropNameInRow="lotno" msprop:Generator_ColumnPropNameInTable="lotnoColumn" msprop:Generator_UserColumnName="lotno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockout" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstockout" msprop:Generator_ColumnPropNameInRow="stockout" msprop:Generator_ColumnPropNameInTable="stockoutColumn" msprop:Generator_UserColumnName="stockout" type="xs:int" minOccurs="0" />
+              <xs:element name="inventory" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columninventory" msprop:Generator_ColumnPropNameInRow="inventory" msprop:Generator_ColumnPropNameInTable="inventoryColumn" msprop:Generator_UserColumnName="inventory" type="xs:int" minOccurs="0" />
+              <xs:element name="Stock" msdata:ReadOnly="true" msdata:Expression="(inventory-stockout)-transfer" msprop:Generator_ColumnVarNameInTable="columnStock" msprop:Generator_ColumnPropNameInRow="Stock" msprop:Generator_ColumnPropNameInTable="StockColumn" msprop:Generator_UserColumnName="Stock" type="xs:int" minOccurs="0" />
+              <xs:element name="transfer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntransfer" msprop:Generator_ColumnPropNameInRow="transfer" msprop:Generator_ColumnPropNameInTable="transferColumn" msprop:Generator_UserColumnName="transfer" type="xs:int" minOccurs="0" />
+              <xs:element name="InvNo" msprop:Generator_ColumnVarNameInTable="columnInvNo" msprop:Generator_ColumnPropNameInRow="InvNo" msprop:Generator_ColumnPropNameInTable="InvNoColumn" msprop:Generator_UserColumnName="InvNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

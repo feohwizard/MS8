@@ -1,0 +1,65 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="CedemedConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.29.112.56\MAIN;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher;&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.29.112.56\MAIN;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher;</Value>
+    </Setting>
+    <Setting Name="Branch1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.29.112.56\Residence;Initial Catalog=Residence;Integrated Security=false;User ID=admin;Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.29.112.56\Residence;Initial Catalog=Residence;Integrated Security=false;User ID=admin;Password=decipher</Value>
+    </Setting>
+    <Setting Name="Branch3" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.60.159.84\LaUnion;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.60.159.84\LaUnion;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher</Value>
+    </Setting>
+    <Setting Name="Branch4" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.14.186.246\Baguio;Initial Catalog=POSData;Integrated Security=False; User ID=admin; Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.14.186.246\Baguio;Initial Catalog=POSData;Integrated Security=False; User ID=admin; Password=decipher</Value>
+    </Setting>
+    <Setting Name="Branch5" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.14.140.209\Pampanga;Initial Catalog=POSData;Integrated Security=False; User ID=admin; Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.14.140.209\Pampanga;Initial Catalog=POSData;Integrated Security=False; User ID=admin; Password=decipher</Value>
+    </Setting>
+    <Setting Name="MainBranch" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.29.112.56\MAIN;Initial Catalog=POSDataDagupan;Integrated Security=false;User ID=admin;Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.29.112.56\MAIN;Initial Catalog=POSDataDagupan;Integrated Security=false;User ID=admin;Password=decipher</Value>
+    </Setting>
+    <Setting Name="Branch2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Persist Security Info=True;Data Source=25.3.186.248\Urdaneta;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Persist Security Info=True;Data Source=25.3.186.248\Urdaneta;Initial Catalog=POSData;Integrated Security=false;User ID=admin;Password=decipher</Value>
+    </Setting>
+    <Setting Name="BranchSelect" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
