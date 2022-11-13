@@ -42,13 +42,6 @@ Partial Class StockTransfer
         Me.Label2 = New System.Windows.Forms.Label()
         Me.quantitytxt = New System.Windows.Forms.TextBox()
         Me.PurchasesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.invoice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InventoryDataset = New Cedemed.InventoryDataset()
         Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -60,6 +53,12 @@ Partial Class StockTransfer
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NCost = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.StockBS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PurchasesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,7 +132,7 @@ Partial Class StockTransfer
         'ColumnHeader5
         '
         Me.ColumnHeader5.Text = "Lot No."
-        Me.ColumnHeader5.Width = 191
+        Me.ColumnHeader5.Width = 150
         '
         'StockBS
         '
@@ -170,77 +169,12 @@ Partial Class StockTransfer
         Me.PurchasesDataGridView.AllowUserToAddRows = False
         Me.PurchasesDataGridView.AutoGenerateColumns = False
         Me.PurchasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PurchasesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.NCost, Me.lotno, Me.invoice})
+        Me.PurchasesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.NCost, Me.lotno})
         Me.PurchasesDataGridView.DataSource = Me.PurchasesBindingSource
         Me.PurchasesDataGridView.Location = New System.Drawing.Point(462, 12)
         Me.PurchasesDataGridView.Name = "PurchasesDataGridView"
         Me.PurchasesDataGridView.Size = New System.Drawing.Size(583, 470)
         Me.PurchasesDataGridView.TabIndex = 25
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Description"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Description"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 247
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Qty"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Qty"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 41
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Amount"
-        DataGridViewCellStyle1.Format = "N2"
-        DataGridViewCellStyle1.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Amount"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Visible = False
-        Me.DataGridViewTextBoxColumn4.Width = 75
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Expiry"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Expiry"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 60
-        '
-        'NCost
-        '
-        Me.NCost.DataPropertyName = "NCost"
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = "0.00"
-        Me.NCost.DefaultCellStyle = DataGridViewCellStyle2
-        Me.NCost.HeaderText = "Normal Cost"
-        Me.NCost.Name = "NCost"
-        Me.NCost.ReadOnly = True
-        Me.NCost.Visible = False
-        Me.NCost.Width = 69
-        '
-        'lotno
-        '
-        Me.lotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.lotno.DataPropertyName = "lotno"
-        Me.lotno.HeaderText = "Lot No"
-        Me.lotno.Name = "lotno"
-        Me.lotno.Width = 64
-        '
-        'invoice
-        '
-        Me.invoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.invoice.DataPropertyName = "invoice"
-        Me.invoice.HeaderText = "Invoice"
-        Me.invoice.Name = "invoice"
-        Me.invoice.Width = 67
         '
         'PurchasesBindingSource
         '
@@ -309,6 +243,63 @@ Partial Class StockTransfer
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 28
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Description"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Description"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 247
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Qty"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Qty"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 41
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Amount"
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Amount"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Visible = False
+        Me.DataGridViewTextBoxColumn4.Width = 75
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Expiry"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Expiry"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 60
+        '
+        'NCost
+        '
+        Me.NCost.DataPropertyName = "NCost"
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = "0.00"
+        Me.NCost.DefaultCellStyle = DataGridViewCellStyle2
+        Me.NCost.HeaderText = "Normal Cost"
+        Me.NCost.Name = "NCost"
+        Me.NCost.ReadOnly = True
+        Me.NCost.Visible = False
+        Me.NCost.Width = 69
+        '
+        'lotno
+        '
+        Me.lotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.lotno.DataPropertyName = "lotno"
+        Me.lotno.HeaderText = "Lot No"
+        Me.lotno.Name = "lotno"
+        Me.lotno.Width = 64
+        '
         'StockTransfer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -369,12 +360,11 @@ Partial Class StockTransfer
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NCost As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lotno As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents invoice As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ColumnHeader7 As ColumnHeader
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents NCost As DataGridViewTextBoxColumn
+    Friend WithEvents lotno As DataGridViewTextBoxColumn
 End Class

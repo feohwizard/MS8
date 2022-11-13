@@ -316,6 +316,8 @@ Partial Public Class MasterFileDataset
         Me.Items.TotalColumn.Expression = "Qty"
         Me.Items.profitColumn.Expression = "IIF( Cost>=1, (CONVERT( ((SRP-Cost)/cost*100) * 100, System.Int64 ) / 100)+'%', '"& _ 
             "100.00%' )"
+        Me.Items.profitpesoColumn.Expression = "IIF( Cost>=1, SRP-Cost, SRP )"
+        Me.Items.totalcostColumn.Expression = "Qty*Cost"
     End Sub
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -357,6 +359,12 @@ Partial Public Class MasterFileDataset
         Private columnlastsupplier As Global.System.Data.DataColumn
         
         Private columnprofit As Global.System.Data.DataColumn
+        
+        Private columnOldSRP As Global.System.Data.DataColumn
+        
+        Private columnprofitpeso As Global.System.Data.DataColumn
+        
+        Private columntotalcost As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -507,6 +515,30 @@ Partial Public Class MasterFileDataset
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property OldSRPColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOldSRP
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property profitpesoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnprofitpeso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property totalcostColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntotalcost
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -543,9 +575,9 @@ Partial Public Class MasterFileDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddItemsRow(ByVal IDesc As String, ByVal IUnit As String, ByVal SRP As Decimal, ByVal Cost As Decimal, ByVal OldCost As Decimal, ByVal _Date As Date, ByVal Clevel As Integer, ByVal Qty As Integer, ByVal Total As Integer, ByVal lastin As Integer, ByVal lastsupplier As String, ByVal profit As String) As ItemsRow
+        Public Overloads Function AddItemsRow(ByVal IDesc As String, ByVal IUnit As String, ByVal SRP As Decimal, ByVal Cost As Decimal, ByVal OldCost As Decimal, ByVal _Date As Date, ByVal Clevel As Integer, ByVal Qty As Integer, ByVal Total As Integer, ByVal lastin As Integer, ByVal lastsupplier As String, ByVal profit As String, ByVal OldSRP As Decimal, ByVal profitpeso As String, ByVal totalcost As String) As ItemsRow
             Dim rowItemsRow As ItemsRow = CType(Me.NewRow,ItemsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, IDesc, IUnit, SRP, Cost, OldCost, _Date, Clevel, Qty, Total, lastin, lastsupplier, profit}
+            Dim columnValuesArray() As Object = New Object() {Nothing, IDesc, IUnit, SRP, Cost, OldCost, _Date, Clevel, Qty, Total, lastin, lastsupplier, profit, OldSRP, profitpeso, totalcost}
             rowItemsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowItemsRow)
             Return rowItemsRow
@@ -553,9 +585,9 @@ Partial Public Class MasterFileDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddItemsRow(ByVal IDesc As String, ByVal IUnit As String, ByVal SRP As Decimal, ByVal Cost As Decimal, ByVal OldCost As Decimal, ByVal _Date As Date, ByVal Clevel As Integer, ByVal Qty As Integer, ByVal lastin As Integer, ByVal lastsupplier As String) As ItemsRow
+        Public Overloads Function AddItemsRow(ByVal IDesc As String, ByVal IUnit As String, ByVal SRP As Decimal, ByVal Cost As Decimal, ByVal OldCost As Decimal, ByVal _Date As Date, ByVal Clevel As Integer, ByVal Qty As Integer, ByVal lastin As Integer, ByVal lastsupplier As String, ByVal OldSRP As Decimal) As ItemsRow
             Dim rowItemsRow As ItemsRow = CType(Me.NewRow,ItemsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, IDesc, IUnit, SRP, Cost, OldCost, _Date, Clevel, Qty, Nothing, lastin, lastsupplier, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nothing, IDesc, IUnit, SRP, Cost, OldCost, _Date, Clevel, Qty, Nothing, lastin, lastsupplier, Nothing, OldSRP, Nothing, Nothing}
             rowItemsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowItemsRow)
             Return rowItemsRow
@@ -591,6 +623,9 @@ Partial Public Class MasterFileDataset
             Me.columnlastin = MyBase.Columns("lastin")
             Me.columnlastsupplier = MyBase.Columns("lastsupplier")
             Me.columnprofit = MyBase.Columns("profit")
+            Me.columnOldSRP = MyBase.Columns("OldSRP")
+            Me.columnprofitpeso = MyBase.Columns("profitpeso")
+            Me.columntotalcost = MyBase.Columns("totalcost")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -625,6 +660,12 @@ Partial Public Class MasterFileDataset
             MyBase.Columns.Add(Me.columnlastsupplier)
             Me.columnprofit = New Global.System.Data.DataColumn("profit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprofit)
+            Me.columnOldSRP = New Global.System.Data.DataColumn("OldSRP", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOldSRP)
+            Me.columnprofitpeso = New Global.System.Data.DataColumn("profitpeso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprofitpeso)
+            Me.columntotalcost = New Global.System.Data.DataColumn("totalcost", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntotalcost)
             Me.columnItemNo.AutoIncrement = true
             Me.columnItemNo.AutoIncrementSeed = -1
             Me.columnItemNo.AutoIncrementStep = -1
@@ -638,6 +679,8 @@ Partial Public Class MasterFileDataset
             Me.columnlastsupplier.ReadOnly = true
             Me.columnlastsupplier.MaxLength = 50
             Me.columnprofit.ReadOnly = true
+            Me.columnprofitpeso.ReadOnly = true
+            Me.columntotalcost.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -664,6 +707,8 @@ Partial Public Class MasterFileDataset
             Me.TotalColumn.Expression = "Qty"
             Me.profitColumn.Expression = "IIF( Cost>=1, (CONVERT( ((SRP-Cost)/cost*100) * 100, System.Int64 ) / 100)+'%', '"& _ 
                 "100.00%' )"
+            Me.profitpesoColumn.Expression = "IIF( Cost>=1, SRP-Cost, SRP )"
+            Me.totalcostColumn.Expression = "Qty*Cost"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1279,6 +1324,51 @@ Partial Public Class MasterFileDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property OldSRP() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableItems.OldSRPColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OldSRP' in table 'Items' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableItems.OldSRPColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property profitpeso() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableItems.profitpesoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'profitpeso' in table 'Items' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableItems.profitpesoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property totalcost() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableItems.totalcostColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'totalcost' in table 'Items' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableItems.totalcostColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsIDescNull() As Boolean
             Return Me.IsNull(Me.tableItems.IDescColumn)
         End Function
@@ -1419,6 +1509,42 @@ Partial Public Class MasterFileDataset
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetprofitNull()
             Me(Me.tableItems.profitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsOldSRPNull() As Boolean
+            Return Me.IsNull(Me.tableItems.OldSRPColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetOldSRPNull()
+            Me(Me.tableItems.OldSRPColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsprofitpesoNull() As Boolean
+            Return Me.IsNull(Me.tableItems.profitpesoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetprofitpesoNull()
+            Me(Me.tableItems.profitpesoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IstotalcostNull() As Boolean
+            Return Me.IsNull(Me.tableItems.totalcostColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SettotalcostNull()
+            Me(Me.tableItems.totalcostColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1743,6 +1869,7 @@ Namespace MasterFileDatasetTableAdapters
             tableMapping.ColumnMappings.Add("Qty", "Qty")
             tableMapping.ColumnMappings.Add("lastin", "lastin")
             tableMapping.ColumnMappings.Add("lastsupplier", "lastsupplier")
+            tableMapping.ColumnMappings.Add("OldSRP", "OldSRP")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1760,50 +1887,53 @@ Namespace MasterFileDatasetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.OldC"& _ 
-                "ost, Inv.updated as Date, Inv.Clevel, Inv.Qty,Inv.lastin, Inv.lastsupplier "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = In"& _ 
-                "v.ItemNo order by Idesc"
+                "ost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier, Inv"& _ 
+                ".OldSRP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items"& _ 
+                ".ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.OldC"& _ 
-                "ost, Inv.updated as Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = In"& _ 
-                "v.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Inv.updated = @updated)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
+                "ost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier, Inv"& _ 
+                ".OldSRP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items"& _ 
+                ".ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Inv.updated = @updated)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDes"& _ 
+                "c"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@updated", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.OldC"& _ 
-                "ost, Inv.updated as Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
-                "OM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = I"& _ 
-                "nv.ItemNo where Idesc like @desc + '%' order by Idesc"
+                "ost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier, Inv"& _ 
+                ".OldSRP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items"& _ 
+                ".ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Items.IDesc LIKE @desc + '%')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Item"& _ 
+                "s.IDesc"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@desc", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "IDesc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT        Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.OldC"& _ 
-                "ost, Inv.updated as Date, Inv.Clevel,Inv.Qty, Inv.lastin, Inv.lastsupplier "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = In"& _ 
-                "v.ItemNo where Idesc like @desc + '%' and (Qty-Clevel)<=0 order by Idesc"
+                "ost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier, Inv"& _ 
+                ".OldSRP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items"& _ 
+                ".ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Items.IDesc LIKE @desc + '%') AND (Inv.Qty -"& _ 
+                " Inv.Clevel <= 0)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@desc", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "IDesc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT         Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.Old"& _ 
-                "Cost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
-                "OM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = I"& _ 
-                "nv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ISNULL(REPLACE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             ((SELECT D"& _ 
-                "ISTINCT ',' + Supplier AS [text()]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 FROM       "& _ 
-                "     Purchases AS Purchases_1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 WHERE        (It"& _ 
-                "emNo = Items.ItemNo) AND (NOT (Supplier LIKE '%BEGIN%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "                                     Supplier LIKE '%CORRECT%')) AND (NOT (Suppl"& _ 
-                "ier LIKE '%Pampanga%')) AND (NOT (Supplier LIKE '%Urdaneta%')) AND (NOT (Supplie"& _ 
-                "r LIKE '%Adjustment%')) AND (NOT (Supplier LIKE '%La Union%')) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "                                               (NOT (Supplier LIKE '%Baguio%')) "& _ 
-                "AND (NOT (Supplier LIKE '%RGS%')) AND (NOT (Supplier LIKE '%Residence%')) FOR XM"& _ 
-                "L path('')), '&amp;', '&'), 'No Supplier') LIKE '%' + @supplier + '%')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY"& _ 
-                " Items.IDesc"
+            Me._commandCollection(4).CommandText = "SELECT        Items.ItemNo, Items.IDesc, Items.IUnit, Inv.SRP, Inv.Cost, Inv.OldC"& _ 
+                "ost, Inv.updated AS Date, Inv.Clevel, Inv.Qty, Inv.lastin, Inv.lastsupplier, Inv"& _ 
+                ".OldSRP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items"& _ 
+                ".ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ISNULL(REPLACE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
+                " ((SELECT DISTINCT ',' + Supplier AS [text()]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 "& _ 
+                "FROM            Purchases AS Purchases_1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 WHERE"& _ 
+                "        (ItemNo = Items.ItemNo) AND (NOT (Supplier LIKE '%BEGIN%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "                                                Supplier LIKE '%CORRECT%')) AND "& _ 
+                "(NOT (Supplier LIKE '%Pampanga%')) AND (NOT (Supplier LIKE '%Urdaneta%')) AND (N"& _ 
+                "OT (Supplier LIKE '%Adjustment%')) AND (NOT (Supplier LIKE '%La Union%')) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                                                          (NOT (Supplier LIKE '%"& _ 
+                "Baguio%')) AND (NOT (Supplier LIKE '%RGS%')) AND (NOT (Supplier LIKE '%Residence"& _ 
+                "%')) FOR XML path('')), '&amp;', '&'), 'No Supplier') LIKE '%' + @supplier + '%'"& _ 
+                ")"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@supplier", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()

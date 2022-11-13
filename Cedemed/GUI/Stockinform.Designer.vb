@@ -23,6 +23,7 @@ Partial Class Stockinform
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Stockinform))
         Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -54,8 +55,9 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsDataset = New Cedemed.ItemsDataset()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.ucost = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.quantitytxt = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.itemnotxt = New System.Windows.Forms.TextBox()
@@ -64,6 +66,7 @@ Partial Class Stockinform
         Me.ItemsTableAdapter = New Cedemed.ItemsDatasetTableAdapters.ItemsTableAdapter()
         Me.TableAdapterManager = New Cedemed.ItemsDatasetTableAdapters.TableAdapterManager()
         Me.mennu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PurchasesDataset = New Cedemed.PurchasesDataset()
@@ -71,19 +74,22 @@ Partial Class Stockinform
         Me.TableAdapterManager1 = New Cedemed.PurchasesDatasetTableAdapters.TableAdapterManager()
         Me.SupplierTableAdapter = New Cedemed.SupplierDatasetTableAdapters.SupplierTableAdapter()
         Me.PurchasesDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ItemStockInBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ItemStockin = New Cedemed.ItemStockin()
-        Me.ItemsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ItemStockInTableAdapter = New Cedemed.ItemStockinTableAdapters.ItemStockInTableAdapter()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CheckNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.ItemStockInBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ItemStockin = New Cedemed.ItemStockin()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ItemStockInTableAdapter = New Cedemed.ItemStockinTableAdapters.ItemStockInTableAdapter()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -357,25 +363,35 @@ Partial Class Stockinform
         Me.ItemsDataset.DataSetName = "ItemsDataset"
         Me.ItemsDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GroupBox5
-        '
-        Me.GroupBox5.Location = New System.Drawing.Point(288, 314)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(368, 45)
-        Me.GroupBox5.TabIndex = 9
-        Me.GroupBox5.TabStop = False
-        '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.ucost)
+        Me.GroupBox6.Controls.Add(Me.Label12)
         Me.GroupBox6.Controls.Add(Me.quantitytxt)
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.itemnotxt)
         Me.GroupBox6.Controls.Add(Me.Label10)
-        Me.GroupBox6.Location = New System.Drawing.Point(288, 365)
+        Me.GroupBox6.Location = New System.Drawing.Point(288, 320)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(265, 83)
+        Me.GroupBox6.Size = New System.Drawing.Size(265, 128)
         Me.GroupBox6.TabIndex = 10
         Me.GroupBox6.TabStop = False
+        '
+        'ucost
+        '
+        Me.ucost.Location = New System.Drawing.Point(82, 71)
+        Me.ucost.Name = "ucost"
+        Me.ucost.Size = New System.Drawing.Size(169, 20)
+        Me.ucost.TabIndex = 22
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(8, 74)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(53, 13)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "Unit Cost:"
         '
         'quantitytxt
         '
@@ -395,6 +411,7 @@ Partial Class Stockinform
         '
         'itemnotxt
         '
+        Me.itemnotxt.Enabled = False
         Me.itemnotxt.Location = New System.Drawing.Point(82, 19)
         Me.itemnotxt.Name = "itemnotxt"
         Me.itemnotxt.Size = New System.Drawing.Size(169, 20)
@@ -430,9 +447,15 @@ Partial Class Stockinform
         '
         'mennu
         '
-        Me.mennu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem})
+        Me.mennu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem})
         Me.mennu.Name = "mennu"
-        Me.mennu.Size = New System.Drawing.Size(108, 26)
+        Me.mennu.Size = New System.Drawing.Size(108, 48)
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
         '
         'DeleteToolStripMenuItem
         '
@@ -468,11 +491,11 @@ Partial Class Stockinform
         '
         Me.PurchasesDataGridView.AllowUserToAddRows = False
         Me.PurchasesDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PurchasesDataGridView.AutoGenerateColumns = False
         Me.PurchasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PurchasesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn7})
+        Me.PurchasesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn4, Me.CheckNo, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.PurchasesDataGridView.ContextMenuStrip = Me.mennu
         Me.PurchasesDataGridView.DataSource = Me.PurchasesBindingSource
         Me.PurchasesDataGridView.Location = New System.Drawing.Point(12, 508)
@@ -480,25 +503,6 @@ Partial Class Stockinform
         Me.PurchasesDataGridView.ReadOnly = True
         Me.PurchasesDataGridView.Size = New System.Drawing.Size(825, 230)
         Me.PurchasesDataGridView.TabIndex = 26
-        '
-        'ItemStockInBindingSource
-        '
-        Me.ItemStockInBindingSource.DataMember = "ItemStockIn"
-        Me.ItemStockInBindingSource.DataSource = Me.ItemStockin
-        '
-        'ItemStockin
-        '
-        Me.ItemStockin.DataSetName = "ItemStockin"
-        Me.ItemStockin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ItemsBindingSource1
-        '
-        Me.ItemsBindingSource1.DataMember = "Items"
-        Me.ItemsBindingSource1.DataSource = Me.ItemsDataset
-        '
-        'ItemStockInTableAdapter
-        '
-        Me.ItemStockInTableAdapter.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn3
         '
@@ -510,6 +514,16 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.DataGridViewTextBoxColumn3.Width = 79
         '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "InvNo"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "InvoiceNo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn7.Width = 62
+        '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -520,15 +534,34 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.DataGridViewTextBoxColumn4.Width = 59
         '
+        'CheckNo
+        '
+        Me.CheckNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.CheckNo.DataPropertyName = "CheckNo"
+        Me.CheckNo.HeaderText = "CheckNo"
+        Me.CheckNo.Name = "CheckNo"
+        Me.CheckNo.ReadOnly = True
+        Me.CheckNo.Width = 77
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "VoucherNo"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "VoucherNo"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.DataGridViewTextBoxColumn5.Width = 67
+        '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "MRRNo"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "MRRNo"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Lot No"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn6.Width = 52
+        Me.DataGridViewTextBoxColumn6.Width = 45
         '
         'DataGridViewTextBoxColumn8
         '
@@ -564,6 +597,16 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn9.ValueMember = "ItemNo"
         Me.DataGridViewTextBoxColumn9.Width = 66
         '
+        'ItemStockInBindingSource
+        '
+        Me.ItemStockInBindingSource.DataMember = "ItemStockIn"
+        Me.ItemStockInBindingSource.DataSource = Me.ItemStockin
+        '
+        'ItemStockin
+        '
+        Me.ItemStockin.DataSetName = "ItemStockin"
+        Me.ItemStockin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DataGridViewTextBoxColumn10
         '
         Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -574,25 +617,36 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.DataGridViewTextBoxColumn10.Width = 29
         '
-        'DataGridViewTextBoxColumn5
+        'DataGridViewTextBoxColumn11
         '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "VoucherNo"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "VoucherNo"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn5.Width = 67
+        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "UCost"
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridViewTextBoxColumn11.HeaderText = "UnitCost"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Width = 72
         '
-        'DataGridViewTextBoxColumn7
+        'ItemsBindingSource1
         '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "InvNo"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "InvNo"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.DataGridViewTextBoxColumn7.Width = 42
+        Me.ItemsBindingSource1.DataMember = "Items"
+        Me.ItemsBindingSource1.DataSource = Me.ItemsDataset
+        '
+        'ItemStockInTableAdapter
+        '
+        Me.ItemStockInTableAdapter.ClearBeforeFill = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(391, 454)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(97, 39)
+        Me.Button2.TabIndex = 27
+        Me.Button2.Text = "Cancel Edit"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'Stockinform
         '
@@ -600,10 +654,10 @@ Partial Class Stockinform
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(849, 750)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PurchasesDataGridView)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.recievedtxt)
@@ -664,7 +718,6 @@ Partial Class Stockinform
     Friend WithEvents vouchertxt As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents quantitytxt As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -692,13 +745,19 @@ Partial Class Stockinform
     Friend WithEvents ItemStockin As Cedemed.ItemStockin
     Friend WithEvents ItemStockInBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ItemStockInTableAdapter As Cedemed.ItemStockinTableAdapters.ItemStockInTableAdapter
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ucost As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents CheckNo As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As Button
 End Class

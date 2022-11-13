@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.Office.Interop
 Imports System.Data.SqlClient
-
+Imports System.IO
 Public Class DailySalesrpt
     Dim conn As New SqlConnection(My.Settings.CedemedConnectionString)
     Private Sub fixtransno()
@@ -72,6 +72,21 @@ Public Class DailySalesrpt
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
+
+        If File.Exists(Application.StartupPath + "\DSales1.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\DSales1.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
+
+
+
+
+
         'On Error Resume Next
 
 
@@ -88,18 +103,13 @@ Public Class DailySalesrpt
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\DSales1.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\DSales1.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
-        If userlevel = "Administrator" Then
-            Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, fd, td)
-        Else
-            Me.TransactionsDataset.EnforceConstraints = False
-            Me.TransTableAdapter.FillBy_SI(Me.TransactionsDataset.Trans, fd, td)
-            clearintern()
-            fixtransno()
-        End If
+
+        Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, fd, td)
+
 
         'Dim rc(Me.StockInDataset.Purchases.DefaultView.Count, 7)
 

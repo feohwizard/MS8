@@ -52,20 +52,13 @@ Public Class Sales
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If user = "daisy" Then
-            Button2.Enabled = True
-        Else
-            Button2.Enabled = False
-        End If
         id = 1
         salesform = Me
         totalunitcost = 0
         unitcost = 0
         grandtotal = 0
-        Thread.CurrentThread.CurrentCulture = New CultureInfo("en-us")
+
         Me.Lblname.Text = "Main"
-
-
         Try
             Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
         Catch ex As Exception
@@ -94,13 +87,18 @@ Public Class Sales
             Me.ListView1.Items.Add(itm)
         Next
         assigncustomer()
+        If userlevel = "Administrator" Then
+            Me.PurchasesDataGridView1.Columns(1).ReadOnly = False
+        Else
+            Me.PurchasesDataGridView1.Columns(1).ReadOnly = True
+        End If
+
     End Sub
 
     Private Sub Searchbox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Searchbox.KeyPress
         If e.KeyChar = ChrW(13) Then
 
             If Searchbox.Text = "" Then
-
                 ListView1.Items(0).Selected = True
                 'Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
             Else
@@ -121,22 +119,6 @@ Public Class Sales
     End Sub
 
     Private Sub Searchbox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Searchbox.TextChanged
-        Try
-
-            'Me.ListView1.Items.Clear()
-            'Dim itm As New ListViewItem
-            'For x As Integer = 0 To Me.InventoryDataset.Items.DefaultView.Count - 1
-            'Dim str(3) As String
-            'Str(0) = Me.InventoryDataset.Items.DefaultView.Item(x).Item("IDesc").ToString
-            'dbl = Me.InventoryDataset.Items.DefaultView.Item(x).Item("SRP")
-            'Str(1) = dbl.ToString("N")
-            'Str(2) = Me.InventoryDataset.Items.DefaultView.Item(x).Item("Qty").ToString
-            'itm = New ListViewItem(str)
-            'Me.ListView1.Items.Add(itm)
-            'Next
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
 
     End Sub
 
@@ -155,9 +137,8 @@ Public Class Sales
                 Else
                     Dim itm As New ListViewItem
                     Me.PurchasesTableAdapter.FillByItemNo(Me.StockDataset.Purchases, Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("ItemNo"))
-
                     For x As Integer = 0 To Me.StockDataset.Purchases.DefaultView.Count - 1
-                            With Me.StockDataset.Purchases.DefaultView.Item(x)
+                        With Me.StockDataset.Purchases.DefaultView.Item(x)
                             If Val(.Item("stock")) <= 0 Then
                                 If Me.InventoryDataset.Items.Rows(ListView1.SelectedItems(0).Index).Item("restricted") = True Then
                                     Dim str(2) As String
@@ -176,7 +157,7 @@ Public Class Sales
                                 Me.lotview.Items.Add(itm)
                             End If
                         End With
-                        Next
+                    Next
                     Me.lotview.Focus()
                     Try
                         Me.lotview.Items(0).Selected = True
@@ -275,29 +256,30 @@ Public Class Sales
                     dr("Cost") = Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("Cost")
                     dr("discount") = 0
                     dr("markup") = 0
-                    If Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("type") = "gen" Then
-                        'Generic
-                        If genericdiscountcheck.Checked = True Then
-                            dr("discount") = CType(GenericdiscountLabel1.Text, Decimal)
-                        ElseIf genericmarkupcheck.Checked = True Then
-                            dr("markup") = CType(GenericmarkupLabel1.Text, Decimal)
-                        Else
-                        End If
-                    ElseIf Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("type") = "otc" Then
-                        'OTC
-                        If otcdiscountcheck.Checked = True Then
-                            dr("discount") = CType(OtcdiscountLabel1.Text, Decimal)
-                        ElseIf otcmarkupcheck.Checked = True Then
-                            dr("markup") = CType(OtcmarkupLabel1.Text, Decimal)
-                        Else
-                        End If
-                    Else
-                        'Normal will apply
-                    End If
-                    Dim srp As Decimal
-                    srp = CType(Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("SRP"), Double)
-                    srp = srp - (srp * (dr("discount") / 100)) + (srp * (dr("markup") / 100))
-                    dr("SRP") = srp
+                    'FOR SRP WITH GENERIC OR OTC MARKUP AND DISCOUNT
+                    'If Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("type") = "gen" Then
+                    '    'Generic
+                    '    If genericdiscountcheck.Checked = True Then
+                    '        dr("discount") = CType(GenericdiscountLabel1.Text, Decimal)
+                    '    ElseIf genericmarkupcheck.Checked = True Then
+                    '        dr("markup") = CType(GenericmarkupLabel1.Text, Decimal)
+                    '    Else
+                    '    End If
+                    'ElseIf Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("type") = "otc" Then
+                    '    'OTC
+                    '    If otcdiscountcheck.Checked = True Then
+                    '        dr("discount") = CType(OtcdiscountLabel1.Text, Decimal)
+                    '    ElseIf otcmarkupcheck.Checked = True Then
+                    '        dr("markup") = CType(OtcmarkupLabel1.Text, Decimal)
+                    '    Else
+                    '    End If
+                    'Else
+                    '    'Normal will apply
+                    'End If
+                    'Dim srp As Decimal
+                    'srp = CType(Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("SRP"), Double)
+                    'srp = srp - (srp * (dr("discount") / 100)) + (srp * (dr("markup") / 100))
+                    dr("SRP") = CType(Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("SRP"), Double)
                     Me.InventoryDataset.Purchases.Rows.Add(dr)
 
                     Searchbox.Text = ""
@@ -349,9 +331,18 @@ Public Class Sales
 
 
     Private Sub paymenttxt_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles paymenttxt.KeyPress
+
         If e.KeyChar = ChrW(13) Then
             Try
-                Dim p As Decimal = paymenttxt.Text
+                grandtotal = CType(grandlabel.Text, Decimal)
+                Dim p As Decimal = 0
+
+                Try
+                    p = paymenttxt.Text
+                Catch ex As Exception
+                    MsgBox("Invalid Payment Amount", vbOKOnly, "Error")
+                    Exit Sub
+                End Try
 
                 changetxt.Text = (p - grandtotal).ToString("N")
                 Dim s As String = MsgBox("Are you sure you want to save this transaction?", vbYesNo, "Confirmation")
@@ -365,12 +356,30 @@ Public Class Sales
             End Try
             Dim frm As New SalesRecieptForm
             frm.customer = NameLabel1.Text
-            frm.discount = 0 'For the mean time, discount is set to zero.
-            frm.total = CType(subtotaltxt.Text, Decimal)
+            frm.discount = compute_discount()
+            frm.total = grandtotal
             frm.Show()
 
         End If
     End Sub
+
+    Private Function compute_discount() As Decimal
+        Dim disc As Decimal = 0
+        Dim normalsrp As Decimal
+        Dim srp As Decimal = 0
+        Dim qty As Integer = 0
+
+
+        For Each rw As DataRow In Me.InventoryDataset.Purchases.Rows
+            normalsrp = rw.Item("Ncost")
+            srp = rw.Item("SRP")
+            qty = rw.Item("Qty")
+            If srp < normalsrp Then
+                disc = disc + ((normalsrp - srp) * qty)
+            End If
+        Next
+        Return disc
+    End Function
 
     Private Sub paymenttxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles paymenttxt.TextChanged
 
@@ -479,8 +488,108 @@ Public Class Sales
     Private Sub PurchasesDataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles PurchasesDataGridView1.CellEndEdit
         Me.InventoryDataset.Purchases.AcceptChanges()
         Me.grandlabel.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+        grandtotal = Me.InventoryDataset.Purchases.total
         subtotaltxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
         totalpaymenttxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+    End Sub
+
+    Private Sub refreshgrid()
+        Me.InventoryDataset.Purchases.AcceptChanges()
+        Me.grandlabel.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+        subtotaltxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+        totalpaymenttxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+    End Sub
+
+    Private Sub Apply2DiscountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Apply2DiscountToolStripMenuItem.Click
+        Dim normalSRP As Decimal = 0
+        For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+            Try
+                normalSRP = rw.Cells(5).Value
+            Catch ex As Exception
+            End Try
+            rw.Cells(1).Value = normalSRP - Math.Round(normalSRP * 0.02, 2, MidpointRounding.AwayFromZero)
+            rw.Cells(7).Value = "2% Discount"
+        Next
+        refreshgrid()
+    End Sub
+
+    Private Sub Apply10DiscountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Apply10DiscountToolStripMenuItem.Click
+        Dim normalSRP As Decimal = 0
+        For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+            Try
+                normalSRP = rw.Cells(5).Value
+            Catch ex As Exception
+            End Try
+            rw.Cells(1).Value = normalSRP - Math.Round(normalSRP * 0.1, 2, MidpointRounding.AwayFromZero)
+            rw.Cells(7).Value = "10% Discount"
+        Next
+        refreshgrid()
+    End Sub
+
+    Private Sub Apply20DiscountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Apply20DiscountToolStripMenuItem.Click
+        Dim normalSRP As Decimal = 0
+        For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+            Try
+                normalSRP = rw.Cells(5).Value
+            Catch ex As Exception
+            End Try
+            rw.Cells(1).Value = normalSRP - Math.Round(normalSRP * 0.2, 2, MidpointRounding.AwayFromZero)
+            rw.Cells(7).Value = "20% Discount"
+            refreshgrid()
+        Next
+    End Sub
+
+    Private Sub ApplyCustomDiscountToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ApplyCustomDiscountToolStripMenuItem.Click
+        Dim x As String = InputBox("Discount:", "Enter Discount Percentage (%)")
+        Dim disc As Decimal
+        If IsNumeric(x) Then
+            disc = x / 100
+            Dim normalSRP As Decimal = 0
+            For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+                Try
+                    normalSRP = rw.Cells(5).Value
+                Catch ex As Exception
+                End Try
+                rw.Cells(1).Value = normalSRP - Math.Round(normalSRP * disc, 2, MidpointRounding.AwayFromZero)
+                rw.Cells(7).Value = x + "% Discount"
+            Next
+        End If
+        refreshgrid()
+    End Sub
+
+    Private Sub otcnorm_CheckedChanged(sender As Object, e As EventArgs) Handles otcnorm.CheckedChanged
+
+    End Sub
+
+    Private Sub ApplyMarkupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ApplyMarkupToolStripMenuItem.Click
+        Dim x As String = InputBox("Mark UP:", "Enter Mark UP Percentage (%)")
+        Dim disc As Decimal
+        If IsNumeric(x) Then
+            disc = x / 100
+            Dim normalSRP As Decimal = 0
+            For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+                Try
+                    normalSRP = rw.Cells(5).Value
+                Catch ex As Exception
+                End Try
+                rw.Cells(1).Value = normalSRP + Math.Round(normalSRP * disc, 2, MidpointRounding.AwayFromZero)
+                rw.Cells(7).Value = x + "% Mark UP"
+            Next
+        End If
+        refreshgrid()
+    End Sub
+
+    Private Sub NormalRateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NormalRateToolStripMenuItem.Click
+        Dim normalSRP As Decimal = 0
+        For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+            Try
+                normalSRP = rw.Cells(5).Value
+            Catch ex As Exception
+            End Try
+            rw.Cells(1).Value = normalSRP
+            rw.Cells(7).Value = ""
+        Next
+        refreshgrid()
     End Sub
 
     Private Sub PurchasesDataGridView1_RowsRemoved(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewRowsRemovedEventArgs) Handles PurchasesDataGridView1.RowsRemoved
@@ -488,5 +597,19 @@ Public Class Sales
         Me.grandlabel.Text = Me.InventoryDataset.Purchases.total.ToString("N")
         subtotaltxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
         totalpaymenttxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
+    End Sub
+
+    Private Sub PurchasesDataGridView1_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles PurchasesDataGridView1.CellMouseUp
+        If PurchasesDataGridView1.SelectedRows.Count = 0 Then
+            discountM.Items(0).Enabled = False
+            discountM.Items(1).Enabled = False
+            discountM.Items(2).Enabled = False
+            discountM.Items(3).Enabled = False
+        Else
+            discountM.Items(0).Enabled = True
+            discountM.Items(1).Enabled = True
+            discountM.Items(2).Enabled = True
+            discountM.Items(3).Enabled = True
+        End If
     End Sub
 End Class

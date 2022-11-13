@@ -44,11 +44,7 @@ okk:
                 Dim CashietRPT = UR.Rows(0).Item(11)
                 Dim stocktran = UR.Rows(0).Item(12)
                 userlevel = UR.Rows(0).Item("UserLevel")
-                If UR.Rows(0).Item("UserLevel") = "Administrator" Then
-                Else
-                    ViewUnClaimedStocksToolStripMenuItem.Visible = False
-                    tsbClaim.Visible = False
-                End If
+
 
                 If admin = 0 Then
                     TSMAdmin.Enabled = False
@@ -58,11 +54,6 @@ okk:
                     AdministratorReportsTSMI.Enabled = True
                 End If
 
-                If user = "daisy" Then
-                    AdministratorReportsTSMI.Visible = True
-                Else
-                    AdministratorReportsTSMI.Visible = False
-                End If
 
                 If Sales = 0 Then
                     TSBSales.Enabled = False
@@ -100,10 +91,12 @@ okk:
 
                 If stocktran = 0 Then
                     TSBTransfer.Enabled = False
-
+                    ViewUnClaimedStocksToolStripMenuItem.Visible = False
+                    tsbClaim.Visible = False
                 Else
                     TSBTransfer.Enabled = True
-
+                    ViewUnClaimedStocksToolStripMenuItem.Visible = True
+                    tsbClaim.Visible = True
                 End If
 
                 If TSSuserlevel.Text = "Administrator" Then
@@ -244,11 +237,6 @@ okk:
                 AdministratorReportsTSMI.Enabled = True
             End If
 
-            If user = "daisy" Then
-                AdministratorReportsTSMI.Visible = True
-            Else
-                AdministratorReportsTSMI.Visible = False
-            End If
 
             If Sales = 0 Then
                 TSBSales.Enabled = False
@@ -284,17 +272,19 @@ okk:
 
             If stocktran = 0 Then
                 TSBTransfer.Enabled = False
-                tsbClaim.Enabled = False
+                ViewUnClaimedStocksToolStripMenuItem.Visible = False
+                tsbClaim.Visible = False
             Else
                 TSBTransfer.Enabled = True
-                tsbClaim.Enabled = True
+                ViewUnClaimedStocksToolStripMenuItem.Visible = True
+                tsbClaim.Visible = True
             End If
 
-            If userlevel = "Administrator" Then
-                refbtn.Visible = True
-            Else
-                refbtn.Visible = False
-            End If
+            'If userlevel = "Administrator" Then
+            '    refbtn.Visible = True
+            'Else
+            refbtn.Visible = False
+            'End If
 
 
             If login Is Nothing Then

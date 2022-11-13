@@ -49,16 +49,10 @@ Public Class StockTransferPosting
         MsgBox("Warning: This is a long process. Please do not close this window. When the process is done it will automatically close.")
         If branch = "Main" Then
             connstring = My.Settings.MainBranch
-        ElseIf branch = "Residence" Then
+        ElseIf branch = "Tanedo" Then
             connstring = My.Settings.Branch1
-        ElseIf branch = "Urdaneta" Then
+        ElseIf branch = "San Vicente" Then
             connstring = My.Settings.Branch2
-        ElseIf branch = "Tarlac" Then
-            connstring = My.Settings.Branch3
-        ElseIf branch = "Zambales" Then
-            connstring = My.Settings.Branch4
-        ElseIf branch = "Pampanga" Then
-            connstring = My.Settings.Branch5
         End If
         Dim tconn As New SqlConnection(connstring)
 
@@ -70,7 +64,7 @@ Public Class StockTransferPosting
 
         Dim items As String = ""
         For x As Integer = 0 To Me.TransactionsDataset.Tranferre.DefaultView.Count - 1
-            items = items + "Insert into RecevItems (transid, ItemNo, Qty, Expiry, lotno, invoice,SRP,Cost) values (" + transId.ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Description").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Quantity").ToString + ",'" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Expiry").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("lotno").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("invoice").ToString + "'," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("SRP").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Cost").ToString + ");"
+            items = items + "Insert into RecevItems (transid, ItemNo, Qty, Expiry, lotno,SRP,Cost) values (" + transId.ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Description").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Quantity").ToString + ",'" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Expiry").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("lotno").ToString + "'," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("SRP").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Cost").ToString + ");"
         Next
 
         com = New SqlCommand(items, tconn)
@@ -92,7 +86,7 @@ Public Class StockTransferPosting
 
         items = ""
         For x As Integer = 0 To Me.TransactionsDataset.Tranferre.DefaultView.Count - 1
-            items = items + "Insert into TranferItems (transid, ItemNo, Qty, Expiry, lotno,invoice,SRP,Cost) values (" + transId2.ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Description").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Quantity").ToString + ",'" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Expiry").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("lotno").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("invoice").ToString + "'," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("SRP").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Cost").ToString + ");"
+            items = items + "Insert into TranferItems (transid, ItemNo, Qty, Expiry, lotno,SRP,Cost) values (" + transId2.ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Description").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Quantity").ToString + ",'" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Expiry").ToString + "','" + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("lotno").ToString + "'," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("SRP").ToString + "," + Me.TransactionsDataset.Tranferre.DefaultView.Item(x).Item("Cost").ToString + ");"
         Next
 
         com = New SqlCommand(items, conn)

@@ -39,10 +39,11 @@ Public Class SalesRecieptForm
             rw("Ucost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Cost"), Decimal)
             rw("SRP") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("SRP"), Decimal)
             rw("Ncost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("NCost"), Decimal)
-            rw("UnitSold") = salesform.InventoryDataset.Purchases.Item(x).Item("Qty")
+            rw("UnitSold") = 0 'salesform.InventoryDataset.Purchases.Item(x).Item("Qty")
             rw("PS") = 0
             rw("expiry") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Expiry"), Date)
             rw("lotno") = salesform.InventoryDataset.Purchases.Item(x).Item("LotNo")
+            rw("remarks") = salesform.InventoryDataset.Purchases.Item(x).Item("remarks")
             Me.TransactionsDataset.Sales.Rows.Add(rw)
         Next
 

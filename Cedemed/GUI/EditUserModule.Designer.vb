@@ -146,7 +146,7 @@ Partial Class EditUserModule
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(107, 23)
         Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Edit"
+        Me.Button1.Text = "Save"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox2
@@ -169,9 +169,9 @@ Partial Class EditUserModule
         'MaintenanceCheckBox
         '
         Me.MaintenanceCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "Maintenance", True))
-        Me.MaintenanceCheckBox.Location = New System.Drawing.Point(32, 76)
+        Me.MaintenanceCheckBox.Location = New System.Drawing.Point(6, 76)
         Me.MaintenanceCheckBox.Name = "MaintenanceCheckBox"
-        Me.MaintenanceCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MaintenanceCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.MaintenanceCheckBox.TabIndex = 9
         Me.MaintenanceCheckBox.Text = "Maintenance"
         Me.MaintenanceCheckBox.UseVisualStyleBackColor = True
@@ -189,19 +189,19 @@ Partial Class EditUserModule
         'StocktranCheckBox
         '
         Me.StocktranCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "Stocktran", True))
-        Me.StocktranCheckBox.Location = New System.Drawing.Point(32, 196)
+        Me.StocktranCheckBox.Location = New System.Drawing.Point(6, 196)
         Me.StocktranCheckBox.Name = "StocktranCheckBox"
-        Me.StocktranCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.StocktranCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.StocktranCheckBox.TabIndex = 13
-        Me.StocktranCheckBox.Text = "Stock Transfers"
+        Me.StocktranCheckBox.Text = "Stock Transfers/Claim"
         Me.StocktranCheckBox.UseVisualStyleBackColor = True
         '
         'AdminCheckBox
         '
         Me.AdminCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "Admin", True))
-        Me.AdminCheckBox.Location = New System.Drawing.Point(32, 16)
+        Me.AdminCheckBox.Location = New System.Drawing.Point(6, 16)
         Me.AdminCheckBox.Name = "AdminCheckBox"
-        Me.AdminCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.AdminCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.AdminCheckBox.TabIndex = 7
         Me.AdminCheckBox.Text = "Administrator"
         Me.AdminCheckBox.UseVisualStyleBackColor = True
@@ -209,9 +209,9 @@ Partial Class EditUserModule
         'CustSaleRPTCheckBox
         '
         Me.CustSaleRPTCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "CustSaleRPT", True))
-        Me.CustSaleRPTCheckBox.Location = New System.Drawing.Point(32, 166)
+        Me.CustSaleRPTCheckBox.Location = New System.Drawing.Point(6, 166)
         Me.CustSaleRPTCheckBox.Name = "CustSaleRPTCheckBox"
-        Me.CustSaleRPTCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.CustSaleRPTCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.CustSaleRPTCheckBox.TabIndex = 12
         Me.CustSaleRPTCheckBox.Text = "Cashier Report"
         Me.CustSaleRPTCheckBox.UseVisualStyleBackColor = True
@@ -219,9 +219,9 @@ Partial Class EditUserModule
         'MFileCheckBox
         '
         Me.MFileCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "MFile", True))
-        Me.MFileCheckBox.Location = New System.Drawing.Point(32, 46)
+        Me.MFileCheckBox.Location = New System.Drawing.Point(6, 46)
         Me.MFileCheckBox.Name = "MFileCheckBox"
-        Me.MFileCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MFileCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.MFileCheckBox.TabIndex = 8
         Me.MFileCheckBox.Text = "Sales"
         Me.MFileCheckBox.UseVisualStyleBackColor = True
@@ -229,9 +229,9 @@ Partial Class EditUserModule
         'MISRPTCheckBox
         '
         Me.MISRPTCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "MISRPT", True))
-        Me.MISRPTCheckBox.Location = New System.Drawing.Point(32, 136)
+        Me.MISRPTCheckBox.Location = New System.Drawing.Point(6, 136)
         Me.MISRPTCheckBox.Name = "MISRPTCheckBox"
-        Me.MISRPTCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MISRPTCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.MISRPTCheckBox.TabIndex = 11
         Me.MISRPTCheckBox.Text = "Summary Report"
         Me.MISRPTCheckBox.UseVisualStyleBackColor = True
@@ -239,11 +239,11 @@ Partial Class EditUserModule
         'InventoryCheckBox
         '
         Me.InventoryCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.BS, "Inventory", True))
-        Me.InventoryCheckBox.Location = New System.Drawing.Point(32, 106)
+        Me.InventoryCheckBox.Location = New System.Drawing.Point(6, 106)
         Me.InventoryCheckBox.Name = "InventoryCheckBox"
-        Me.InventoryCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.InventoryCheckBox.Size = New System.Drawing.Size(147, 24)
         Me.InventoryCheckBox.TabIndex = 10
-        Me.InventoryCheckBox.Text = "Incoming Stocks"
+        Me.InventoryCheckBox.Text = "Stock In"
         Me.InventoryCheckBox.UseVisualStyleBackColor = True
         '
         'GroupBox1

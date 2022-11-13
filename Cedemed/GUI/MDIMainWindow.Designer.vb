@@ -71,6 +71,7 @@ Partial Class MDIMAINWINDOW
         Me.RistrictionDataSet = New Cedemed.RistrictionDataSet()
         Me.UsersRestrictionTableAdapter = New Cedemed.RistrictionDataSetTableAdapters.UsersRestrictionTableAdapter()
         Me.TableAdapterManager = New Cedemed.RistrictionDataSetTableAdapters.TableAdapterManager()
+        Me.MonthlyPurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -111,18 +112,21 @@ Partial Class MDIMAINWINDOW
         Me.InventoryLockToolStripMenuItem.Name = "InventoryLockToolStripMenuItem"
         Me.InventoryLockToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.InventoryLockToolStripMenuItem.Text = "Inventory Lock"
+        Me.InventoryLockToolStripMenuItem.Visible = False
         '
         'InventoryCheckToolStripMenuItem
         '
         Me.InventoryCheckToolStripMenuItem.Name = "InventoryCheckToolStripMenuItem"
         Me.InventoryCheckToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.InventoryCheckToolStripMenuItem.Text = "Inventory Check"
+        Me.InventoryCheckToolStripMenuItem.Visible = False
         '
         'ItemRestrictionToolStripMenuItem
         '
         Me.ItemRestrictionToolStripMenuItem.Name = "ItemRestrictionToolStripMenuItem"
         Me.ItemRestrictionToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
         Me.ItemRestrictionToolStripMenuItem.Text = "Item Restriction"
+        Me.ItemRestrictionToolStripMenuItem.Visible = False
         '
         'TSMRPT
         '
@@ -171,7 +175,7 @@ Partial Class MDIMAINWINDOW
         '
         'AdministratorReportsTSMI
         '
-        Me.AdministratorReportsTSMI.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdminSalesReportToolStripMenuItem, Me.GovtSalesReportToolStripMenuItem})
+        Me.AdministratorReportsTSMI.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdminSalesReportToolStripMenuItem, Me.GovtSalesReportToolStripMenuItem, Me.MonthlyPurchasesToolStripMenuItem})
         Me.AdministratorReportsTSMI.Name = "AdministratorReportsTSMI"
         Me.AdministratorReportsTSMI.Size = New System.Drawing.Size(201, 22)
         Me.AdministratorReportsTSMI.Text = "Administrator Reports"
@@ -383,6 +387,12 @@ Partial Class MDIMAINWINDOW
         Me.TableAdapterManager.UpdateOrder = Cedemed.RistrictionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersRestrictionTableAdapter = Me.UsersRestrictionTableAdapter
         '
+        'MonthlyPurchasesToolStripMenuItem
+        '
+        Me.MonthlyPurchasesToolStripMenuItem.Name = "MonthlyPurchasesToolStripMenuItem"
+        Me.MonthlyPurchasesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MonthlyPurchasesToolStripMenuItem.Text = "Monthly Purchases"
+        '
         'MDIMAINWINDOW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -459,4 +469,5 @@ Partial Class MDIMAINWINDOW
     Friend WithEvents InventoryLockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventoryCheckToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ItemRestrictionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MonthlyPurchasesToolStripMenuItem As ToolStripMenuItem
 End Class

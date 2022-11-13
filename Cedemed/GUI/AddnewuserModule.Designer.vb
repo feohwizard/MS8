@@ -172,65 +172,65 @@ Partial Class AddnewuserModule
         '
         'AdminCheckBox
         '
-        Me.AdminCheckBox.Location = New System.Drawing.Point(32, 16)
+        Me.AdminCheckBox.Location = New System.Drawing.Point(18, 16)
         Me.AdminCheckBox.Name = "AdminCheckBox"
-        Me.AdminCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.AdminCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.AdminCheckBox.TabIndex = 7
         Me.AdminCheckBox.Text = "Administrator"
         Me.AdminCheckBox.UseVisualStyleBackColor = True
         '
         'MFileCheckBox
         '
-        Me.MFileCheckBox.Location = New System.Drawing.Point(32, 46)
+        Me.MFileCheckBox.Location = New System.Drawing.Point(18, 46)
         Me.MFileCheckBox.Name = "MFileCheckBox"
-        Me.MFileCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MFileCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.MFileCheckBox.TabIndex = 8
         Me.MFileCheckBox.Text = "Sales"
         Me.MFileCheckBox.UseVisualStyleBackColor = True
         '
         'MaintenanceCheckBox
         '
-        Me.MaintenanceCheckBox.Location = New System.Drawing.Point(32, 76)
+        Me.MaintenanceCheckBox.Location = New System.Drawing.Point(18, 76)
         Me.MaintenanceCheckBox.Name = "MaintenanceCheckBox"
-        Me.MaintenanceCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MaintenanceCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.MaintenanceCheckBox.TabIndex = 9
         Me.MaintenanceCheckBox.Text = "Maintenance"
         Me.MaintenanceCheckBox.UseVisualStyleBackColor = True
         '
         'InventoryCheckBox
         '
-        Me.InventoryCheckBox.Location = New System.Drawing.Point(32, 106)
+        Me.InventoryCheckBox.Location = New System.Drawing.Point(18, 106)
         Me.InventoryCheckBox.Name = "InventoryCheckBox"
-        Me.InventoryCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.InventoryCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.InventoryCheckBox.TabIndex = 10
-        Me.InventoryCheckBox.Text = "Incoming Stocks"
+        Me.InventoryCheckBox.Text = "Stock In"
         Me.InventoryCheckBox.UseVisualStyleBackColor = True
         '
         'MISRPTCheckBox
         '
-        Me.MISRPTCheckBox.Location = New System.Drawing.Point(32, 136)
+        Me.MISRPTCheckBox.Location = New System.Drawing.Point(18, 136)
         Me.MISRPTCheckBox.Name = "MISRPTCheckBox"
-        Me.MISRPTCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.MISRPTCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.MISRPTCheckBox.TabIndex = 11
         Me.MISRPTCheckBox.Text = "Summary Report"
         Me.MISRPTCheckBox.UseVisualStyleBackColor = True
         '
         'CustSaleRPTCheckBox
         '
-        Me.CustSaleRPTCheckBox.Location = New System.Drawing.Point(32, 166)
+        Me.CustSaleRPTCheckBox.Location = New System.Drawing.Point(18, 166)
         Me.CustSaleRPTCheckBox.Name = "CustSaleRPTCheckBox"
-        Me.CustSaleRPTCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.CustSaleRPTCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.CustSaleRPTCheckBox.TabIndex = 12
         Me.CustSaleRPTCheckBox.Text = "Cashier Report"
         Me.CustSaleRPTCheckBox.UseVisualStyleBackColor = True
         '
         'StocktranCheckBox
         '
-        Me.StocktranCheckBox.Location = New System.Drawing.Point(32, 196)
+        Me.StocktranCheckBox.Location = New System.Drawing.Point(18, 196)
         Me.StocktranCheckBox.Name = "StocktranCheckBox"
-        Me.StocktranCheckBox.Size = New System.Drawing.Size(121, 24)
+        Me.StocktranCheckBox.Size = New System.Drawing.Size(135, 24)
         Me.StocktranCheckBox.TabIndex = 13
-        Me.StocktranCheckBox.Text = "Stock Transfers"
+        Me.StocktranCheckBox.Text = "Stock Transfers/Claim"
         Me.StocktranCheckBox.UseVisualStyleBackColor = True
         '
         'GroupBox1

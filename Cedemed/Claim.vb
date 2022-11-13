@@ -10,6 +10,14 @@ Public Class Claim
     End Sub
 
     Private Sub Claim_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'ReceiveDataset.Claimable' table. You can move, or remove it, as needed.
+        Me.ClaimableTableAdapter.Fill(Me.ReceiveDataset.Claimable)
+        If Me.ReceiveDataset.Claimable.Rows.Count = 0 Then
+        Else
+            For Each rw As DataRow In Me.ReceiveDataset.Claimable.Rows
+                Textbox1.Items.Add(rw("commontrans").ToString)
+            Next
+        End If
 
         Me.ItemsTableAdapter.Fill(Me.ItemsDataset.Items)
 
@@ -39,13 +47,13 @@ Public Class Claim
                 Dim dt As New SqlParameter("@dt", SqlDbType.Date)
                 dt.Value = DateValue(Now)
 
-                If recorded_in_purchases(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString, Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
+                If recorded_in_purchases(Val(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString), Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
                     GoTo dontinsert
                 End If
 Inserttopurchases:
 
                 Try
-                    com = New SqlCommand("Insert into Purchases(RecvDT,MRRNo,InvNo,Supplier,ItemNo,Qty,Expiry,encoder) values (@dt,'" + .Item("lotno").ToString + "','" + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString + "','" + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString + "'," + Val(.Item("ItemNo")).ToString + "," + Val(.Item("Qty")).ToString + ",@xpire,'" + user + "')", conn)
+                    com = New SqlCommand("Insert into Purchases(RecvDT,MRRNo,Supplier,ItemNo,Qty,Expiry,encoder,commontrans) values (@dt,'" + .Item("lotno").ToString + "','" + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString + "'," + Val(.Item("ItemNo")).ToString + "," + Val(.Item("Qty")).ToString + ",@xpire,'" + user + "', " + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString + ")", conn)
                     com.Parameters.Add(dt)
                     com.Parameters.Add(xpire)
                     conn.Open()
@@ -53,7 +61,7 @@ Inserttopurchases:
                     conn.Close()
                 Catch ex As Exception
                 End Try
-                If recorded_in_purchases(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString, Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
+                If recorded_in_purchases(Val(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString), Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
                 Else
                     GoTo Inserttopurchases
                 End If
@@ -69,8 +77,8 @@ dontinsert:
         Me.Close()
     End Sub
 
-    Private Function recorded_in_purchases(invno As String, supplier As String, itemno As Integer, qty As Integer, xpire As Date, lotno As String) As Boolean
-        Dim adap As New SqlDataAdapter("SELECT ItemNo from Purchases WHERE InvNo='" + invno + "' AND supplier='" + supplier + "' AND ItemNo=" + itemno.ToString + " AND Qty=" + qty.ToString + " AND YEAR(Expiry)=" + xpire.Year.ToString + " AND MONTH(Expiry)=" + xpire.Month.ToString + " AND DAY(Expiry)=" + xpire.Day.ToString + " AND MRRNo='" + lotno + "'", conn)
+    Private Function recorded_in_purchases(common As Integer, supplier As String, itemno As Integer, qty As Integer, xpire As Date, lotno As String) As Boolean
+        Dim adap As New SqlDataAdapter("SELECT ItemNo from Purchases WHERE commontrans=" + common.ToString + " AND supplier='" + supplier + "' AND ItemNo=" + itemno.ToString + " AND Qty=" + qty.ToString + " AND YEAR(Expiry)=" + xpire.Year.ToString + " AND MONTH(Expiry)=" + xpire.Month.ToString + " AND DAY(Expiry)=" + xpire.Day.ToString + " AND MRRNo='" + lotno + "'", conn)
         Dim dbset As New DataSet
         dbset.Clear()
         adap.Fill(dbset, "a")

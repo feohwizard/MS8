@@ -14,7 +14,6 @@ Public Class StockTransfer
         totalunitcost = 0
         unitcost = 0
         grandtotal = 0
-        Thread.CurrentThread.CurrentCulture = New CultureInfo("en-us")
 
         Try
             Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
@@ -47,26 +46,15 @@ Public Class StockTransfer
         Else
             ComboBox1.Items.Add("Main")
         End If
-        If branchname = "Residence" Then
+        If branchname = "Tanedo" Then
         Else
-            ComboBox1.Items.Add("Residence")
+            ComboBox1.Items.Add("Tanedo")
         End If
-        If branchname = "Urdaneta" Then
+        If branchname = "San Vicente" Then
         Else
-            ComboBox1.Items.Add("Urdaneta")
+            ComboBox1.Items.Add("San Vicente")
         End If
-        If branchname = "La Union" Then
-        Else
-            ComboBox1.Items.Add("La Union")
-        End If
-        If branchname = "Baguio" Then
-        Else
-            ComboBox1.Items.Add("Baguio")
-        End If
-        If branchname = "Pampanga" Then
-        Else
-            ComboBox1.Items.Add("Pampanga")
-        End If
+
     End Sub
 
     Private Sub Searchbox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Searchbox.KeyPress
@@ -121,7 +109,7 @@ Public Class StockTransfer
                             With Me.StockDataset.Purchases.DefaultView.Item(x)
                                 If Val(.Item("stock")) = 0 Then
                                 Else
-                                    Dim str(2) As String
+                                    Dim str(3) As String
                                     str(0) = CType(.Item("Expiry"), Date).ToShortDateString
                                     str(1) = .Item("Stock")
                                     str(2) = .Item("lotno")
@@ -191,7 +179,6 @@ Public Class StockTransfer
                 dr("Qty") = Me.quantitytxt.Text
                 dr("Expiry") = CType(Me.StockDataset.Purchases.DefaultView.Item(Me.lotview.SelectedItems(0).Index).Item("expiry"), Date).ToShortDateString
                 dr("lotno") = Me.StockDataset.Purchases.DefaultView.Item(Me.lotview.SelectedItems(0).Index).Item("lotno").ToString
-                dr("invoice") = Me.StockDataset.Purchases.DefaultView.Item(Me.lotview.SelectedItems(0).Index).Item("InvNo").ToString
                 dr("ItemNo") = Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("ItemNo")
                 dr("type") = Me.InventoryDataset.Items.DefaultView.Item(Me.ListView1.SelectedItems(0).Index).Item("type")
                 dr("discount") = 0

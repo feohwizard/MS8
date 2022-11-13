@@ -25,9 +25,9 @@ Partial Class Sales
         Me.components = New System.ComponentModel.Container()
         Dim NameLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sales))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Searchbox = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -65,6 +65,9 @@ Partial Class Sales
         Me.TableAdapterManager = New Cedemed.CustumerTableTableAdapters.TableAdapterManager()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.newb = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.searchb = New System.Windows.Forms.Button()
+        Me.NameLabel1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.genericnorm = New System.Windows.Forms.RadioButton()
         Me.GenericmarkupLabel1 = New System.Windows.Forms.Label()
@@ -77,16 +80,9 @@ Partial Class Sales
         Me.OtcmarkupLabel1 = New System.Windows.Forms.Label()
         Me.OtcdiscountLabel1 = New System.Windows.Forms.Label()
         Me.otcmarkupcheck = New System.Windows.Forms.RadioButton()
-        Me.searchb = New System.Windows.Forms.Button()
-        Me.NameLabel1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Lblname = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InventoryDataset = New Cedemed.InventoryDataset()
-        Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ItemsTableAdapter = New Cedemed.InventoryDatasetTableAdapters.ItemsTableAdapter()
         Me.PurchasesDataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,6 +91,18 @@ Partial Class Sales
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.discountM = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.NormalRateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Apply2DiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Apply10DiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Apply20DiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApplyCustomDiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApplyMarkupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.InventoryDataset = New Cedemed.InventoryDataset()
+        Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ItemsTableAdapter = New Cedemed.InventoryDatasetTableAdapters.ItemsTableAdapter()
         NameLabel = New System.Windows.Forms.Label()
         CType(Me.StockBS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StockDataset, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,10 +112,11 @@ Partial Class Sales
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PurchasesDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.discountM.SuspendLayout()
         CType(Me.PurchasesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PurchasesDataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NameLabel
@@ -333,7 +342,7 @@ Partial Class Sales
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(525, 573)
+        Me.Button1.Location = New System.Drawing.Point(541, 572)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 23
@@ -343,7 +352,7 @@ Partial Class Sales
         'grandlabel
         '
         Me.grandlabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grandlabel.Location = New System.Drawing.Point(938, 506)
+        Me.grandlabel.Location = New System.Drawing.Point(991, 506)
         Me.grandlabel.Name = "grandlabel"
         Me.grandlabel.Size = New System.Drawing.Size(199, 37)
         Me.grandlabel.TabIndex = 24
@@ -373,26 +382,54 @@ Partial Class Sales
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.newb)
-        Me.GroupBox1.Controls.Add(Me.GroupBox3)
-        Me.GroupBox1.Controls.Add(Me.GroupBox2)
+        Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.searchb)
         Me.GroupBox1.Controls.Add(NameLabel)
         Me.GroupBox1.Controls.Add(Me.NameLabel1)
         Me.GroupBox1.Location = New System.Drawing.Point(450, 17)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(645, 137)
+        Me.GroupBox1.Size = New System.Drawing.Size(740, 44)
         Me.GroupBox1.TabIndex = 26
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Customer Information"
         '
         'newb
         '
-        Me.newb.Location = New System.Drawing.Point(499, 45)
+        Me.newb.Location = New System.Drawing.Point(520, 11)
         Me.newb.Name = "newb"
         Me.newb.Size = New System.Drawing.Size(104, 23)
         Me.newb.TabIndex = 16
         Me.newb.Text = "New"
         Me.newb.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Monotype Corsiva", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(669, 88)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(244, 28)
+        Me.Label9.TabIndex = 29
+        Me.Label9.Text = "Trusted Quality Healthcare"
+        Me.Label9.Visible = False
+        '
+        'searchb
+        '
+        Me.searchb.Location = New System.Drawing.Point(630, 11)
+        Me.searchb.Name = "searchb"
+        Me.searchb.Size = New System.Drawing.Size(104, 23)
+        Me.searchb.TabIndex = 15
+        Me.searchb.Text = "Search"
+        Me.searchb.UseVisualStyleBackColor = True
+        '
+        'NameLabel1
+        '
+        Me.NameLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CostumertblBindingSource, "name", True))
+        Me.NameLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NameLabel1.Location = New System.Drawing.Point(51, 16)
+        Me.NameLabel1.Name = "NameLabel1"
+        Me.NameLabel1.Size = New System.Drawing.Size(442, 20)
+        Me.NameLabel1.TabIndex = 1
         '
         'GroupBox3
         '
@@ -401,12 +438,13 @@ Partial Class Sales
         Me.GroupBox3.Controls.Add(Me.genericdiscountcheck)
         Me.GroupBox3.Controls.Add(Me.genericmarkupcheck)
         Me.GroupBox3.Controls.Add(Me.GenericdiscountLabel1)
-        Me.GroupBox3.Location = New System.Drawing.Point(271, 35)
+        Me.GroupBox3.Location = New System.Drawing.Point(1225, 325)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(222, 97)
+        Me.GroupBox3.Size = New System.Drawing.Size(146, 97)
         Me.GroupBox3.TabIndex = 15
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Generic"
+        Me.GroupBox3.Visible = False
         '
         'genericnorm
         '
@@ -468,12 +506,13 @@ Partial Class Sales
         Me.GroupBox2.Controls.Add(Me.OtcmarkupLabel1)
         Me.GroupBox2.Controls.Add(Me.OtcdiscountLabel1)
         Me.GroupBox2.Controls.Add(Me.otcmarkupcheck)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 33)
+        Me.GroupBox2.Location = New System.Drawing.Point(1221, 428)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(253, 97)
+        Me.GroupBox2.Size = New System.Drawing.Size(114, 97)
         Me.GroupBox2.TabIndex = 14
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "OTC"
+        Me.GroupBox2.Visible = False
         '
         'otcnorm
         '
@@ -528,34 +567,16 @@ Partial Class Sales
         Me.otcmarkupcheck.Text = "OTC Markup:"
         Me.otcmarkupcheck.UseVisualStyleBackColor = True
         '
-        'searchb
-        '
-        Me.searchb.Location = New System.Drawing.Point(499, 16)
-        Me.searchb.Name = "searchb"
-        Me.searchb.Size = New System.Drawing.Size(104, 23)
-        Me.searchb.TabIndex = 15
-        Me.searchb.Text = "Search"
-        Me.searchb.UseVisualStyleBackColor = True
-        '
-        'NameLabel1
-        '
-        Me.NameLabel1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CostumertblBindingSource, "name", True))
-        Me.NameLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NameLabel1.Location = New System.Drawing.Point(51, 16)
-        Me.NameLabel1.Name = "NameLabel1"
-        Me.NameLabel1.Size = New System.Drawing.Size(442, 20)
-        Me.NameLabel1.TabIndex = 1
-        '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.ErrorImage = Nothing
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(1143, 100)
+        Me.PictureBox1.Location = New System.Drawing.Point(1196, 100)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(228, 209)
+        Me.PictureBox1.Size = New System.Drawing.Size(0, 209)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 27
         Me.PictureBox1.TabStop = False
@@ -564,12 +585,12 @@ Partial Class Sales
         'Lblname
         '
         Me.Lblname.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Lblname.AutoSize = True
         Me.Lblname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lblname.ForeColor = System.Drawing.Color.DarkGreen
-        Me.Lblname.Location = New System.Drawing.Point(1102, 29)
+        Me.Lblname.Location = New System.Drawing.Point(1120, 89)
         Me.Lblname.Name = "Lblname"
         Me.Lblname.Size = New System.Drawing.Size(261, 24)
         Me.Lblname.TabIndex = 28
@@ -577,55 +598,26 @@ Partial Class Sales
         Me.Lblname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.Lblname.Visible = False
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Monotype Corsiva", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(1117, 57)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(244, 28)
-        Me.Label9.TabIndex = 29
-        Me.Label9.Text = "Trusted Quality Healthcare"
-        Me.Label9.Visible = False
-        '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(606, 573)
+        Me.Button2.Location = New System.Drawing.Point(622, 572)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 30
         Me.Button2.Text = "Return"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'PurchasesBindingSource
-        '
-        Me.PurchasesBindingSource.DataMember = "Purchases"
-        Me.PurchasesBindingSource.DataSource = Me.InventoryDataset
-        '
-        'InventoryDataset
-        '
-        Me.InventoryDataset.DataSetName = "InventoryDataset"
-        Me.InventoryDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ItemsBindingSource
-        '
-        Me.ItemsBindingSource.DataMember = "Items"
-        Me.ItemsBindingSource.DataSource = Me.InventoryDataset
-        '
-        'ItemsTableAdapter
-        '
-        Me.ItemsTableAdapter.ClearBeforeFill = True
-        '
         'PurchasesDataGridView1
         '
         Me.PurchasesDataGridView1.AllowUserToAddRows = False
         Me.PurchasesDataGridView1.AutoGenerateColumns = False
         Me.PurchasesDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.PurchasesDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn16})
+        Me.PurchasesDataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn16, Me.remarks})
+        Me.PurchasesDataGridView1.ContextMenuStrip = Me.discountM
         Me.PurchasesDataGridView1.DataSource = Me.PurchasesBindingSource
-        Me.PurchasesDataGridView1.Location = New System.Drawing.Point(450, 160)
+        Me.PurchasesDataGridView1.Location = New System.Drawing.Point(450, 67)
         Me.PurchasesDataGridView1.Name = "PurchasesDataGridView1"
-        Me.PurchasesDataGridView1.Size = New System.Drawing.Size(687, 336)
+        Me.PurchasesDataGridView1.Size = New System.Drawing.Size(740, 429)
         Me.PurchasesDataGridView1.TabIndex = 30
         '
         'DataGridViewTextBoxColumn2
@@ -640,11 +632,12 @@ Partial Class Sales
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "SRP"
-        DataGridViewCellStyle1.Format = "N2"
-        DataGridViewCellStyle1.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn6.HeaderText = "SRP"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 54
         '
         'DataGridViewTextBoxColumn7
@@ -660,9 +653,9 @@ Partial Class Sales
         '
         Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "Amount"
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Format = "N2"
+        DataGridViewCellStyle5.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn8.HeaderText = "Amount Due"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
@@ -683,26 +676,98 @@ Partial Class Sales
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "NCost"
         Me.DataGridViewTextBoxColumn12.HeaderText = "Normal SRP"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
         Me.DataGridViewTextBoxColumn12.Width = 90
         '
         'DataGridViewTextBoxColumn16
         '
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "Cost"
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn16.HeaderText = "Cost"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
         Me.DataGridViewTextBoxColumn16.Visible = False
+        '
+        'remarks
+        '
+        Me.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.remarks.DataPropertyName = "remarks"
+        Me.remarks.HeaderText = "Remarks"
+        Me.remarks.Name = "remarks"
+        Me.remarks.Width = 74
+        '
+        'discountM
+        '
+        Me.discountM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalRateToolStripMenuItem, Me.Apply2DiscountToolStripMenuItem, Me.Apply10DiscountToolStripMenuItem, Me.Apply20DiscountToolStripMenuItem, Me.ApplyCustomDiscountToolStripMenuItem, Me.ApplyMarkupToolStripMenuItem})
+        Me.discountM.Name = "discountM"
+        Me.discountM.Size = New System.Drawing.Size(201, 136)
+        '
+        'NormalRateToolStripMenuItem
+        '
+        Me.NormalRateToolStripMenuItem.Name = "NormalRateToolStripMenuItem"
+        Me.NormalRateToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.NormalRateToolStripMenuItem.Text = "Normal Rate"
+        '
+        'Apply2DiscountToolStripMenuItem
+        '
+        Me.Apply2DiscountToolStripMenuItem.Name = "Apply2DiscountToolStripMenuItem"
+        Me.Apply2DiscountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.Apply2DiscountToolStripMenuItem.Text = "Apply 2% Discount"
+        '
+        'Apply10DiscountToolStripMenuItem
+        '
+        Me.Apply10DiscountToolStripMenuItem.Name = "Apply10DiscountToolStripMenuItem"
+        Me.Apply10DiscountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.Apply10DiscountToolStripMenuItem.Text = "Apply 10% Discount"
+        '
+        'Apply20DiscountToolStripMenuItem
+        '
+        Me.Apply20DiscountToolStripMenuItem.Name = "Apply20DiscountToolStripMenuItem"
+        Me.Apply20DiscountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.Apply20DiscountToolStripMenuItem.Text = "Apply 20% Discount"
+        '
+        'ApplyCustomDiscountToolStripMenuItem
+        '
+        Me.ApplyCustomDiscountToolStripMenuItem.Name = "ApplyCustomDiscountToolStripMenuItem"
+        Me.ApplyCustomDiscountToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ApplyCustomDiscountToolStripMenuItem.Text = "Apply Custom Discount"
+        '
+        'ApplyMarkupToolStripMenuItem
+        '
+        Me.ApplyMarkupToolStripMenuItem.Name = "ApplyMarkupToolStripMenuItem"
+        Me.ApplyMarkupToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ApplyMarkupToolStripMenuItem.Text = "Apply Markup"
+        '
+        'PurchasesBindingSource
+        '
+        Me.PurchasesBindingSource.DataMember = "Purchases"
+        Me.PurchasesBindingSource.DataSource = Me.InventoryDataset
+        '
+        'InventoryDataset
+        '
+        Me.InventoryDataset.DataSetName = "InventoryDataset"
+        Me.InventoryDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ItemsBindingSource
+        '
+        Me.ItemsBindingSource.DataMember = "Items"
+        Me.ItemsBindingSource.DataSource = Me.InventoryDataset
+        '
+        'ItemsTableAdapter
+        '
+        Me.ItemsTableAdapter.ClearBeforeFill = True
         '
         'Sales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1383, 706)
+        Me.ClientSize = New System.Drawing.Size(1203, 706)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.PurchasesDataGridView1)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Lblname)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
@@ -735,7 +800,6 @@ Partial Class Sales
         Me.Name = "Sales"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sales"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.StockBS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CostumertblBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -747,10 +811,11 @@ Partial Class Sales
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PurchasesDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.discountM.ResumeLayout(False)
         CType(Me.PurchasesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PurchasesDataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -815,11 +880,19 @@ Partial Class Sales
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents ColumnHeader7 As ColumnHeader
     Friend WithEvents PurchasesDataGridView1 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents remarks As DataGridViewTextBoxColumn
+    Friend WithEvents discountM As ContextMenuStrip
+    Friend WithEvents Apply2DiscountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Apply10DiscountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Apply20DiscountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ApplyCustomDiscountToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NormalRateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ApplyMarkupToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Masterform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,26 +20,31 @@ Partial Class Masterform
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ItemsDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OldSRP = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.totalcost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,8 +52,11 @@ Partial Class Masterform
         Me.lastin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lastsupplier = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.profit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.profitpeso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.menus = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangeCostToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MasterFileDataset = New Cedemed.MasterFileDataset()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -64,24 +72,21 @@ Partial Class Masterform
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.views = New System.Windows.Forms.DataGridView()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.supplier = New System.Windows.Forms.TextBox()
-        Me.pampanga = New System.Windows.Forms.CheckBox()
-        Me.urdaneta = New System.Windows.Forms.CheckBox()
-        Me.zambales = New System.Windows.Forms.CheckBox()
-        Me.tarlac = New System.Windows.Forms.CheckBox()
+        Me.sanvicente = New System.Windows.Forms.CheckBox()
+        Me.tanedo = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.residence = New System.Windows.Forms.CheckBox()
         Me.ItemsTableAdapter = New Cedemed.MasterFileDatasetTableAdapters.ItemsTableAdapter()
         Me.TableAdapterManager = New Cedemed.MasterFileDatasetTableAdapters.TableAdapterManager()
         Me.InventoryBS = New System.Windows.Forms.BindingSource(Me.components)
         Me.InventoryTableAdapter = New Cedemed.MasterFileDatasetTableAdapters.InventoryTableAdapter()
+        Me.Button3 = New System.Windows.Forms.Button()
         CType(Me.ItemsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menus.SuspendLayout()
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,37 +104,37 @@ Partial Class Masterform
         Me.ItemsDataGridView.AllowUserToAddRows = False
         Me.ItemsDataGridView.AllowUserToDeleteRows = False
         Me.ItemsDataGridView.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ItemsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ItemsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.ItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn16, Me.lastin, Me.lastsupplier, Me.profit})
+        Me.ItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.OldSRP, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.totalcost, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn16, Me.lastin, Me.lastsupplier, Me.profit, Me.profitpeso, Me.Column1})
         Me.ItemsDataGridView.ContextMenuStrip = Me.menus
         Me.ItemsDataGridView.DataSource = Me.ItemsBindingSource
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ItemsDataGridView.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ItemsDataGridView.DefaultCellStyle = DataGridViewCellStyle25
         Me.ItemsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ItemsDataGridView.Location = New System.Drawing.Point(3, 3)
         Me.ItemsDataGridView.Name = "ItemsDataGridView"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ItemsDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ItemsDataGridView.RowHeadersDefaultCellStyle = DataGridViewCellStyle26
         Me.ItemsDataGridView.RowTemplate.Height = 24
         Me.ItemsDataGridView.Size = New System.Drawing.Size(1188, 325)
         Me.ItemsDataGridView.TabIndex = 1
@@ -157,7 +162,6 @@ Partial Class Masterform
         '
         Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "IUnit"
-        Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Unit"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.Width = 51
@@ -166,22 +170,33 @@ Partial Class Masterform
         '
         Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn4.DataPropertyName = "SRP"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle15.Format = "N2"
+        DataGridViewCellStyle15.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridViewTextBoxColumn4.HeaderText = "SRP"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.Width = 54
+        '
+        'OldSRP
+        '
+        Me.OldSRP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.OldSRP.DataPropertyName = "OldSRP"
+        DataGridViewCellStyle16.Format = "N2"
+        DataGridViewCellStyle16.NullValue = "0.00"
+        Me.OldSRP.DefaultCellStyle = DataGridViewCellStyle16
+        Me.OldSRP.HeaderText = "OldSRP"
+        Me.OldSRP.Name = "OldSRP"
+        Me.OldSRP.Width = 70
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "Cost"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle17.Format = "N2"
+        DataGridViewCellStyle17.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn5.HeaderText = "Cost"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.Width = 53
@@ -190,21 +205,33 @@ Partial Class Masterform
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "OldCost"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle18.Format = "N2"
+        DataGridViewCellStyle18.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridViewTextBoxColumn6.HeaderText = "OldCost"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.Width = 69
+        '
+        'totalcost
+        '
+        Me.totalcost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.totalcost.DataPropertyName = "totalcost"
+        DataGridViewCellStyle19.Format = "N2"
+        DataGridViewCellStyle19.NullValue = "0.00"
+        Me.totalcost.DefaultCellStyle = DataGridViewCellStyle19
+        Me.totalcost.HeaderText = "TotalCost"
+        Me.totalcost.Name = "totalcost"
+        Me.totalcost.ReadOnly = True
+        Me.totalcost.Width = 77
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "Date"
-        DataGridViewCellStyle5.Format = "d"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle20.Format = "d"
+        DataGridViewCellStyle20.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewTextBoxColumn7.HeaderText = "Updated"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
@@ -214,8 +241,8 @@ Partial Class Masterform
         '
         Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "Clevel"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle21
         Me.DataGridViewTextBoxColumn8.HeaderText = "Clevel"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.Width = 61
@@ -224,19 +251,19 @@ Partial Class Masterform
         '
         Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "Qty"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle7
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Dagupan Main"
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle22
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Current Branch"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Width = 94
+        Me.DataGridViewTextBoxColumn9.Width = 95
         '
         'DataGridViewTextBoxColumn16
         '
         Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "Total"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle23
         Me.DataGridViewTextBoxColumn16.HeaderText = "Total"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         Me.DataGridViewTextBoxColumn16.ReadOnly = True
@@ -269,17 +296,43 @@ Partial Class Masterform
         Me.profit.ReadOnly = True
         Me.profit.Width = 56
         '
+        'profitpeso
+        '
+        Me.profitpeso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.profitpeso.DataPropertyName = "profitpeso"
+        DataGridViewCellStyle24.Format = "N2"
+        DataGridViewCellStyle24.NullValue = "0.00"
+        Me.profitpeso.DefaultCellStyle = DataGridViewCellStyle24
+        Me.profitpeso.HeaderText = "ProfitValue"
+        Me.profitpeso.Name = "profitpeso"
+        Me.profitpeso.ReadOnly = True
+        Me.profitpeso.Width = 83
+        '
+        'Column1
+        '
+        Me.Column1.DataPropertyName = "ItemNo"
+        Me.Column1.HeaderText = "ItemNo"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Visible = False
+        '
         'menus
         '
-        Me.menus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateToolStripMenuItem})
+        Me.menus.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpdateToolStripMenuItem, Me.ChangeCostToolStripMenuItem})
         Me.menus.Name = "menus"
-        Me.menus.Size = New System.Drawing.Size(113, 26)
+        Me.menus.Size = New System.Drawing.Size(143, 48)
         '
         'UpdateToolStripMenuItem
         '
         Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
-        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
-        Me.UpdateToolStripMenuItem.Text = "Update"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.UpdateToolStripMenuItem.Text = "Change SRP"
+        '
+        'ChangeCostToolStripMenuItem
+        '
+        Me.ChangeCostToolStripMenuItem.Name = "ChangeCostToolStripMenuItem"
+        Me.ChangeCostToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.ChangeCostToolStripMenuItem.Text = "Change Cost"
         '
         'ItemsBindingSource
         '
@@ -334,7 +387,7 @@ Partial Class Masterform
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"All Branches", "Residence", "Urdaneta", "Tarlac", "Zambales", "Pampanga"})
+        Me.ComboBox1.Items.AddRange(New Object() {"All Branches", "Tanedo", "San Vicente"})
         Me.ComboBox1.Location = New System.Drawing.Point(85, 24)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(131, 21)
@@ -359,7 +412,7 @@ Partial Class Masterform
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(411, 52)
+        Me.CheckBox1.Location = New System.Drawing.Point(449, 53)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(86, 17)
         Me.CheckBox1.TabIndex = 9
@@ -413,20 +466,10 @@ Partial Class Masterform
         Me.views.Size = New System.Drawing.Size(1188, 325)
         Me.views.TabIndex = 0
         '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(1089, 48)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(126, 23)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "Get Latest Inventory"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Button4
         '
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button4.Location = New System.Drawing.Point(758, 48)
+        Me.Button4.Location = New System.Drawing.Point(1084, 48)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(126, 23)
         Me.Button4.TabIndex = 13
@@ -437,7 +480,7 @@ Partial Class Masterform
         '
         Me.DateTimePicker1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(890, 49)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(952, 50)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(126, 20)
         Me.DateTimePicker1.TabIndex = 14
@@ -446,19 +489,18 @@ Partial Class Masterform
         '
         Me.Button5.Location = New System.Drawing.Point(348, 48)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(57, 24)
+        Me.Button5.Size = New System.Drawing.Size(95, 24)
         Me.Button5.TabIndex = 15
         Me.Button5.Text = "Refresh"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button6
         '
-        Me.Button6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button6.Location = New System.Drawing.Point(1026, 47)
+        Me.Button6.Location = New System.Drawing.Point(348, 72)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(57, 24)
+        Me.Button6.Size = New System.Drawing.Size(95, 24)
         Me.Button6.TabIndex = 16
-        Me.Button6.Text = "Print"
+        Me.Button6.Text = "Purchase Order"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Label3
@@ -477,66 +519,39 @@ Partial Class Masterform
         Me.supplier.Size = New System.Drawing.Size(257, 20)
         Me.supplier.TabIndex = 18
         '
-        'pampanga
+        'sanvicente
         '
-        Me.pampanga.AutoSize = True
-        Me.pampanga.Checked = True
-        Me.pampanga.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.pampanga.Location = New System.Drawing.Point(305, 19)
-        Me.pampanga.Name = "pampanga"
-        Me.pampanga.Size = New System.Drawing.Size(77, 17)
-        Me.pampanga.TabIndex = 19
-        Me.pampanga.Text = "Pampanga"
-        Me.pampanga.UseVisualStyleBackColor = True
+        Me.sanvicente.AutoSize = True
+        Me.sanvicente.Checked = True
+        Me.sanvicente.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.sanvicente.Location = New System.Drawing.Point(78, 17)
+        Me.sanvicente.Name = "sanvicente"
+        Me.sanvicente.Size = New System.Drawing.Size(84, 17)
+        Me.sanvicente.TabIndex = 19
+        Me.sanvicente.Text = "San Vicente"
+        Me.sanvicente.UseVisualStyleBackColor = True
         '
-        'urdaneta
+        'tanedo
         '
-        Me.urdaneta.AutoSize = True
-        Me.urdaneta.Checked = True
-        Me.urdaneta.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.urdaneta.Location = New System.Drawing.Point(89, 19)
-        Me.urdaneta.Name = "urdaneta"
-        Me.urdaneta.Size = New System.Drawing.Size(70, 17)
-        Me.urdaneta.TabIndex = 20
-        Me.urdaneta.Text = "Urdaneta"
-        Me.urdaneta.UseVisualStyleBackColor = True
-        '
-        'zambales
-        '
-        Me.zambales.AutoSize = True
-        Me.zambales.Checked = True
-        Me.zambales.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.zambales.Location = New System.Drawing.Point(227, 19)
-        Me.zambales.Name = "zambales"
-        Me.zambales.Size = New System.Drawing.Size(72, 17)
-        Me.zambales.TabIndex = 21
-        Me.zambales.Text = "Zambales"
-        Me.zambales.UseVisualStyleBackColor = True
-        '
-        'tarlac
-        '
-        Me.tarlac.AutoSize = True
-        Me.tarlac.Checked = True
-        Me.tarlac.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.tarlac.Location = New System.Drawing.Point(165, 19)
-        Me.tarlac.Name = "tarlac"
-        Me.tarlac.Size = New System.Drawing.Size(56, 17)
-        Me.tarlac.TabIndex = 22
-        Me.tarlac.Text = "Tarlac"
-        Me.tarlac.UseVisualStyleBackColor = True
+        Me.tanedo.AutoSize = True
+        Me.tanedo.Checked = True
+        Me.tanedo.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.tanedo.Location = New System.Drawing.Point(9, 17)
+        Me.tanedo.Name = "tanedo"
+        Me.tanedo.Size = New System.Drawing.Size(63, 17)
+        Me.tanedo.TabIndex = 21
+        Me.tanedo.Text = "Tanedo"
+        Me.tanedo.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.residence)
-        Me.GroupBox1.Controls.Add(Me.pampanga)
-        Me.GroupBox1.Controls.Add(Me.zambales)
-        Me.GroupBox1.Controls.Add(Me.tarlac)
-        Me.GroupBox1.Controls.Add(Me.urdaneta)
-        Me.GroupBox1.Location = New System.Drawing.Point(752, 77)
+        Me.GroupBox1.Controls.Add(Me.sanvicente)
+        Me.GroupBox1.Controls.Add(Me.tanedo)
+        Me.GroupBox1.Location = New System.Drawing.Point(969, 77)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(462, 42)
+        Me.GroupBox1.Size = New System.Drawing.Size(245, 42)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Update Branches"
@@ -544,24 +559,12 @@ Partial Class Masterform
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(383, 13)
+        Me.Button2.Location = New System.Drawing.Point(164, 11)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 24
         Me.Button2.Text = "Update"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'residence
-        '
-        Me.residence.AutoSize = True
-        Me.residence.Checked = True
-        Me.residence.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.residence.Location = New System.Drawing.Point(6, 19)
-        Me.residence.Name = "residence"
-        Me.residence.Size = New System.Drawing.Size(77, 17)
-        Me.residence.TabIndex = 25
-        Me.residence.Text = "Residence"
-        Me.residence.UseVisualStyleBackColor = True
         '
         'ItemsTableAdapter
         '
@@ -582,11 +585,21 @@ Partial Class Masterform
         '
         Me.InventoryTableAdapter.ClearBeforeFill = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(449, 72)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(95, 24)
+        Me.Button3.TabIndex = 24
+        Me.Button3.Text = "Total Cost"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Masterform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1226, 482)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.supplier)
         Me.Controls.Add(Me.Label3)
@@ -594,7 +607,6 @@ Partial Class Masterform
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.CheckBox1)
@@ -643,7 +655,6 @@ Partial Class Masterform
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents views As System.Windows.Forms.DataGridView
-    Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents InventoryBS As BindingSource
     Friend WithEvents InventoryTableAdapter As MasterFileDatasetTableAdapters.InventoryTableAdapter
@@ -652,18 +663,18 @@ Partial Class Masterform
     Friend WithEvents Button6 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents supplier As TextBox
-    Friend WithEvents pampanga As CheckBox
-    Friend WithEvents urdaneta As CheckBox
-    Friend WithEvents zambales As CheckBox
-    Friend WithEvents tarlac As CheckBox
+    Friend WithEvents sanvicente As CheckBox
+    Friend WithEvents tanedo As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents OldSRP As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents totalcost As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
@@ -671,5 +682,8 @@ Partial Class Masterform
     Friend WithEvents lastin As DataGridViewTextBoxColumn
     Friend WithEvents lastsupplier As DataGridViewTextBoxColumn
     Friend WithEvents profit As DataGridViewTextBoxColumn
-    Friend WithEvents residence As CheckBox
+    Friend WithEvents profitpeso As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents ChangeCostToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button3 As Button
 End Class

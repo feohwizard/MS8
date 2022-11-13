@@ -46,7 +46,6 @@ Partial Class StockTransferPosting
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.invoice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TransactionsDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TransBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +73,7 @@ Partial Class StockTransferPosting
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.SalesTableAdapter = Me.SalesTableAdapter
+        Me.TableAdapterManager.Trans1TableAdapter = Nothing
         Me.TableAdapterManager.TransTableAdapter = Me.TransTableAdapter
         Me.TableAdapterManager.UpdateOrder = Cedemed.TransactionsDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -164,7 +164,7 @@ Partial Class StockTransferPosting
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TranferreDataGridView.AutoGenerateColumns = False
         Me.TranferreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TranferreDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.invoice})
+        Me.TranferreDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.TranferreDataGridView.DataSource = Me.TranferreBindingSource
         Me.TranferreDataGridView.Location = New System.Drawing.Point(16, 59)
         Me.TranferreDataGridView.Name = "TranferreDataGridView"
@@ -215,15 +215,6 @@ Partial Class StockTransferPosting
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         Me.DataGridViewTextBoxColumn4.Width = 61
         '
-        'invoice
-        '
-        Me.invoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.invoice.DataPropertyName = "invoice"
-        Me.invoice.HeaderText = "Invoice"
-        Me.invoice.Name = "invoice"
-        Me.invoice.ReadOnly = True
-        Me.invoice.Width = 67
-        '
         'StockTransferPosting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -269,9 +260,8 @@ Partial Class StockTransferPosting
     Friend WithEvents TableAdapterManager1 As Cedemed.ItemsDatasetTableAdapters.TableAdapterManager
     Friend WithEvents TranferreBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TranferreDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents invoice As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
 End Class

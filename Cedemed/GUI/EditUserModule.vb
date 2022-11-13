@@ -3,6 +3,7 @@
 
     Public Sub UserInfo(ByVal UserID As String)
         UsersRTA.FillByUserID(RistrictionDS.UsersRestriction, UserID)
+
     End Sub
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         If LNameTextBox.Text.Trim = "" Then
@@ -82,5 +83,9 @@
             Me.CustSaleRPTCheckBox.Checked = True
             Me.StocktranCheckBox.Checked = True
         End If
+    End Sub
+
+    Private Sub EditUserModule_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ConfirmPasswordTextBox.Text = PasswordTextBox.Text
     End Sub
 End Class
