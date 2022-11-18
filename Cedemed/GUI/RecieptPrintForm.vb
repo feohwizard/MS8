@@ -135,14 +135,17 @@ skip:
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
         'DRReceipt.xls
         Dim xapp As New Excel.Application
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\SalesOrder.xls")
+
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\SalesOrder.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
+
         With wsheet
             .Range("AD10").Value = TransNoTextBox.Text
             .Range("F10").Value = CustNameTextBox.Text

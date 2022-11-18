@@ -33,15 +33,15 @@ Partial Class CustomersSalesReport
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.NameComboBox = New System.Windows.Forms.ComboBox()
         Me.CostumertblBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CostumerDataset = New Cedemed.CostumerDataset()
         Me.CostumertblTableAdapter = New Cedemed.CostumerDatasetTableAdapters.CostumertblTableAdapter()
         Me.TableAdapterManager = New Cedemed.CostumerDatasetTableAdapters.TableAdapterManager()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TransactionsDS = New Cedemed.TransactionsDataset()
         Me.SalesTA = New Cedemed.TransactionsDatasetTableAdapters.SalesTableAdapter()
         NameLabel = New System.Windows.Forms.Label()
@@ -62,6 +62,15 @@ Partial Class CustomersSalesReport
         NameLabel.Size = New System.Drawing.Size(90, 13)
         NameLabel.TabIndex = 0
         NameLabel.Text = "Customers Name:"
+        '
+        'Label4
+        '
+        Label4.AutoSize = True
+        Label4.Location = New System.Drawing.Point(9, 22)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(111, 13)
+        Label4.TabIndex = 0
+        Label4.Text = "Enter Transaction No."
         '
         'GroupBox1
         '
@@ -121,9 +130,9 @@ Partial Class CustomersSalesReport
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(149, 11)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(304, 27)
+        Me.Label1.Size = New System.Drawing.Size(297, 27)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Generate Customer Reports"
+        Me.Label1.Text = "Sales by Customer Reports"
         '
         'GroupBox2
         '
@@ -137,6 +146,15 @@ Partial Class CustomersSalesReport
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Generate By Customers Name"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(175, 55)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(91, 23)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Generate"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'NameComboBox
         '
@@ -169,15 +187,6 @@ Partial Class CustomersSalesReport
         Me.TableAdapterManager.CostumertblTableAdapter = Me.CostumertblTableAdapter
         Me.TableAdapterManager.UpdateOrder = Cedemed.CostumerDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(175, 55)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 23)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Generate"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
@@ -191,6 +200,13 @@ Partial Class CustomersSalesReport
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Generate By Transaction No."
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(126, 19)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(112, 20)
+        Me.TextBox1.TabIndex = 3
+        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(147, 55)
@@ -199,22 +215,6 @@ Partial Class CustomersSalesReport
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Generate"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(9, 22)
-        Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(111, 13)
-        Label4.TabIndex = 0
-        Label4.Text = "Enter Transaction No."
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(126, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(112, 20)
-        Me.TextBox1.TabIndex = 3
         '
         'TransactionsDS
         '

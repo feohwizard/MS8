@@ -1,8 +1,17 @@
 ﻿Imports Microsoft.Office.Interop
+Imports System.IO
 Public Class GovernmentRPT
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        On Error Resume Next
+        If File.Exists(Application.StartupPath + "\SalesReportGOVT.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\SalesReportGOVT.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
         Dim fd = from.Value.Date
         Dim td = tod.Value.Date
 
@@ -10,13 +19,13 @@ Public Class GovernmentRPT
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\SalesReportGOVT.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\SalesReportGOVT.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
         'Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, dates)
         'Me.SalesTableAdapter.FillBySrpt(TransactionsDataset.Sales, New System.Nullable(Of Date)(CType(from.Value, Date)), New System.Nullable(Of Date)(CType(tod.Value, Date)))
-
+        Me.TransactionsDataset.EnforceConstraints = False
         Me.SalesTableAdapter.FillByGov(Me.TransactionsDataset.Sales, fd, td)
 
         Dim rc(Me.TransactionsDataset.Sales.DefaultView.Count, 9)
@@ -49,6 +58,7 @@ Public Class GovernmentRPT
         subt = Me.TransactionsDataset.Sales.DefaultView.Count + 8
 
         wsheet.Range("A8", "J" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString).Value = rc
+        wsheet.Range("A8", "J" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString).Borders.Weight = 2
         wsheet.Range("A" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString, "J" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous
         wsheet.Range("A" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString, "J" + (Me.TransactionsDataset.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlDouble
         wsheet.Range("A" + (Me.TransactionsDataset.Sales.DefaultView.Count + 10).ToString).Value = "Prepared By: " + user
@@ -57,7 +67,7 @@ Public Class GovernmentRPT
 
         wsheet.Range("G" + (Me.TransactionsDataset.Sales.DefaultView.Count + 9).ToString).Formula = "=SUBTOTAL(9,G8:G" & lastrow & ")"
         wsheet.Range("I" + (Me.TransactionsDataset.Sales.DefaultView.Count + 9).ToString).Formula = "=SUBTOTAL(9,I8:I" & lastrow & ")"
-
+        wbook.SaveAs(Application.StartupPath + "\SalesReportGOVT.xls")
         xapp.Visible = True
     End Sub
 

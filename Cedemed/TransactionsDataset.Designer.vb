@@ -837,8 +837,6 @@ Partial Public Class TransactionsDataset
         
         Private columnreturntotal As Global.System.Data.DataColumn
         
-        Private columnremarks As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -996,14 +994,6 @@ Partial Public Class TransactionsDataset
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property remarksColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnremarks
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1040,9 +1030,9 @@ Partial Public Class TransactionsDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddSalesRow(ByVal parentTransRowByFK_Trans_Sales As TransRow, ByVal SalesDT As Date, ByVal ItemNo As Integer, ByVal UCost As Decimal, ByVal UnitSold As Integer, ByVal PS As Boolean, ByVal SRP As Decimal, ByVal expiry As Date, ByVal lotno As String, ByVal NCost As Decimal, ByVal transfermode As Boolean, ByVal total As Decimal, ByVal returntotal As Integer, ByVal remarks As String) As SalesRow
+        Public Overloads Function AddSalesRow(ByVal parentTransRowByFK_Trans_Sales As TransRow, ByVal SalesDT As Date, ByVal ItemNo As Integer, ByVal UCost As Decimal, ByVal UnitSold As Integer, ByVal PS As Boolean, ByVal SRP As Decimal, ByVal expiry As Date, ByVal lotno As String, ByVal NCost As Decimal, ByVal transfermode As Boolean, ByVal total As Decimal, ByVal returntotal As Integer) As SalesRow
             Dim rowSalesRow As SalesRow = CType(Me.NewRow,SalesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, total, returntotal, remarks}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, total, returntotal}
             If (Not (parentTransRowByFK_Trans_Sales) Is Nothing) Then
                 columnValuesArray(1) = parentTransRowByFK_Trans_Sales(0)
             End If
@@ -1053,9 +1043,9 @@ Partial Public Class TransactionsDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddSalesRow(ByVal parentTransRowByFK_Trans_Sales As TransRow, ByVal SalesDT As Date, ByVal ItemNo As Integer, ByVal UCost As Decimal, ByVal UnitSold As Integer, ByVal PS As Boolean, ByVal SRP As Decimal, ByVal expiry As Date, ByVal lotno As String, ByVal NCost As Decimal, ByVal transfermode As Boolean, ByVal returntotal As Integer, ByVal remarks As String) As SalesRow
+        Public Overloads Function AddSalesRow(ByVal parentTransRowByFK_Trans_Sales As TransRow, ByVal SalesDT As Date, ByVal ItemNo As Integer, ByVal UCost As Decimal, ByVal UnitSold As Integer, ByVal PS As Boolean, ByVal SRP As Decimal, ByVal expiry As Date, ByVal lotno As String, ByVal NCost As Decimal, ByVal transfermode As Boolean, ByVal returntotal As Integer) As SalesRow
             Dim rowSalesRow As SalesRow = CType(Me.NewRow,SalesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, Nothing, returntotal, remarks}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, Nothing, returntotal}
             If (Not (parentTransRowByFK_Trans_Sales) Is Nothing) Then
                 columnValuesArray(1) = parentTransRowByFK_Trans_Sales(0)
             End If
@@ -1101,7 +1091,6 @@ Partial Public Class TransactionsDataset
             Me.columntransfermode = MyBase.Columns("transfermode")
             Me.columntotal = MyBase.Columns("total")
             Me.columnreturntotal = MyBase.Columns("returntotal")
-            Me.columnremarks = MyBase.Columns("remarks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1135,8 +1124,6 @@ Partial Public Class TransactionsDataset
             MyBase.Columns.Add(Me.columntotal)
             Me.columnreturntotal = New Global.System.Data.DataColumn("returntotal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnreturntotal)
-            Me.columnremarks = New Global.System.Data.DataColumn("remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnremarks)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSalesNo}, true))
             Me.columnSalesNo.AutoIncrement = true
             Me.columnSalesNo.AutoIncrementSeed = -1
@@ -1148,7 +1135,6 @@ Partial Public Class TransactionsDataset
             Me.columnlotno.MaxLength = 50
             Me.columntotal.ReadOnly = true
             Me.columnreturntotal.DefaultValue = CType(0,Integer)
-            Me.columnremarks.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2432,21 +2418,6 @@ Partial Public Class TransactionsDataset
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property remarks() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableSales.remarksColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'remarks' in table 'Sales' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableSales.remarksColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property TransRow() As TransRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Trans_Sales")),TransRow)
@@ -2598,18 +2569,6 @@ Partial Public Class TransactionsDataset
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetreturntotalNull()
             Me(Me.tableSales.returntotalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsremarksNull() As Boolean
-            Return Me.IsNull(Me.tableSales.remarksColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetremarksNull()
-            Me(Me.tableSales.remarksColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3219,22 +3178,23 @@ Namespace TransactionsDatasetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ref", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ref", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Trans] ([TransDate], [Discount], [SoldBy], [CustName], [DRDate], [Pa"& _ 
-                "yMode], [DRNo], [intern], [ref]) VALUES (@TransDate, @Discount, @SoldBy, @CustNa"& _ 
-                "me, @DRDate, @PayMode, @DRNo, @intern, @ref);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TransNo, TransDate, (SELEC"& _ 
-                "T SUM(SRP * UnitSold) AS ts FROM Sales WHERE (TransNo = Trans.TransNo)) AS Total"& _ 
-                ", Discount, SoldBy, CustName, DRDate, PayMode, DRNo, intern, ref FROM Trans WHER"& _ 
-                "E (TransNo = SCOPE_IDENTITY()) ORDER BY TransNo DESC"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO Trans"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (TransDate, Discount, SoldBy, CustNam"& _ 
+                "e, DRDate, PayMode, DRNo, intern, ref, Total)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@TransDate,@Discou"& _ 
+                "nt,@SoldBy,@CustName,@DRDate,@PayMode,@DRNo,@intern,@ref,@Total); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Trans"& _ 
+                "No, TransDate, (SELECT SUM(SRP * UnitSold) AS ts FROM Sales WHERE (TransNo = Tra"& _ 
+                "ns.TransNo)) AS Total, Discount, SoldBy, CustName, DRDate, PayMode, DRNo, intern"& _ 
+                ", ref FROM Trans WHERE (TransNo = SCOPE_IDENTITY()) ORDER BY TransNo DESC"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SoldBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SoldBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DRDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DRDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PayMode", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PayMode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DRNo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DRNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@intern", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "intern", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ref", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ref", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "TransDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Discount", Global.System.Data.SqlDbType.Money, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Discount", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SoldBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "SoldBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "CustName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DRDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DRDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PayMode", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PayMode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DRNo", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DRNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@intern", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "intern", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ref", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ref", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Money, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Trans] SET [TransDate] = @TransDate, [Discount] = @Discount, [SoldBy] = @"& _ 
@@ -3796,7 +3756,7 @@ Namespace TransactionsDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal TransDate As Global.System.Nullable(Of Date), ByVal Discount As Global.System.Nullable(Of Decimal), ByVal SoldBy As String, ByVal CustName As String, ByVal DRDate As Global.System.Nullable(Of Date), ByVal PayMode As String, ByVal DRNo As String, ByVal intern As Global.System.Nullable(Of Integer), ByVal ref As Global.System.Nullable(Of Boolean)) As Integer
+        Public Overloads Overridable Function Insert(ByVal TransDate As Global.System.Nullable(Of Date), ByVal Discount As Global.System.Nullable(Of Decimal), ByVal SoldBy As String, ByVal CustName As String, ByVal DRDate As Global.System.Nullable(Of Date), ByVal PayMode As String, ByVal DRNo As String, ByVal intern As Global.System.Nullable(Of Integer), ByVal ref As Global.System.Nullable(Of Boolean), ByVal Total As Global.System.Nullable(Of Decimal)) As Integer
             If (TransDate.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(TransDate.Value,Date)
             Else
@@ -3841,6 +3801,11 @@ Namespace TransactionsDatasetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(8).Value = CType(ref.Value,Boolean)
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Total.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(Total.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4174,23 +4139,21 @@ Namespace TransactionsDatasetTableAdapters
             tableMapping.ColumnMappings.Add("lotno", "lotno")
             tableMapping.ColumnMappings.Add("NCost", "NCost")
             tableMapping.ColumnMappings.Add("transfermode", "transfermode")
-            tableMapping.ColumnMappings.Add("remarks", "remarks")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Sales] WHERE (([SalesNo] = @Original_SalesNo) AND ((@IsNull_TransNo "& _ 
-                "= 1 AND [TransNo] IS NULL) OR ([TransNo] = @Original_TransNo)) AND ((@IsNull_Sal"& _ 
-                "esDT = 1 AND [SalesDT] IS NULL) OR ([SalesDT] = @Original_SalesDT)) AND ((@IsNul"& _ 
-                "l_ItemNo = 1 AND [ItemNo] IS NULL) OR ([ItemNo] = @Original_ItemNo)) AND ((@IsNu"& _ 
-                "ll_UCost = 1 AND [UCost] IS NULL) OR ([UCost] = @Original_UCost)) AND ((@IsNull_"& _ 
-                "UnitSold = 1 AND [UnitSold] IS NULL) OR ([UnitSold] = @Original_UnitSold)) AND ("& _ 
-                "[PS] = @Original_PS) AND ((@IsNull_SRP = 1 AND [SRP] IS NULL) OR ([SRP] = @Origi"& _ 
-                "nal_SRP)) AND ((@IsNull_expiry = 1 AND [expiry] IS NULL) OR ([expiry] = @Origina"& _ 
-                "l_expiry)) AND ((@IsNull_lotno = 1 AND [lotno] IS NULL) OR ([lotno] = @Original_"& _ 
-                "lotno)) AND ((@IsNull_NCost = 1 AND [NCost] IS NULL) OR ([NCost] = @Original_NCo"& _ 
-                "st)) AND ((@IsNull_transfermode = 1 AND [transfermode] IS NULL) OR ([transfermod"& _ 
-                "e] = @Original_transfermode)) AND ((@IsNull_remarks = 1 AND [remarks] IS NULL) O"& _ 
-                "R ([remarks] = @Original_remarks)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Sales] WHERE (([SalesNo] = @Original_SalesNo) AND ((@IsNull_Tr"& _ 
+                "ansNo = 1 AND [TransNo] IS NULL) OR ([TransNo] = @Original_TransNo)) AND ((@IsNu"& _ 
+                "ll_SalesDT = 1 AND [SalesDT] IS NULL) OR ([SalesDT] = @Original_SalesDT)) AND (("& _ 
+                "@IsNull_ItemNo = 1 AND [ItemNo] IS NULL) OR ([ItemNo] = @Original_ItemNo)) AND ("& _ 
+                "(@IsNull_UCost = 1 AND [UCost] IS NULL) OR ([UCost] = @Original_UCost)) AND ((@I"& _ 
+                "sNull_UnitSold = 1 AND [UnitSold] IS NULL) OR ([UnitSold] = @Original_UnitSold))"& _ 
+                " AND ([PS] = @Original_PS) AND ((@IsNull_SRP = 1 AND [SRP] IS NULL) OR ([SRP] = "& _ 
+                "@Original_SRP)) AND ((@IsNull_expiry = 1 AND [expiry] IS NULL) OR ([expiry] = @O"& _ 
+                "riginal_expiry)) AND ((@IsNull_lotno = 1 AND [lotno] IS NULL) OR ([lotno] = @Ori"& _ 
+                "ginal_lotno)) AND ((@IsNull_NCost = 1 AND [NCost] IS NULL) OR ([NCost] = @Origin"& _ 
+                "al_NCost)) AND ((@IsNull_transfermode = 1 AND [transfermode] IS NULL) OR ([trans"& _ 
+                "fermode] = @Original_transfermode)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SalesNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TransNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -4214,16 +4177,13 @@ Namespace TransactionsDatasetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NCost", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NCost", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_transfermode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_transfermode", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_remarks", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Sales] ([TransNo], [SalesDT], [ItemNo], [UCost], [UnitSold], [PS], ["& _ 
-                "SRP], [expiry], [lotno], [NCost], [transfermode], [remarks]) VALUES (@TransNo, @"& _ 
-                "SalesDT, @ItemNo, @UCost, @UnitSold, @PS, @SRP, @expiry, @lotno, @NCost, @transf"& _ 
-                "ermode, @remarks);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, P"& _ 
-                "S, SRP, expiry, lotno, NCost, transfermode, remarks FROM Sales WHERE (SalesNo = "& _ 
-                "SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Sales] ([TransNo], [SalesDT], [ItemNo], [UCost], [UnitSold], ["& _ 
+                "PS], [SRP], [expiry], [lotno], [NCost], [transfermode]) VALUES (@TransNo, @Sales"& _ 
+                "DT, @ItemNo, @UCost, @UnitSold, @PS, @SRP, @expiry, @lotno, @NCost, @transfermod"& _ 
+                "e);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry,"& _ 
+                " lotno, NCost, transfermode FROM Sales WHERE (SalesNo = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SalesDT", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4236,27 +4196,24 @@ Namespace TransactionsDatasetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lotno", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lotno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NCost", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NCost", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@transfermode", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [Sales] SET [TransNo] = @TransNo, [SalesDT] = @SalesDT, [ItemNo] = @ItemNo"& _ 
-                ", [UCost] = @UCost, [UnitSold] = @UnitSold, [PS] = @PS, [SRP] = @SRP, [expiry] ="& _ 
-                " @expiry, [lotno] = @lotno, [NCost] = @NCost, [transfermode] = @transfermode, [r"& _ 
-                "emarks] = @remarks WHERE (([SalesNo] = @Original_SalesNo) AND ((@IsNull_TransNo "& _ 
-                "= 1 AND [TransNo] IS NULL) OR ([TransNo] = @Original_TransNo)) AND ((@IsNull_Sal"& _ 
-                "esDT = 1 AND [SalesDT] IS NULL) OR ([SalesDT] = @Original_SalesDT)) AND ((@IsNul"& _ 
-                "l_ItemNo = 1 AND [ItemNo] IS NULL) OR ([ItemNo] = @Original_ItemNo)) AND ((@IsNu"& _ 
-                "ll_UCost = 1 AND [UCost] IS NULL) OR ([UCost] = @Original_UCost)) AND ((@IsNull_"& _ 
-                "UnitSold = 1 AND [UnitSold] IS NULL) OR ([UnitSold] = @Original_UnitSold)) AND ("& _ 
-                "[PS] = @Original_PS) AND ((@IsNull_SRP = 1 AND [SRP] IS NULL) OR ([SRP] = @Origi"& _ 
-                "nal_SRP)) AND ((@IsNull_expiry = 1 AND [expiry] IS NULL) OR ([expiry] = @Origina"& _ 
-                "l_expiry)) AND ((@IsNull_lotno = 1 AND [lotno] IS NULL) OR ([lotno] = @Original_"& _ 
-                "lotno)) AND ((@IsNull_NCost = 1 AND [NCost] IS NULL) OR ([NCost] = @Original_NCo"& _ 
-                "st)) AND ((@IsNull_transfermode = 1 AND [transfermode] IS NULL) OR ([transfermod"& _ 
-                "e] = @Original_transfermode)) AND ((@IsNull_remarks = 1 AND [remarks] IS NULL) O"& _ 
-                "R ([remarks] = @Original_remarks)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SalesNo, TransNo, SalesDT, ItemNo, "& _ 
-                "UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, remarks FROM Sales"& _ 
-                " WHERE (SalesNo = @SalesNo)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Sales] SET [TransNo] = @TransNo, [SalesDT] = @SalesDT, [ItemNo] = @"& _ 
+                "ItemNo, [UCost] = @UCost, [UnitSold] = @UnitSold, [PS] = @PS, [SRP] = @SRP, [exp"& _ 
+                "iry] = @expiry, [lotno] = @lotno, [NCost] = @NCost, [transfermode] = @transfermo"& _ 
+                "de WHERE (([SalesNo] = @Original_SalesNo) AND ((@IsNull_TransNo = 1 AND [TransNo"& _ 
+                "] IS NULL) OR ([TransNo] = @Original_TransNo)) AND ((@IsNull_SalesDT = 1 AND [Sa"& _ 
+                "lesDT] IS NULL) OR ([SalesDT] = @Original_SalesDT)) AND ((@IsNull_ItemNo = 1 AND"& _ 
+                " [ItemNo] IS NULL) OR ([ItemNo] = @Original_ItemNo)) AND ((@IsNull_UCost = 1 AND"& _ 
+                " [UCost] IS NULL) OR ([UCost] = @Original_UCost)) AND ((@IsNull_UnitSold = 1 AND"& _ 
+                " [UnitSold] IS NULL) OR ([UnitSold] = @Original_UnitSold)) AND ([PS] = @Original"& _ 
+                "_PS) AND ((@IsNull_SRP = 1 AND [SRP] IS NULL) OR ([SRP] = @Original_SRP)) AND (("& _ 
+                "@IsNull_expiry = 1 AND [expiry] IS NULL) OR ([expiry] = @Original_expiry)) AND ("& _ 
+                "(@IsNull_lotno = 1 AND [lotno] IS NULL) OR ([lotno] = @Original_lotno)) AND ((@I"& _ 
+                "sNull_NCost = 1 AND [NCost] IS NULL) OR ([NCost] = @Original_NCost)) AND ((@IsNu"& _ 
+                "ll_transfermode = 1 AND [transfermode] IS NULL) OR ([transfermode] = @Original_t"& _ 
+                "ransfermode)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, "& _ 
+                "SRP, expiry, lotno, NCost, transfermode FROM Sales WHERE (SalesNo = @SalesNo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TransNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SalesDT", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4269,7 +4226,6 @@ Namespace TransactionsDatasetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@lotno", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "lotno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NCost", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NCost", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@transfermode", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SalesNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_TransNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TransNo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -4292,8 +4248,6 @@ Namespace TransactionsDatasetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NCost", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NCost", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_transfermode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_transfermode", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "transfermode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_remarks", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_remarks", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "remarks", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SalesNo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -4310,19 +4264,19 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(10) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry"& _ 
-                ", lotno, NCost, transfermode, remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales"
+            Me._commandCollection(0).CommandText = "SELECT SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno"& _ 
+                ", NCost, transfermode FROM dbo.Sales"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.SoldBy, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETW"& _ 
-                "EEN @F AND @T) AND (Trans.SoldBy = @Cashier)"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.SoldBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         I"& _ 
+                "tems ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Trans O"& _ 
+                "N Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETWEEN @F AND @T) "& _ 
+                "AND (Trans.SoldBy = @Cashier)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4331,12 +4285,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.SoldBy, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETW"& _ 
-                "EEN @F AND @T) AND (Trans.SoldBy = @Cashier) AND (Trans.ref = 1)"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.SoldBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         I"& _ 
+                "tems ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Trans O"& _ 
+                "N Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETWEEN @F AND @T) "& _ 
+                "AND (Trans.SoldBy = @Cashier) and trans.ref=1"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4345,12 +4299,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.SoldBy, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sa"& _ 
-                "les.SalesDT BETWEEN @F AND @T) AND (Trans.CustName = @Cust)"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.SoldBy, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BET"& _ 
+                "WEEN @F AND @T) AND (Trans.CustName = @Cust)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4359,12 +4313,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.SoldBy, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sa"& _ 
-                "les.SalesDT BETWEEN @F AND @T) AND (Trans.CustName = @Cust) AND (Trans.ref = 1)"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.SoldBy, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BET"& _ 
+                "WEEN @F AND @T) AND (Trans.CustName = @Cust) and trans.ref=1"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4373,12 +4327,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.PayMode, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER "& _ 
-                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (S"& _ 
-                "ales.SalesDT BETWEEN @F AND @T) AND (Trans.PayMode = N'GOVT')"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.PayMode, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BE"& _ 
+                "TWEEN @F AND @T) AND (Trans.PayMode = N'GOVT')"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4386,13 +4340,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(6).Connection = Me.Connection
             Me._commandCollection(6).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.PayMode, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER "& _ 
-                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (S"& _ 
-                "ales.SalesDT BETWEEN @F AND @T) AND (Trans.PayMode = N'GOVT') AND (Trans.ref = 1"& _ 
-                ")"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.PayMode, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BE"& _ 
+                "TWEEN @F AND @T) AND (Trans.PayMode = N'GOVT') and Trans.ref=1"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4400,12 +4353,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(7).Connection = Me.Connection
             Me._commandCollection(7).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "                Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "          Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BE"& _ 
-                "TWEEN @F AND @T) AND (NOT (Trans.PayMode = N'GOVT'))"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Trans"& _ 
+                " ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETWEEN @F AND @T"& _ 
+                ") AND NOT(Trans.PayMode = N'GOVT')"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4413,12 +4366,12 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(8).Connection = Me.Connection
             Me._commandCollection(8).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.CustName, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "                Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "          Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BE"& _ 
-                "TWEEN @F AND @T) AND (Trans.ref = 1) AND (NOT (Trans.PayMode = N'GOVT'))"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.CustName"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Trans"& _ 
+                " ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.SalesDT BETWEEN @F AND @T"& _ 
+                ") and trans.ref=1 AND NOT(Trans.PayMode = N'GOVT')"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@F", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@T", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "SalesDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -4426,18 +4379,17 @@ Namespace TransactionsDatasetTableAdapters
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT        Sales.TransNo, Sales.SalesDT, Sales.UCost, Sales.SRP, Sales.UnitSol"& _ 
                 "d, Sales.lotno, Sales.expiry, Sales.PS, Sales.NCost, Sales.transfermode, Items.I"& _ 
-                "Desc, Sales.SalesNo, Sales.ItemNo, Sales.UCost AS Cost, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
-                "otal, Trans.SoldBy, Sales.remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              Items ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        Trans ON Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.TransNo = @N"& _ 
-                ")"
+                "Desc, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sales.SalesNo, Sales.ItemNo, Sales.UCost as Cos"& _ 
+                "t, Sales.UnitSold * Sales.SRP AS SRPTotal, Sales.UnitSold * Sales.UCost AS CostT"& _ 
+                "otal, Trans.SoldBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Sales INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         I"& _ 
+                "tems ON Sales.ItemNo = Items.ItemNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Trans O"& _ 
+                "N Sales.TransNo = Trans.TransNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sales.TransNo = @N)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@N", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "SELECT ItemNo, NCost, PS, SRP, SalesDT, SalesNo, TransNo, UCost, UnitSold, expiry"& _ 
-                ", lotno, remarks, transfermode FROM Sales WHERE (TransNo = @transno)"
+            Me._commandCollection(10).CommandText = "SELECT SalesNo, TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno"& _ 
+                ", NCost, transfermode FROM dbo.Sales where TransNo=@transno"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@transno", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "TransNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -4958,7 +4910,7 @@ Namespace TransactionsDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_SalesNo As Integer, ByVal Original_TransNo As Global.System.Nullable(Of Integer), ByVal Original_SalesDT As Global.System.Nullable(Of Date), ByVal Original_ItemNo As Global.System.Nullable(Of Integer), ByVal Original_UCost As Global.System.Nullable(Of Decimal), ByVal Original_UnitSold As Global.System.Nullable(Of Integer), ByVal Original_PS As Boolean, ByVal Original_SRP As Global.System.Nullable(Of Decimal), ByVal Original_expiry As Global.System.Nullable(Of Date), ByVal Original_lotno As String, ByVal Original_NCost As Global.System.Nullable(Of Decimal), ByVal Original_transfermode As Global.System.Nullable(Of Boolean), ByVal Original_remarks As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_SalesNo As Integer, ByVal Original_TransNo As Global.System.Nullable(Of Integer), ByVal Original_SalesDT As Global.System.Nullable(Of Date), ByVal Original_ItemNo As Global.System.Nullable(Of Integer), ByVal Original_UCost As Global.System.Nullable(Of Decimal), ByVal Original_UnitSold As Global.System.Nullable(Of Integer), ByVal Original_PS As Boolean, ByVal Original_SRP As Global.System.Nullable(Of Decimal), ByVal Original_expiry As Global.System.Nullable(Of Date), ByVal Original_lotno As String, ByVal Original_NCost As Global.System.Nullable(Of Decimal), ByVal Original_transfermode As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_SalesNo,Integer)
             If (Original_TransNo.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -5031,13 +4983,6 @@ Namespace TransactionsDatasetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            If (Original_remarks Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_remarks,String)
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5057,7 +5002,7 @@ Namespace TransactionsDatasetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal TransNo As Global.System.Nullable(Of Integer), ByVal SalesDT As Global.System.Nullable(Of Date), ByVal ItemNo As Global.System.Nullable(Of Integer), ByVal UCost As Global.System.Nullable(Of Decimal), ByVal UnitSold As Global.System.Nullable(Of Integer), ByVal PS As Boolean, ByVal SRP As Global.System.Nullable(Of Decimal), ByVal expiry As Global.System.Nullable(Of Date), ByVal lotno As String, ByVal NCost As Global.System.Nullable(Of Decimal), ByVal transfermode As Global.System.Nullable(Of Boolean), ByVal remarks As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal TransNo As Global.System.Nullable(Of Integer), ByVal SalesDT As Global.System.Nullable(Of Date), ByVal ItemNo As Global.System.Nullable(Of Integer), ByVal UCost As Global.System.Nullable(Of Decimal), ByVal UnitSold As Global.System.Nullable(Of Integer), ByVal PS As Boolean, ByVal SRP As Global.System.Nullable(Of Decimal), ByVal expiry As Global.System.Nullable(Of Date), ByVal lotno As String, ByVal NCost As Global.System.Nullable(Of Decimal), ByVal transfermode As Global.System.Nullable(Of Boolean)) As Integer
             If (TransNo.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(TransNo.Value,Integer)
             Else
@@ -5109,11 +5054,6 @@ Namespace TransactionsDatasetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (remarks Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(remarks,String)
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5145,7 +5085,6 @@ Namespace TransactionsDatasetTableAdapters
                     ByVal lotno As String,  _
                     ByVal NCost As Global.System.Nullable(Of Decimal),  _
                     ByVal transfermode As Global.System.Nullable(Of Boolean),  _
-                    ByVal remarks As String,  _
                     ByVal Original_SalesNo As Integer,  _
                     ByVal Original_TransNo As Global.System.Nullable(Of Integer),  _
                     ByVal Original_SalesDT As Global.System.Nullable(Of Date),  _
@@ -5158,7 +5097,6 @@ Namespace TransactionsDatasetTableAdapters
                     ByVal Original_lotno As String,  _
                     ByVal Original_NCost As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_transfermode As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_remarks As String,  _
                     ByVal SalesNo As Integer) As Integer
             If (TransNo.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(TransNo.Value,Integer)
@@ -5211,91 +5149,79 @@ Namespace TransactionsDatasetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            If (remarks Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(remarks,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_SalesNo,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_SalesNo,Integer)
             If (Original_TransNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_TransNo.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_TransNo.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             End If
             If (Original_SalesDT.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_SalesDT.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_SalesDT.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_ItemNo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ItemNo.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_ItemNo.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (Original_UCost.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_UCost.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_UCost.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
             If (Original_UnitSold.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_UnitSold.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_UnitSold.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_PS,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_PS,Boolean)
             If (Original_SRP.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_SRP.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_SRP.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             If (Original_expiry.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_expiry.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_expiry.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_lotno Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_lotno,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_lotno,String)
             End If
             If (Original_NCost.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_NCost.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_NCost.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_transfermode.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_transfermode.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_transfermode.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
-            If (Original_remarks Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_remarks,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(SalesNo,Integer)
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(SalesNo,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5327,7 +5253,6 @@ Namespace TransactionsDatasetTableAdapters
                     ByVal lotno As String,  _
                     ByVal NCost As Global.System.Nullable(Of Decimal),  _
                     ByVal transfermode As Global.System.Nullable(Of Boolean),  _
-                    ByVal remarks As String,  _
                     ByVal Original_SalesNo As Integer,  _
                     ByVal Original_TransNo As Global.System.Nullable(Of Integer),  _
                     ByVal Original_SalesDT As Global.System.Nullable(Of Date),  _
@@ -5339,9 +5264,8 @@ Namespace TransactionsDatasetTableAdapters
                     ByVal Original_expiry As Global.System.Nullable(Of Date),  _
                     ByVal Original_lotno As String,  _
                     ByVal Original_NCost As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_transfermode As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_remarks As String) As Integer
-            Return Me.Update(TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, remarks, Original_SalesNo, Original_TransNo, Original_SalesDT, Original_ItemNo, Original_UCost, Original_UnitSold, Original_PS, Original_SRP, Original_expiry, Original_lotno, Original_NCost, Original_transfermode, Original_remarks, Original_SalesNo)
+                    ByVal Original_transfermode As Global.System.Nullable(Of Boolean)) As Integer
+            Return Me.Update(TransNo, SalesDT, ItemNo, UCost, UnitSold, PS, SRP, expiry, lotno, NCost, transfermode, Original_SalesNo, Original_TransNo, Original_SalesDT, Original_ItemNo, Original_UCost, Original_UnitSold, Original_PS, Original_SRP, Original_expiry, Original_lotno, Original_NCost, Original_transfermode, Original_SalesNo)
         End Function
     End Class
     

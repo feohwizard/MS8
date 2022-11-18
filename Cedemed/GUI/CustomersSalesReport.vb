@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Office.Interop
+Imports System.IO
 Public Class CustomersSalesReport
 
     Private Sub CostumertblBindingNavigatorSaveItem_Click(sender As System.Object, e As System.EventArgs)
@@ -16,7 +17,17 @@ Public Class CustomersSalesReport
     End Sub
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-        On Error Resume Next
+        If File.Exists(Application.StartupPath + "\SalesReportCust.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\SalesReportCust.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
+
+
         Dim fd = from.Value.Date
         Dim td = tod.Value.Date
 
@@ -24,13 +35,14 @@ Public Class CustomersSalesReport
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\SalesReportCust.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\SalesReportCust.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
         'Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, dates)
         'Me.SalesTableAdapter.FillBySrpt(TransactionsDataset.Sales, New System.Nullable(Of Date)(CType(from.Value, Date)), New System.Nullable(Of Date)(CType(tod.Value, Date)))
 
+        Me.TransactionsDS.EnforceConstraints = False
         Me.SalesTA.FillByCustomer(Me.TransactionsDS.Sales, fd, td, NameComboBox.Text)
 
         Dim rc(Me.TransactionsDS.Sales.DefaultView.Count, 9)
@@ -58,7 +70,8 @@ Public Class CustomersSalesReport
         Dim subt As Long
         subt = Me.TransactionsDS.Sales.DefaultView.Count + 8
 
-        wsheet.Range("A8", "I" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Value = rc
+        wsheet.Range("A8", "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Value = rc
+        wsheet.Range("A8", "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Weight = 2
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString, "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString, "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlDouble
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 10).ToString).Value = "Prepared By: " + user
@@ -66,13 +79,24 @@ Public Class CustomersSalesReport
 
 
         wsheet.Range("G" + (Me.TransactionsDS.Sales.DefaultView.Count + 9).ToString).Formula = "=Sum(G8:G" & lastrow & ")"
-
-
+        wbook.SaveAs(Application.StartupPath + "\SalesReportCust.xls")
         xapp.Visible = True
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-        On Error Resume Next
+
+        If File.Exists(Application.StartupPath + "\SalesReportTranno.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\SalesReportTranno.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
+
+
+
         Dim fd = from.Value.Date
         Dim td = tod.Value.Date
 
@@ -80,13 +104,14 @@ Public Class CustomersSalesReport
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\SalesReportTranno.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\SalesReportTranno.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
         'Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, dates)
         'Me.SalesTableAdapter.FillBySrpt(TransactionsDataset.Sales, New System.Nullable(Of Date)(CType(from.Value, Date)), New System.Nullable(Of Date)(CType(tod.Value, Date)))
 
+        Me.TransactionsDS.EnforceConstraints = False
         Me.SalesTA.FillByTranNo(Me.TransactionsDS.Sales, Me.TextBox1.Text)
 
         Dim rc(Me.TransactionsDS.Sales.DefaultView.Count, 9)
@@ -114,7 +139,8 @@ Public Class CustomersSalesReport
         Dim subt As Long
         subt = Me.TransactionsDS.Sales.DefaultView.Count + 8
 
-        wsheet.Range("A8", "I" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Value = rc
+        wsheet.Range("A8", "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Value = rc
+        wsheet.Range("A8", "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Weight = 2
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString, "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString, "G" + (Me.TransactionsDS.Sales.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlDouble
         wsheet.Range("A" + (Me.TransactionsDS.Sales.DefaultView.Count + 10).ToString).Value = "Prepared By: " + user
@@ -123,7 +149,7 @@ Public Class CustomersSalesReport
 
         wsheet.Range("G" + (Me.TransactionsDS.Sales.DefaultView.Count + 9).ToString).Formula = "=Sum(G8:G" & lastrow & ")"
 
-
+        wbook.SaveAs(Application.StartupPath + "\SalesReportTranno.xls")
         xapp.Visible = True
     End Sub
 

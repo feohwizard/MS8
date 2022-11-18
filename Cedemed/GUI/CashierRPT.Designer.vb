@@ -94,9 +94,9 @@ Partial Class CashierRPT
         Me.Label3.Font = New System.Drawing.Font("Impact", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(50, 6)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(253, 26)
+        Me.Label3.Size = New System.Drawing.Size(279, 26)
         Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Generate Daily Sales Report"
+        Me.Label3.Text = "Generate Cashier Sales Report"
         '
         'tod
         '
@@ -140,7 +140,7 @@ Partial Class CashierRPT
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(104, 22)
         Me.Button1.TabIndex = 27
-        Me.Button1.Text = "Gen. Customer"
+        Me.Button1.Text = "Per Customer"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
@@ -149,7 +149,7 @@ Partial Class CashierRPT
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(104, 22)
         Me.Button2.TabIndex = 27
-        Me.Button2.Text = "Gen. Item"
+        Me.Button2.Text = "Per Item"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'TransTA

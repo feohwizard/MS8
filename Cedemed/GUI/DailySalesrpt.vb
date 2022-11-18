@@ -120,11 +120,7 @@ Public Class DailySalesrpt
 
         For x As Integer = 0 To Me.TransactionsDataset.Trans.DefaultView.Count - 1
             With Me.TransactionsDataset.Trans.DefaultView.Item(x)
-                If userlevel = "Administrator" Then
-                    rc(x, 0) = .Item("TransNo")
-                Else
-                    rc(x, 0) = .Item("intern")
-                End If
+                rc(x, 0) = .Item("TransNo")
                 rc(x, 1) = .Item("TransDate")
                 rc(x, 2) = .Item("CustName")
                 rc(x, 3) = .Item("Discount")
@@ -172,7 +168,7 @@ Public Class DailySalesrpt
         wsheet.Range("D" + (Me.TransactionsDataset.Trans.DefaultView.Count + 9).ToString.ToString).Font.Color = Color.Blue
         wsheet.Range("E" + (Me.TransactionsDataset.Trans.DefaultView.Count + 9).ToString.ToString).Font.Color = Color.Blue
 
-
+        wbook.SaveAs(Application.StartupPath + "\DSales1.xls")
         xapp.Visible = True
 
 

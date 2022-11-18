@@ -23,28 +23,21 @@ Partial Class StockInSummary
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StockInSummary))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.from = New System.Windows.Forms.DateTimePicker()
         Me.tod = New System.Windows.Forms.DateTimePicker()
-        Me.itemcombo1 = New System.Windows.Forms.ComboBox()
-        Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InventoryDataset = New Cedemed.InventoryDataset()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.suppliercombo = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.ItemsTableAdapter = New Cedemed.InventoryDatasetTableAdapters.ItemsTableAdapter()
         Me.StockInDataset = New Cedemed.StockInDataset()
         Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PurchasesTableAdapter = New Cedemed.StockInDatasetTableAdapters.PurchasesTableAdapter()
         Me.TableAdapterManager = New Cedemed.StockInDatasetTableAdapters.TableAdapterManager()
         Me.invtxt = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.TableAdapterManager1 = New Cedemed.InventoryDatasetTableAdapters.TableAdapterManager()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -58,15 +51,16 @@ Partial Class StockInSummary
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.typecombo2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.typecombo1 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.typecombo3 = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.InventoryDataset = New Cedemed.InventoryDataset()
+        Me.ItemsTableAdapter = New Cedemed.InventoryDatasetTableAdapters.ItemsTableAdapter()
+        Me.TableAdapterManager1 = New Cedemed.InventoryDatasetTableAdapters.TableAdapterManager()
+        Me.SupplierBS = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SuppliersTableAdapter = New Cedemed.InventoryDatasetTableAdapters.SuppliersTableAdapter()
         CType(Me.StockInDataset, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PurchasesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -75,8 +69,10 @@ Partial Class StockInSummary
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SupplierBS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -102,9 +98,9 @@ Partial Class StockInSummary
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(8, 22)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(30, 13)
+        Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Item:"
+        Me.Label3.Text = "Supplier:"
         '
         'Label4
         '
@@ -129,36 +125,13 @@ Partial Class StockInSummary
         Me.tod.Size = New System.Drawing.Size(281, 20)
         Me.tod.TabIndex = 5
         '
-        'itemcombo1
+        'suppliercombo
         '
-        Me.itemcombo1.DataSource = Me.ItemsBindingSource
-        Me.itemcombo1.DisplayMember = "IDesc"
-        Me.itemcombo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.itemcombo1.FormattingEnabled = True
-        Me.itemcombo1.Location = New System.Drawing.Point(79, 19)
-        Me.itemcombo1.Name = "itemcombo1"
-        Me.itemcombo1.Size = New System.Drawing.Size(281, 21)
-        Me.itemcombo1.TabIndex = 6
-        Me.itemcombo1.ValueMember = "ItemNo"
-        '
-        'ItemsBindingSource
-        '
-        Me.ItemsBindingSource.DataMember = "Items"
-        Me.ItemsBindingSource.DataSource = Me.InventoryDataset
-        '
-        'InventoryDataset
-        '
-        Me.InventoryDataset.DataSetName = "InventoryDataset"
-        Me.InventoryDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(381, 15)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 23)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.suppliercombo.FormattingEnabled = True
+        Me.suppliercombo.Location = New System.Drawing.Point(79, 19)
+        Me.suppliercombo.Name = "suppliercombo"
+        Me.suppliercombo.Size = New System.Drawing.Size(281, 21)
+        Me.suppliercombo.TabIndex = 6
         '
         'Button2
         '
@@ -177,10 +150,6 @@ Partial Class StockInSummary
         Me.Button3.TabIndex = 10
         Me.Button3.Text = "Exit"
         Me.Button3.UseVisualStyleBackColor = True
-        '
-        'ItemsTableAdapter
-        '
-        Me.ItemsTableAdapter.ClearBeforeFill = True
         '
         'StockInDataset
         '
@@ -204,19 +173,10 @@ Partial Class StockInSummary
         '
         'invtxt
         '
-        Me.invtxt.Location = New System.Drawing.Point(82, 22)
+        Me.invtxt.Location = New System.Drawing.Point(79, 47)
         Me.invtxt.Name = "invtxt"
-        Me.invtxt.Size = New System.Drawing.Size(100, 20)
+        Me.invtxt.Size = New System.Drawing.Size(281, 20)
         Me.invtxt.TabIndex = 11
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 25)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 13)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Invoice No.:"
         '
         'Button4
         '
@@ -226,12 +186,6 @@ Partial Class StockInSummary
         Me.Button4.TabIndex = 13
         Me.Button4.Text = "Generate"
         Me.Button4.UseVisualStyleBackColor = True
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Connection = Nothing
-        Me.TableAdapterManager1.UpdateOrder = Cedemed.InventoryDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Button5
         '
@@ -244,16 +198,16 @@ Partial Class StockInSummary
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
+        Me.GroupBox1.BackColor = System.Drawing.Color.Teal
         Me.GroupBox1.Controls.Add(Me.Button6)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 319)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 252)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(482, 53)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Generate / Near Expiry"
+        Me.GroupBox1.Text = "Generate Stocks by Year of Expiration"
         '
         'Button6
         '
@@ -266,19 +220,19 @@ Partial Class StockInSummary
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(188, 17)
+        Me.TextBox1.Location = New System.Drawing.Point(79, 17)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(82, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(281, 20)
         Me.TextBox1.TabIndex = 1
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(20, 20)
+        Me.Label6.Location = New System.Drawing.Point(41, 20)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(162, 13)
+        Me.Label6.Size = New System.Drawing.Size(32, 13)
         Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Generate Items that will expire in "
+        Me.Label6.Text = "Year:"
         '
         'NearExpiry
         '
@@ -302,7 +256,7 @@ Partial Class StockInSummary
         '
         'GroupBox2
         '
-        Me.GroupBox2.BackColor = System.Drawing.Color.CadetBlue
+        Me.GroupBox2.BackColor = System.Drawing.Color.Teal
         Me.GroupBox2.Controls.Add(Me.from)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Label2)
@@ -316,7 +270,7 @@ Partial Class StockInSummary
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.Color.PowderBlue
+        Me.GroupBox3.BackColor = System.Drawing.Color.Teal
         Me.GroupBox3.Controls.Add(Me.typecombo2)
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.Button4)
@@ -339,68 +293,35 @@ Partial Class StockInSummary
         '
         'GroupBox4
         '
-        Me.GroupBox4.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.GroupBox4.Controls.Add(Me.typecombo1)
+        Me.GroupBox4.BackColor = System.Drawing.Color.Teal
         Me.GroupBox4.Controls.Add(Me.Label7)
-        Me.GroupBox4.Controls.Add(Me.itemcombo1)
+        Me.GroupBox4.Controls.Add(Me.invtxt)
+        Me.GroupBox4.Controls.Add(Me.suppliercombo)
         Me.GroupBox4.Controls.Add(Me.Label3)
         Me.GroupBox4.Controls.Add(Me.Button2)
-        Me.GroupBox4.Controls.Add(Me.Button1)
         Me.GroupBox4.Location = New System.Drawing.Point(12, 166)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(482, 80)
         Me.GroupBox4.TabIndex = 18
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Generate Stock In by Item Type and Product Type"
-        '
-        'typecombo1
-        '
-        Me.typecombo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.typecombo1.FormattingEnabled = True
-        Me.typecombo1.Items.AddRange(New Object() {"AV", "CT", "OE", "SU", "SY"})
-        Me.typecombo1.Location = New System.Drawing.Point(79, 46)
-        Me.typecombo1.Name = "typecombo1"
-        Me.typecombo1.Size = New System.Drawing.Size(281, 21)
-        Me.typecombo1.TabIndex = 7
+        Me.GroupBox4.Text = "Purchases by Supplier / Invoice"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(6, 49)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 13)
+        Me.Label7.Size = New System.Drawing.Size(62, 13)
         Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Item Type:"
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.GroupBox5.Controls.Add(Me.Button7)
-        Me.GroupBox5.Controls.Add(Me.invtxt)
-        Me.GroupBox5.Controls.Add(Me.Label5)
-        Me.GroupBox5.Location = New System.Drawing.Point(12, 252)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(482, 57)
-        Me.GroupBox5.TabIndex = 19
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Generate incoming Stock / Supplier Invioce No."
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(384, 20)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(80, 23)
-        Me.Button7.TabIndex = 13
-        Me.Button7.Text = "Generate"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.Label7.Text = "Invoice No:"
         '
         'GroupBox6
         '
-        Me.GroupBox6.BackColor = System.Drawing.Color.DodgerBlue
+        Me.GroupBox6.BackColor = System.Drawing.Color.Teal
         Me.GroupBox6.Controls.Add(Me.typecombo3)
         Me.GroupBox6.Controls.Add(Me.Label8)
         Me.GroupBox6.Controls.Add(Me.Button5)
-        Me.GroupBox6.Location = New System.Drawing.Point(12, 378)
+        Me.GroupBox6.Location = New System.Drawing.Point(12, 311)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(482, 52)
         Me.GroupBox6.TabIndex = 20
@@ -411,7 +332,7 @@ Partial Class StockInSummary
         '
         Me.typecombo3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.typecombo3.FormattingEnabled = True
-        Me.typecombo3.Items.AddRange(New Object() {"AV", "CT", "OE", "SU", "SY"})
+        Me.typecombo3.Items.AddRange(New Object() {"", "AV", "CT", "OE", "SU", "SY"})
         Me.typecombo3.Location = New System.Drawing.Point(82, 19)
         Me.typecombo3.Name = "typecombo3"
         Me.typecombo3.Size = New System.Drawing.Size(281, 21)
@@ -426,15 +347,43 @@ Partial Class StockInSummary
         Me.Label8.TabIndex = 3
         Me.Label8.Text = "Item Type:"
         '
+        'ItemsBindingSource
+        '
+        Me.ItemsBindingSource.DataMember = "Items"
+        Me.ItemsBindingSource.DataSource = Me.InventoryDataset
+        '
+        'InventoryDataset
+        '
+        Me.InventoryDataset.DataSetName = "InventoryDataset"
+        Me.InventoryDataset.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ItemsTableAdapter
+        '
+        Me.ItemsTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Cedemed.InventoryDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'SupplierBS
+        '
+        Me.SupplierBS.DataMember = "Suppliers"
+        Me.SupplierBS.DataSource = Me.InventoryDataset
+        '
+        'SuppliersTableAdapter
+        '
+        Me.SuppliersTableAdapter.ClearBeforeFill = True
+        '
         'StockInSummary
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackColor = System.Drawing.Color.Teal
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(508, 444)
+        Me.ClientSize = New System.Drawing.Size(508, 375)
         Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -443,8 +392,6 @@ Partial Class StockInSummary
         Me.Name = "StockInSummary"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stock Summary Report"
-        CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StockInDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PurchasesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -457,21 +404,21 @@ Partial Class StockInSummary
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
+        CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryDataset, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SupplierBS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents from As System.Windows.Forms.DateTimePicker
     Friend WithEvents tod As System.Windows.Forms.DateTimePicker
-    Friend WithEvents itemcombo1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents suppliercombo As System.Windows.Forms.ComboBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents ItemsBindingSource As System.Windows.Forms.BindingSource
@@ -482,7 +429,6 @@ End Sub
     Friend WithEvents PurchasesTableAdapter As Cedemed.StockInDatasetTableAdapters.PurchasesTableAdapter
     Friend WithEvents TableAdapterManager As Cedemed.StockInDatasetTableAdapters.TableAdapterManager
     Friend WithEvents invtxt As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents TableAdapterManager1 As Cedemed.InventoryDatasetTableAdapters.TableAdapterManager
     Friend WithEvents Button5 As System.Windows.Forms.Button
@@ -497,12 +443,11 @@ End Sub
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents typecombo1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents typecombo2 As System.Windows.Forms.ComboBox
-    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents typecombo3 As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents SupplierBS As BindingSource
+    Friend WithEvents SuppliersTableAdapter As InventoryDatasetTableAdapters.SuppliersTableAdapter
 End Class

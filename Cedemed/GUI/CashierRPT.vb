@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Office.Interop
+Imports System.IO
 Public Class CashierRPT
     Private Sub fixtransno()
         Dim start As Integer
@@ -28,7 +29,16 @@ Public Class CashierRPT
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
 
-        'On Error Resume Next
+        If File.Exists(Application.StartupPath + "\DSalesCashier.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\DSalesCashier.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
+
 
         If tod.Value < from.Value Then
             MsgBox("Invalid Entry")
@@ -46,7 +56,7 @@ Public Class CashierRPT
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\DSalesCashier.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\DSalesCashier.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
@@ -122,12 +132,20 @@ Public Class CashierRPT
         wsheet.Range("D" + (Me.TransactionsDS.Trans.DefaultView.Count + 9).ToString.ToString).Font.Color = Color.Blue
         wsheet.Range("E" + (Me.TransactionsDS.Trans.DefaultView.Count + 9).ToString.ToString).Font.Color = Color.Blue
 
-
+        wbook.SaveAs(Application.StartupPath + "\DSalesCashier.xls")
         xapp.Visible = True
     End Sub
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-        'On Error Resume Next
+        If File.Exists(Application.StartupPath + "\SalesReportCashier.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\SalesReportCashier.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
 
         If tod.Value < from.Value Then
             MsgBox("Invalid Entry")
@@ -145,7 +163,7 @@ Public Class CashierRPT
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
 
-        xapp.Workbooks.Open(Application.StartupPath + "\SalesReportCashier.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\SalesReportCashier.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
@@ -168,13 +186,7 @@ Public Class CashierRPT
 
         For x As Integer = 0 To Me.TransactionsDS.Sales.DefaultView.Count - 1
             With Me.TransactionsDS.Sales.DefaultView.Item(x)
-
-                If userlevel = "Administrator" Then
-                    rc(x, 0) = .Item("TransNo")
-                Else
-                    rc(x, 0) = .Item("intern")
-                End If
-
+                rc(x, 0) = .Item("TransNo")
                 rc(x, 1) = .Item("SalesDT")
                 rc(x, 2) = .Item("ItemNo")
                 rc(x, 3) = .Item("IDesc")
@@ -199,7 +211,7 @@ Public Class CashierRPT
 
         wsheet.Range("G" + (Me.TransactionsDS.Sales.DefaultView.Count + 9).ToString).Formula = "=Sum(G8:G" & lastrow & ")"
 
-
+        wbook.SaveAs(Application.StartupPath + "\SalesReportCashier.xls")
         xapp.Visible = True
     End Sub
 End Class

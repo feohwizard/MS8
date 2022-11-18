@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MDIMAINWINDOW
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@ Partial Class MDIMAINWINDOW
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDIMAINWINDOW))
@@ -71,7 +71,6 @@ Partial Class MDIMAINWINDOW
         Me.RistrictionDataSet = New Cedemed.RistrictionDataSet()
         Me.UsersRestrictionTableAdapter = New Cedemed.RistrictionDataSetTableAdapters.UsersRestrictionTableAdapter()
         Me.TableAdapterManager = New Cedemed.RistrictionDataSetTableAdapters.TableAdapterManager()
-        Me.MonthlyPurchasesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -175,7 +174,7 @@ Partial Class MDIMAINWINDOW
         '
         'AdministratorReportsTSMI
         '
-        Me.AdministratorReportsTSMI.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdminSalesReportToolStripMenuItem, Me.GovtSalesReportToolStripMenuItem, Me.MonthlyPurchasesToolStripMenuItem})
+        Me.AdministratorReportsTSMI.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdminSalesReportToolStripMenuItem, Me.GovtSalesReportToolStripMenuItem})
         Me.AdministratorReportsTSMI.Name = "AdministratorReportsTSMI"
         Me.AdministratorReportsTSMI.Size = New System.Drawing.Size(201, 22)
         Me.AdministratorReportsTSMI.Text = "Administrator Reports"
@@ -183,13 +182,13 @@ Partial Class MDIMAINWINDOW
         'AdminSalesReportToolStripMenuItem
         '
         Me.AdminSalesReportToolStripMenuItem.Name = "AdminSalesReportToolStripMenuItem"
-        Me.AdminSalesReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.AdminSalesReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AdminSalesReportToolStripMenuItem.Text = "Admin Sales Report"
         '
         'GovtSalesReportToolStripMenuItem
         '
         Me.GovtSalesReportToolStripMenuItem.Name = "GovtSalesReportToolStripMenuItem"
-        Me.GovtSalesReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.GovtSalesReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.GovtSalesReportToolStripMenuItem.Text = "Gov't Sales Report"
         '
         'StockTransfersToolStripMenuItem
@@ -387,12 +386,6 @@ Partial Class MDIMAINWINDOW
         Me.TableAdapterManager.UpdateOrder = Cedemed.RistrictionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UsersRestrictionTableAdapter = Me.UsersRestrictionTableAdapter
         '
-        'MonthlyPurchasesToolStripMenuItem
-        '
-        Me.MonthlyPurchasesToolStripMenuItem.Name = "MonthlyPurchasesToolStripMenuItem"
-        Me.MonthlyPurchasesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MonthlyPurchasesToolStripMenuItem.Text = "Monthly Purchases"
-        '
         'MDIMAINWINDOW
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -469,5 +462,4 @@ Partial Class MDIMAINWINDOW
     Friend WithEvents InventoryLockToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventoryCheckToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ItemRestrictionToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MonthlyPurchasesToolStripMenuItem As ToolStripMenuItem
 End Class
