@@ -431,9 +431,6 @@ Public Class Masterform
             Catch ex As Exception
                 ms = ms + "Tanedo"
             End Try
-            conn.Open()
-            com.ExecuteNonQuery()
-            conn.Close()
         End If
 
         If sanvicente.Checked = True Then

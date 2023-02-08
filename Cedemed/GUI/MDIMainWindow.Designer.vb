@@ -182,13 +182,13 @@ Partial Class MDIMAINWINDOW
         'AdminSalesReportToolStripMenuItem
         '
         Me.AdminSalesReportToolStripMenuItem.Name = "AdminSalesReportToolStripMenuItem"
-        Me.AdminSalesReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AdminSalesReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.AdminSalesReportToolStripMenuItem.Text = "Admin Sales Report"
         '
         'GovtSalesReportToolStripMenuItem
         '
         Me.GovtSalesReportToolStripMenuItem.Name = "GovtSalesReportToolStripMenuItem"
-        Me.GovtSalesReportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.GovtSalesReportToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.GovtSalesReportToolStripMenuItem.Text = "Gov't Sales Report"
         '
         'StockTransfersToolStripMenuItem
@@ -252,6 +252,7 @@ Partial Class MDIMAINWINDOW
         Me.BranchInventoryToolStripMenuItem.Name = "BranchInventoryToolStripMenuItem"
         Me.BranchInventoryToolStripMenuItem.Size = New System.Drawing.Size(109, 20)
         Me.BranchInventoryToolStripMenuItem.Text = "Branch Inventory"
+        Me.BranchInventoryToolStripMenuItem.Visible = False
         '
         'BranchCurrentInventoryToolStripMenuItem
         '

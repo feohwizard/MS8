@@ -27,8 +27,8 @@ Partial Class RecieveStocks
         Dim FrombranchLabel As System.Windows.Forms.Label
         Dim TobranchLabel As System.Windows.Forms.Label
         Dim TransactionuserLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RecieveStocks))
         Dim CommontransLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RecieveStocks))
         Me.ReceiveDataset = New Cedemed.ReceiveDataset()
         Me.RecevBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RecevTableAdapter = New Cedemed.ReceiveDatasetTableAdapters.RecevTableAdapter()
@@ -106,6 +106,15 @@ Partial Class RecieveStocks
         TransactionuserLabel.TabIndex = 6
         TransactionuserLabel.Text = "Transferred By:"
         '
+        'CommontransLabel
+        '
+        CommontransLabel.AutoSize = True
+        CommontransLabel.Location = New System.Drawing.Point(33, 91)
+        CommontransLabel.Name = "CommontransLabel"
+        CommontransLabel.Size = New System.Drawing.Size(77, 13)
+        CommontransLabel.TabIndex = 11
+        CommontransLabel.Text = "Reference No:"
+        '
         'ReceiveDataset
         '
         Me.ReceiveDataset.DataSetName = "ReceiveDataset"
@@ -123,6 +132,7 @@ Partial Class RecieveStocks
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.ClaimableTableAdapter = Nothing
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.RecevTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Cedemed.ReceiveDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -173,8 +183,8 @@ Partial Class RecieveStocks
         Me.RecevItemsDataGridView.AllowUserToAddRows = False
         Me.RecevItemsDataGridView.AllowUserToDeleteRows = False
         Me.RecevItemsDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RecevItemsDataGridView.AutoGenerateColumns = False
         Me.RecevItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.RecevItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
@@ -282,6 +292,7 @@ Partial Class RecieveStocks
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -324,15 +335,6 @@ Partial Class RecieveStocks
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Print"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'CommontransLabel
-        '
-        CommontransLabel.AutoSize = True
-        CommontransLabel.Location = New System.Drawing.Point(33, 91)
-        CommontransLabel.Name = "CommontransLabel"
-        CommontransLabel.Size = New System.Drawing.Size(77, 13)
-        CommontransLabel.TabIndex = 11
-        CommontransLabel.Text = "Reference No:"
         '
         'CommontransTextBox
         '

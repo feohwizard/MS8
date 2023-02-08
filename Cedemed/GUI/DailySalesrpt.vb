@@ -121,7 +121,7 @@ Public Class DailySalesrpt
         For x As Integer = 0 To Me.TransactionsDataset.Trans.DefaultView.Count - 1
             With Me.TransactionsDataset.Trans.DefaultView.Item(x)
                 rc(x, 0) = .Item("TransNo")
-                rc(x, 1) = .Item("TransDate")
+                rc(x, 1) = .Item("serverdate")
                 rc(x, 2) = .Item("CustName")
                 rc(x, 3) = .Item("Discount")
                 rc(x, 8) = .Item("PayMode")
@@ -133,7 +133,6 @@ Public Class DailySalesrpt
                     rc(x, 5) = .Item("Total")
                 ElseIf .Item("Paymode") = "GOVT" Then
                     rc(x, 7) = .Item("Total")
-
                 End If
             End With
         Next

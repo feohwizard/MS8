@@ -525,7 +525,7 @@ Partial Public Class NearExpiry
             Me.columninventory.ReadOnly = true
             Me.columntransfer.ReadOnly = true
             Me.columnremaining.ReadOnly = true
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
             Me.columnIUnit.MaxLength = 50
         End Sub
         

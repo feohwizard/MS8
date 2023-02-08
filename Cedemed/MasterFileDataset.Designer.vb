@@ -671,7 +671,7 @@ Partial Public Class MasterFileDataset
             Me.columnItemNo.AutoIncrementStep = -1
             Me.columnItemNo.AllowDBNull = false
             Me.columnItemNo.ReadOnly = true
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
             Me.columnIUnit.MaxLength = 50
             Me.columnTotal.ReadOnly = true
             Me.columnTotal.DefaultValue = CType(0,Integer)

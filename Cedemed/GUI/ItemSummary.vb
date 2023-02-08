@@ -1,4 +1,5 @@
 ﻿Imports Microsoft.Office.Interop
+Imports System.IO
 Public Class ItemSummary
     Private Sub ItemSummary_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.ItemsDescriptionTableAdapter.Fill(Me.InventoryDataset.ItemsDescription)
@@ -6,12 +7,22 @@ Public Class ItemSummary
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If File.Exists(Application.StartupPath + "\STOCK IN SOLD.xls") = True Then
+            Try
+                System.IO.File.Delete(Application.StartupPath + "\STOCK IN SOLD.xls")
+            Catch ex As Exception
+                MsgBox("File in use. Please try again.")
+                Exit Sub
+            End Try
+        Else
+        End If
+
         Dim xapp As New Excel.Application
         Dim wbook As Excel.Workbook
         Dim wsheet As Excel.Worksheet
         Dim d1 As Date = DateValue(from.Value)
         Dim d2 As Date = DateValue(tod.Value)
-        xapp.Workbooks.Open(Application.StartupPath + "\STOCK IN SOLD.xls")
+        xapp.Workbooks.Open(Application.StartupPath + "\ReportTemplates\STOCK IN SOLD.xls")
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
@@ -64,7 +75,7 @@ Public Class ItemSummary
                     rc(x, 3) = "Balance Forwarded"
                     rc(x, 5) = .Item("Qty")
                     rc(x, 6) = ""
-                        rc(x, 7) = ""
+                    rc(x, 7) = ""
                     If x = 0 Then
                         rc(x, 8) = "=F8+G8+H8"
                     Else
@@ -123,11 +134,13 @@ Public Class ItemSummary
 
 
         wsheet.Range("A8", "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 7).ToString).Value = rc
-            wsheet.Range("A8", "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 7).ToString).Borders.Weight = 2
-            wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString, "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous
-            wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString, "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlDouble
-            wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 10).ToString).Value = "Prepared By: " + user
+        wsheet.Range("A8", "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 7).ToString).Borders.Weight = 2
+        wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString, "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeTop).LineStyle = Excel.XlLineStyle.xlContinuous
+        wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString, "J" + (Me.StockInDataset.Purchases.DefaultView.Count + 8).ToString).Borders.Item(Excel.XlBordersIndex.xlEdgeBottom).LineStyle = Excel.XlLineStyle.xlDouble
+        wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 10).ToString).Value = "Prepared By: " + user
         wsheet.Range("A" + (Me.StockInDataset.Purchases.DefaultView.Count + 12).ToString).Value = "Verified By:_________________"
+
+        wbook.SaveAs(Application.StartupPath + "\STOCK IN SOLD.xls")
         xapp.Visible = True
     End Sub
 

@@ -1066,7 +1066,7 @@ Namespace StockDatasetTableAdapters
                 "                            ((SELECT        SUM(Qty) AS transum"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
                 "                  FROM            TranferItems AS trantran"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
                 "             WHERE        (ItemNo = Purchases.ItemNo) AND (Expiry = Purchases.Ex"& _ 
-                "piry) AND (lotno = Purchases.MRRNo)), 0) AS transfer"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Purchases"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ItemNo = @item)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Expiry DESC, lotno"
+                "piry) AND (lotno = Purchases.MRRNo)), 0) AS transfer"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Purchases"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ItemNo = @item)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Expiry ASC, lotno"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@item", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub

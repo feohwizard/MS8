@@ -25,9 +25,9 @@ Partial Class Sales
         Me.components = New System.ComponentModel.Container()
         Dim NameLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sales))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Searchbox = New System.Windows.Forms.TextBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -99,6 +99,7 @@ Partial Class Sales
         Me.Apply20DiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ApplyCustomDiscountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ApplyMarkupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApplyPesoValueToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InventoryDataset = New Cedemed.InventoryDataset()
         Me.ItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -632,9 +633,9 @@ Partial Class Sales
         '
         Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "SRP"
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn6.HeaderText = "SRP"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
@@ -653,9 +654,9 @@ Partial Class Sales
         '
         Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewTextBoxColumn8.DataPropertyName = "Amount"
-        DataGridViewCellStyle5.Format = "N2"
-        DataGridViewCellStyle5.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn8.HeaderText = "Amount Due"
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.ReadOnly = True
@@ -682,9 +683,9 @@ Partial Class Sales
         'DataGridViewTextBoxColumn16
         '
         Me.DataGridViewTextBoxColumn16.DataPropertyName = "Cost"
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = "0.00"
-        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        Me.DataGridViewTextBoxColumn16.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn16.HeaderText = "Cost"
         Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
         Me.DataGridViewTextBoxColumn16.ReadOnly = True
@@ -700,9 +701,9 @@ Partial Class Sales
         '
         'discountM
         '
-        Me.discountM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalRateToolStripMenuItem, Me.Apply2DiscountToolStripMenuItem, Me.Apply10DiscountToolStripMenuItem, Me.Apply20DiscountToolStripMenuItem, Me.ApplyCustomDiscountToolStripMenuItem, Me.ApplyMarkupToolStripMenuItem})
+        Me.discountM.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalRateToolStripMenuItem, Me.Apply2DiscountToolStripMenuItem, Me.Apply10DiscountToolStripMenuItem, Me.Apply20DiscountToolStripMenuItem, Me.ApplyCustomDiscountToolStripMenuItem, Me.ApplyMarkupToolStripMenuItem, Me.ApplyPesoValueToolStripMenuItem})
         Me.discountM.Name = "discountM"
-        Me.discountM.Size = New System.Drawing.Size(201, 136)
+        Me.discountM.Size = New System.Drawing.Size(201, 180)
         '
         'NormalRateToolStripMenuItem
         '
@@ -738,7 +739,13 @@ Partial Class Sales
         '
         Me.ApplyMarkupToolStripMenuItem.Name = "ApplyMarkupToolStripMenuItem"
         Me.ApplyMarkupToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
-        Me.ApplyMarkupToolStripMenuItem.Text = "Apply Markup"
+        Me.ApplyMarkupToolStripMenuItem.Text = "Apply Custom Markup"
+        '
+        'ApplyPesoValueToolStripMenuItem
+        '
+        Me.ApplyPesoValueToolStripMenuItem.Name = "ApplyPesoValueToolStripMenuItem"
+        Me.ApplyPesoValueToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ApplyPesoValueToolStripMenuItem.Text = "Apply Peso Value"
         '
         'PurchasesBindingSource
         '
@@ -895,4 +902,5 @@ Partial Class Sales
     Friend WithEvents ApplyCustomDiscountToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NormalRateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ApplyMarkupToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ApplyPesoValueToolStripMenuItem As ToolStripMenuItem
 End Class

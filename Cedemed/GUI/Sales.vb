@@ -65,8 +65,21 @@ Public Class Sales
             Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
         End Try
 
-        Dim itm As New ListViewItem
+        populatelist()
+        assigncustomer()
+        If userlevel = "Administrator" Then
+            Me.PurchasesDataGridView1.Columns(1).ReadOnly = False
+            Button2.Enabled = True
+        Else
+            Me.PurchasesDataGridView1.Columns(1).ReadOnly = True
+            Button2.Enabled = False
+        End If
 
+    End Sub
+
+    Private Sub populatelist()
+        Dim itm As New ListViewItem
+        ListView1.Items.Clear()
         For x As Integer = 0 To Me.InventoryDataset.Items.DefaultView.Count - 1
             Dim str(4) As String
             str(0) = Me.InventoryDataset.Items.DefaultView.Item(x).Item("IDesc").ToString
@@ -86,34 +99,30 @@ Public Class Sales
             itm = New ListViewItem(str)
             Me.ListView1.Items.Add(itm)
         Next
-        assigncustomer()
-        If userlevel = "Administrator" Then
-            Me.PurchasesDataGridView1.Columns(1).ReadOnly = False
-        Else
-            Me.PurchasesDataGridView1.Columns(1).ReadOnly = True
-        End If
-
     End Sub
 
     Private Sub Searchbox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Searchbox.KeyPress
         If e.KeyChar = ChrW(13) Then
-
+            e.Handled = True
             If Searchbox.Text = "" Then
+                Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
+                populatelist()
                 ListView1.Items(0).Selected = True
-                'Me.ItemsTableAdapter.Fill(Me.InventoryDataset.Items)
             Else
-
+                Me.ItemsTableAdapter.FillByDescription(Me.InventoryDataset.Items, Searchbox.Text)
+                populatelist()
                 For x As Integer = 0 To ListView1.Items.Count - 1
 
-                    If ListView1.Items(x).SubItems(0).Text.IndexOf(Searchbox.Text) = 0 Then
+                    If ListView1.Items(x).SubItems(0).Text.Contains(Searchbox.Text) Then
                         ListView1.SelectedItems.Clear()
                         ListView1.Select()
                         ListView1.Items(x).Selected = True
                         ListView1.EnsureVisible(x)
+                        ListView1.Focus()
                         Exit Sub
                     End If
                 Next
-                'Me.ItemsTableAdapter.FillByDescription(Me.InventoryDataset.Items, Searchbox.Text)
+
             End If
         End If
     End Sub
@@ -347,7 +356,10 @@ Public Class Sales
                 changetxt.Text = (p - grandtotal).ToString("N")
                 Dim s As String = MsgBox("Are you sure you want to save this transaction?", vbYesNo, "Confirmation")
                 If s = vbYes Then
-
+                    If Me.InventoryDataset.Purchases.Rows.Count = 0 Then
+                        MsgBox("No Items to transact. Please add Items first before proceeding with payment.", vbOKOnly, "Message")
+                        Exit Sub
+                    End If
                 Else
                     Exit Sub
                 End If
@@ -599,17 +611,45 @@ Public Class Sales
         totalpaymenttxt.Text = Me.InventoryDataset.Purchases.total.ToString("N")
     End Sub
 
+    Private Sub ApplyPesoValueToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ApplyPesoValueToolStripMenuItem.Click
+
+        Dim vv As String = "0"
+        Try
+            vv = InputBox("Enter Custom SRP:", "Suggested Retail Price")
+            If IsNumeric(vv) Then
+            Else
+                MsgBox("Invalid Price", vbOKOnly, "Message")
+            End If
+
+        Catch ex As Exception
+        End Try
+        For Each rw As DataGridViewRow In Me.PurchasesDataGridView1.SelectedRows
+            rw.Cells(1).Value = CType(vv, Decimal)
+            rw.Cells(7).Value = "Custom Peso"
+
+        Next
+        refreshgrid()
+    End Sub
+
     Private Sub PurchasesDataGridView1_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles PurchasesDataGridView1.CellMouseUp
         If PurchasesDataGridView1.SelectedRows.Count = 0 Then
             discountM.Items(0).Enabled = False
             discountM.Items(1).Enabled = False
             discountM.Items(2).Enabled = False
             discountM.Items(3).Enabled = False
+            discountM.Items(4).Enabled = False
+            discountM.Items(5).Enabled = False
         Else
             discountM.Items(0).Enabled = True
             discountM.Items(1).Enabled = True
             discountM.Items(2).Enabled = True
             discountM.Items(3).Enabled = True
+            discountM.Items(4).Enabled = True
+            discountM.Items(5).Enabled = True
         End If
+    End Sub
+
+    Private Sub Searchbox_QueryAccessibilityHelp(sender As Object, e As QueryAccessibilityHelpEventArgs) Handles Searchbox.QueryAccessibilityHelp
+
     End Sub
 End Class

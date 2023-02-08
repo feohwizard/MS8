@@ -16,6 +16,7 @@ Public Class SalesRecieptForm
         'Me.SalesTableAdapter.Fill(Me.TransactionsDataset.Sales)
         'TODO: This line of code loads data into the 'TransactionsDataset.Trans' table. You can move, or remove it, as needed.
         'Me.TransTableAdapter.Fill(Me.TransactionsDataset.Trans)
+        'MsgBox("Total before processing " + total.ToString)
         Dim rw As DataRow
         rw = Me.TransactionsDataset.Trans.NewRow
         rw("TransDate") = Now.Date
@@ -25,12 +26,16 @@ Public Class SalesRecieptForm
         rw("PayMode") = "CASH"
         rw("CustName") = customer
         rw("ref") = 1
+        rw("serverdate") = Now
+        'MsgBox("total after assigning " + rw("Total").ToString)
+
         Me.TransactionsDataset.Trans.Rows.Add(rw)
+        'MsgBox("Total after added to the row " + Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("Total").ToString)
         Me.Validate()
         Me.TransBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.TransactionsDataset)
         Me.TransBindingSource.Position = 0
-
+        'MsgBox("total after after saving " + Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("Total").ToString)
         For x = 0 To salesform.InventoryDataset.Purchases.Rows.Count - 1
             rw = Me.TransactionsDataset.Sales.NewRow
             rw("TransNo") = Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("TransNo")
@@ -63,6 +68,79 @@ Public Class SalesRecieptForm
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+recheck:
+        If Me.TransactionsDataset.Sales.Rows.Count = 0 Then
+            Dim xx As String = MsgBox("Unable to retrieve items from Sales Form. Do you want to retry retrieving?", vbYesNo, "Confirmation")
+            If xx = vbYes Then
+                Try
+                    Dim rw As DataRow
+                    For x = 0 To salesform.InventoryDataset.Purchases.Rows.Count - 1
+                        rw = Me.TransactionsDataset.Sales.NewRow
+                        rw("TransNo") = Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("TransNo")
+                        rw("SalesDT") = Me.TransDateDateTimePicker.Value.ToShortDateString
+                        rw("ItemNo") = salesform.InventoryDataset.Purchases.Item(x).Item("ItemNo")
+                        rw("Ucost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Cost"), Decimal)
+                        rw("SRP") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("SRP"), Decimal)
+                        rw("Ncost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("NCost"), Decimal)
+                        rw("UnitSold") = salesform.InventoryDataset.Purchases.Item(x).Item("Qty")
+                        rw("PS") = 0
+                        rw("expiry") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Expiry"), Date)
+                        rw("lotno") = salesform.InventoryDataset.Purchases.Item(x).Item("LotNo")
+                        Me.TransactionsDataset.Sales.Rows.Add(rw)
+                    Next
+                    GoTo recheck
+                Catch ex As Exception
+                    MsgBox("Error retrieving items from sales form. Consider cancelling the transaction by clicking on the Cancel Button and write down the reference no." + vbCrLf + ex.Message, vbOKOnly, "Message")
+                    Exit Sub
+                End Try
+            Else
+                MsgBox("Posting Cancelled", vbOKOnly, "Message")
+                Exit Sub
+            End If
+        End If
+
+recheck2:
+        If salesform.InventoryDataset.Purchases.Rows.Count = Me.TransactionsDataset.Sales.Count Then
+        Else
+            Dim xx As String = MsgBox("Item mismatch from Sales Form. Do you want to retry retrieving?", vbYesNo, "Confirmation")
+            If xx = vbYes Then
+                Me.TransactionsDataset.Sales.Clear()
+                Try
+                    Dim rw As DataRow
+                    For x = 0 To salesform.InventoryDataset.Purchases.Rows.Count - 1
+                        rw = Me.TransactionsDataset.Sales.NewRow
+                        rw("TransNo") = Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("TransNo")
+                        rw("SalesDT") = Me.TransDateDateTimePicker.Value.ToShortDateString
+                        rw("ItemNo") = salesform.InventoryDataset.Purchases.Item(x).Item("ItemNo")
+                        rw("Ucost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Cost"), Decimal)
+                        rw("SRP") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("SRP"), Decimal)
+                        rw("Ncost") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("NCost"), Decimal)
+                        rw("UnitSold") = salesform.InventoryDataset.Purchases.Item(x).Item("Qty")
+                        rw("PS") = 0
+                        rw("expiry") = CType(salesform.InventoryDataset.Purchases.Item(x).Item("Expiry"), Date)
+                        rw("lotno") = salesform.InventoryDataset.Purchases.Item(x).Item("LotNo")
+                        Me.TransactionsDataset.Sales.Rows.Add(rw)
+                    Next
+                    GoTo recheck2
+                Catch ex As Exception
+                    MsgBox("Error retrieving items from sales form. Consider cancelling the transaction by clicking on the Cancel Button and write down the reference no." + vbCrLf + ex.Message, vbOKOnly, "Message")
+                    Exit Sub
+                End Try
+            Else
+                MsgBox("Posting Cancelled", vbOKOnly, "Message")
+                Exit Sub
+            End If
+        End If
+
+        For Each rw As DataRow In Me.TransactionsDataset.Sales.Rows
+            If rw("TransNo") = Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("TransNo") Then
+            Else
+                MsgBox("Posting Cancelled. Some items has invalid Data. Consider cancelling the transaction by clicking on the Cancel Button and write down the reference no.", vbOKOnly, "Message")
+                Exit Sub
+            End If
+        Next
+
+
         Me.Validate()
         Me.TransBindingSource.EndEdit()
         Me.SalesBindingSource.EndEdit()

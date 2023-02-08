@@ -263,7 +263,7 @@ WHERE        (NOT (success = 'Successful')) OR
   <xs:element name="ReceiveDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ReceiveDataset" msprop:Generator_UserDSName="ReceiveDataset">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Recev" msprop:Generator_TableClassName="RecevDataTable" msprop:Generator_TableVarName="tableRecev" msprop:Generator_TablePropName="Recev" msprop:Generator_RowDeletingName="RecevRowDeleting" msprop:Generator_RowChangingName="RecevRowChanging" msprop:Generator_RowEvHandlerName="RecevRowChangeEventHandler" msprop:Generator_RowDeletedName="RecevRowDeleted" msprop:Generator_UserTableName="Recev" msprop:Generator_RowChangedName="RecevRowChanged" msprop:Generator_RowEvArgName="RecevRowChangeEvent" msprop:Generator_RowClassName="RecevRow">
+        <xs:element name="Recev" msprop:Generator_TableClassName="RecevDataTable" msprop:Generator_TableVarName="tableRecev" msprop:Generator_RowChangedName="RecevRowChanged" msprop:Generator_TablePropName="Recev" msprop:Generator_RowDeletingName="RecevRowDeleting" msprop:Generator_RowChangingName="RecevRowChanging" msprop:Generator_RowEvHandlerName="RecevRowChangeEventHandler" msprop:Generator_RowDeletedName="RecevRowDeleted" msprop:Generator_RowClassName="RecevRow" msprop:Generator_UserTableName="Recev" msprop:Generator_RowEvArgName="RecevRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="transid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columntransid" msprop:Generator_ColumnPropNameInRow="transid" msprop:Generator_ColumnPropNameInTable="transidColumn" msprop:Generator_UserColumnName="transid" type="xs:int" />
@@ -318,7 +318,7 @@ WHERE        (NOT (success = 'Successful')) OR
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RecevItems" msprop:Generator_TableClassName="RecevItemsDataTable" msprop:Generator_TableVarName="tableRecevItems" msprop:Generator_TablePropName="RecevItems" msprop:Generator_RowDeletingName="RecevItemsRowDeleting" msprop:Generator_RowChangingName="RecevItemsRowChanging" msprop:Generator_RowEvHandlerName="RecevItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="RecevItemsRowDeleted" msprop:Generator_UserTableName="RecevItems" msprop:Generator_RowChangedName="RecevItemsRowChanged" msprop:Generator_RowEvArgName="RecevItemsRowChangeEvent" msprop:Generator_RowClassName="RecevItemsRow">
+        <xs:element name="RecevItems" msprop:Generator_TableClassName="RecevItemsDataTable" msprop:Generator_TableVarName="tableRecevItems" msprop:Generator_RowChangedName="RecevItemsRowChanged" msprop:Generator_TablePropName="RecevItems" msprop:Generator_RowDeletingName="RecevItemsRowDeleting" msprop:Generator_RowChangingName="RecevItemsRowChanging" msprop:Generator_RowEvHandlerName="RecevItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="RecevItemsRowDeleted" msprop:Generator_RowClassName="RecevItemsRow" msprop:Generator_UserTableName="RecevItems" msprop:Generator_RowEvArgName="RecevItemsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -343,14 +343,14 @@ WHERE        (NOT (success = 'Successful')) OR
               <xs:element name="IDesc" msprop:Generator_ColumnVarNameInTable="columnIDesc" msprop:Generator_ColumnPropNameInRow="IDesc" msprop:Generator_ColumnPropNameInTable="IDescColumn" msprop:Generator_UserColumnName="IDesc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="75" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Claimable" msprop:Generator_TableClassName="ClaimableDataTable" msprop:Generator_TableVarName="tableClaimable" msprop:Generator_TablePropName="Claimable" msprop:Generator_RowDeletingName="ClaimableRowDeleting" msprop:Generator_RowChangingName="ClaimableRowChanging" msprop:Generator_RowEvHandlerName="ClaimableRowChangeEventHandler" msprop:Generator_RowDeletedName="ClaimableRowDeleted" msprop:Generator_UserTableName="Claimable" msprop:Generator_RowChangedName="ClaimableRowChanged" msprop:Generator_RowEvArgName="ClaimableRowChangeEvent" msprop:Generator_RowClassName="ClaimableRow">
+        <xs:element name="Claimable" msprop:Generator_TableClassName="ClaimableDataTable" msprop:Generator_TableVarName="tableClaimable" msprop:Generator_RowChangedName="ClaimableRowChanged" msprop:Generator_TablePropName="Claimable" msprop:Generator_RowDeletingName="ClaimableRowDeleting" msprop:Generator_RowChangingName="ClaimableRowChanging" msprop:Generator_RowEvHandlerName="ClaimableRowChangeEventHandler" msprop:Generator_RowDeletedName="ClaimableRowDeleted" msprop:Generator_RowClassName="ClaimableRow" msprop:Generator_UserTableName="Claimable" msprop:Generator_RowEvArgName="ClaimableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="commontrans" msprop:Generator_ColumnVarNameInTable="columncommontrans" msprop:Generator_ColumnPropNameInRow="commontrans" msprop:Generator_ColumnPropNameInTable="commontransColumn" msprop:Generator_UserColumnName="commontrans" type="xs:int" minOccurs="0" />
@@ -370,7 +370,7 @@ WHERE        (NOT (success = 'Successful')) OR
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Recev_RecevItems" msdata:parent="Recev" msdata:child="RecevItems" msdata:parentkey="transid" msdata:childkey="transid" msprop:Generator_UserChildTable="RecevItems" msprop:Generator_ChildPropName="GetRecevItemsRows" msprop:Generator_UserRelationName="Recev_RecevItems" msprop:Generator_ParentPropName="RecevRow" msprop:Generator_RelationVarName="relationRecev_RecevItems" msprop:Generator_UserParentTable="Recev" />
+      <msdata:Relationship name="Recev_RecevItems" msdata:parent="Recev" msdata:child="RecevItems" msdata:parentkey="transid" msdata:childkey="transid" msprop:Generator_UserChildTable="RecevItems" msprop:Generator_ChildPropName="GetRecevItemsRows" msprop:Generator_UserRelationName="Recev_RecevItems" msprop:Generator_RelationVarName="relationRecev_RecevItems" msprop:Generator_UserParentTable="Recev" msprop:Generator_ParentPropName="RecevRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

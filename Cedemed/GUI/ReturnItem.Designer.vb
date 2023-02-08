@@ -123,6 +123,7 @@ Partial Class ReturnItem
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.SalesTableAdapter = Nothing
+        Me.TableAdapterManager.Trans1TableAdapter = Nothing
         Me.TableAdapterManager.TransTableAdapter = Me.TransTableAdapter
         Me.TableAdapterManager.UpdateOrder = Cedemed.TransactionsDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -170,8 +171,8 @@ Partial Class ReturnItem
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.SalesDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 121)
@@ -196,8 +197,8 @@ Partial Class ReturnItem
         Me.SalesDataGridView.AllowUserToAddRows = False
         Me.SalesDataGridView.AllowUserToDeleteRows = False
         Me.SalesDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SalesDataGridView.AutoGenerateColumns = False
         Me.SalesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SalesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.unitreturn, Me.total, Me.expiry})

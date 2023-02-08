@@ -645,7 +645,7 @@ Partial Public Class InventoryDataset
             Me.columnItemNo.AllowDBNull = false
             Me.columnItemNo.ReadOnly = true
             Me.columnItemNo.Unique = true
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
             Me.columntype.MaxLength = 50
             Me.columnProdType.MaxLength = 50
         End Sub
@@ -913,7 +913,7 @@ Partial Public Class InventoryDataset
             MyBase.Columns.Add(Me.columnIDesc)
             Me.columnItemNo = New Global.System.Data.DataColumn("ItemNo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnItemNo)
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
             Me.columnItemNo.AllowDBNull = false
         End Sub
         
@@ -2809,9 +2809,9 @@ Namespace InventoryDatasetTableAdapters
             Me._commandCollection(0).CommandText = "SELECT       Items.ItemNo, Items.IDesc, Inv.Qty, Inv.SRP, Items.type, Items.ProdT"& _ 
                 "ype, Inv.Cost, Items.restricted, Items.inventory"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Items INNER JO"& _ 
                 "IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Inv ON Items.ItemNo = Inv.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Ite"& _ 
-                "ms.IDesc LIKE { fn CONCAT(@item, '%') })"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
+                "ms.IDesc LIKE '%' + @item + '%')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Items.IDesc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@item", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "IDesc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@item", Global.System.Data.SqlDbType.NVarChar, 75, Global.System.Data.ParameterDirection.Input, 0, 0, "IDesc", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT         Items.ItemNo, Items.IDesc, Inv.Qty, Inv.SRP, Items.type, Inv.Cost,"& _ 

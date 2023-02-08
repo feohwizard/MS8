@@ -48,9 +48,9 @@ Public Class CashierRPT
         Dim fd = from.Value.Date
         Dim td = tod.Value.Date
 
-        Dim si As New DailySalesrpt
-        si.fillup(fd, td)
-        si.Dispose()
+        'Dim si As New DailySalesrpt
+        'si.fillup(fd, td)
+        'si.Dispose()
 
         Dim xapp As New Excel.Application
         Dim wbook As Excel.Workbook
@@ -60,14 +60,14 @@ Public Class CashierRPT
         wbook = xapp.Workbooks.Item(1)
         wsheet = wbook.Worksheets.Item(1)
 
-        If userlevel = "Administrator" Then
-            Me.TransTA.FillByCashier(Me.TransactionsDS.Trans, fd, td, UsernameComboBox.Text)
-        Else
-            'Me.TransactionsDS.EnforceConstraints = False
-            Me.TransTA.FillByCashier_SI(Me.TransactionsDS.Trans, fd, td, UsernameComboBox.Text)
-            'fixtransno()
-        End If
+        Me.TransTA.FillByCashier(Me.TransactionsDS.Trans, fd, td, UsernameComboBox.Text)
 
+        'If userlevel = "Administrator" Then
+        'Else
+        '    Me.TransactionsDS.EnforceConstraints = False
+        '    Me.TransTA.FillByCashier_SI(Me.TransactionsDS.Trans, fd, td, UsernameComboBox.Text)
+        '    fixtransno()
+        'End If
 
         'Dim rc(Me.StockInDataset.Purchases.DefaultView.Count, 7)
 
@@ -78,14 +78,8 @@ Public Class CashierRPT
 
         For x As Integer = 0 To Me.TransactionsDS.Trans.DefaultView.Count - 1
             With Me.TransactionsDS.Trans.DefaultView.Item(x)
-
-                If userlevel = "Administrator" Then
-                    rc(x, 0) = .Item("TransNo")
-                Else
-                    rc(x, 0) = .Item("intern")
-                End If
-
-                rc(x, 1) = .Item("TransDate")
+                rc(x, 0) = .Item("TransNo")
+                rc(x, 1) = .Item("serverdate")
                 rc(x, 2) = .Item("CustName")
                 rc(x, 3) = .Item("Discount")
                 rc(x, 8) = .Item("PayMode")
@@ -97,7 +91,6 @@ Public Class CashierRPT
                     rc(x, 5) = .Item("Total")
                 ElseIf .Item("Paymode") = "GOVT" Then
                     rc(x, 7) = .Item("Total")
-
                 End If
             End With
         Next
@@ -155,9 +148,9 @@ Public Class CashierRPT
         Dim fd = from.Value.Date
         Dim td = tod.Value.Date
 
-        Dim si As New DailySalesrpt
-        si.fillup(fd, td)
-        si.Dispose()
+        'Dim si As New DailySalesrpt
+        'si.fillup(fd, td)
+        'si.Dispose()
 
         Dim xapp As New Excel.Application
         Dim wbook As Excel.Workbook
@@ -169,13 +162,16 @@ Public Class CashierRPT
 
         'Me.TransTableAdapter.FillBy(Me.TransactionsDataset.Trans, dates)
         'Me.SalesTableAdapter.FillBySrpt(TransactionsDataset.Sales, New System.Nullable(Of Date)(CType(from.Value, Date)), New System.Nullable(Of Date)(CType(tod.Value, Date)))
-        If userlevel = "Administrator" Then
-            Me.SalesTA.FillByCashier(Me.TransactionsDS.Sales, fd, td, UsernameComboBox.Text)
-        Else
-            'Me.TransactionsDS.EnforceConstraints = False
-            Me.SalesTA.FillByCashier_SI(Me.TransactionsDS.Sales, fd, td, UsernameComboBox.Text)
-            'fixtransno()
-        End If
+
+        Me.SalesTA.FillByCashier(Me.TransactionsDS.Sales, fd, td, UsernameComboBox.Text)
+
+
+        'If userlevel = "Administrator" Then
+        'Else
+        '    Me.TransactionsDS.EnforceConstraints = False
+        '    Me.SalesTA.FillByCashier_SI(Me.TransactionsDS.Sales, fd, td, UsernameComboBox.Text)
+        '    fixtransno()
+        'End If
 
 
 

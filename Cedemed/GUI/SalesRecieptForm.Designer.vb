@@ -165,6 +165,7 @@ Partial Class SalesRecieptForm
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.SalesTableAdapter = Me.SalesTableAdapter
+        Me.TableAdapterManager.Trans1TableAdapter = Nothing
         Me.TableAdapterManager.TransTableAdapter = Me.TransTableAdapter
         Me.TableAdapterManager.UpdateOrder = Cedemed.TransactionsDatasetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
@@ -198,6 +199,7 @@ Partial Class SalesRecieptForm
         '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(304, 138)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -346,7 +348,7 @@ Partial Class SalesRecieptForm
         Me.MinimizeBox = False
         Me.Name = "SalesRecieptForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Sales Reciept"
+        Me.Text = "Sales Receipt"
         CType(Me.TransactionsDataset, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TransBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SalesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

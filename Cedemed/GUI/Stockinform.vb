@@ -95,7 +95,11 @@ Public Class Stockinform
 
         Dim year = MonthCalendar1.SelectionStart.Year
         Dim month = MonthCalendar1.SelectionStart.Month
-        Me.PurchasesTableAdapter.FillByMonth(Me.PurchasesDataset.Purchases, year, month)
+        If TextBox2.Text = "" Then
+            Me.PurchasesTableAdapter.FillByMonth(Me.PurchasesDataset.Purchases, year, month)
+        Else
+            Me.PurchasesTableAdapter.FillByDescription(Me.PurchasesDataset.Purchases, year, month, TextBox2.Text)
+        End If
         For xx As Integer = 0 To Me.PurchasesDataset.Purchases.Rows.Count - 1
             With Me.PurchasesDataset.Purchases.Rows(xx)
                 If .Item("PONO") = PONO Then
@@ -112,16 +116,16 @@ Public Class Stockinform
     End Sub
 
     Private Sub clearentry()
-        recievedtxt.Text = Now.ToShortDateString
-        checkdatetxt.Text = Now.ToShortDateString
+        'recievedtxt.Text = Now.ToShortDateString
+        'checkdatetxt.Text = Now.ToShortDateString
         lotnotxt.Text = ""
-        suppliercombotxt.Text = ""
+        'suppliercombotxt.Text = ""
         itemnotxt.Text = ""
         quantitytxt.Text = 0
         ucost.Text = 0
         expirydate.Value = Now.ToShortDateString
         checknotxt.Text = ""
-        invoicetxt.Text = ""
+        'invoicetxt.Text = ""
         vouchertxt.Text = ""
     End Sub
 
@@ -264,5 +268,32 @@ Public Class Stockinform
         onEdit = False
         Button2.Visible = False
         clearentry()
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim year = MonthCalendar1.SelectionStart.Year
+        Dim month = MonthCalendar1.SelectionStart.Month
+        If TextBox2.Text = "" Then
+            Me.PurchasesTableAdapter.FillByMonth(Me.PurchasesDataset.Purchases, year, month)
+        Else
+            Me.PurchasesTableAdapter.FillByDescription(Me.PurchasesDataset.Purchases, year, month, TextBox2.Text)
+        End If
+
+    End Sub
+
+    Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox2.KeyPress
+        If e.KeyChar = ChrW(13) Then
+            Dim year = MonthCalendar1.SelectionStart.Year
+            Dim month = MonthCalendar1.SelectionStart.Month
+            If TextBox2.Text = "" Then
+                Me.PurchasesTableAdapter.FillByMonth(Me.PurchasesDataset.Purchases, year, month)
+            Else
+                Me.PurchasesTableAdapter.FillByDescription(Me.PurchasesDataset.Purchases, year, month, TextBox2.Text)
+            End If
+        End If
     End Sub
 End Class

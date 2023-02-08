@@ -50,7 +50,7 @@ Public Class Claim
                 If recorded_in_purchases(Val(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString), Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
                     GoTo dontinsert
                 End If
-Inserttopurchases:
+
 
                 Try
                     com = New SqlCommand("Insert into Purchases(RecvDT,MRRNo,Supplier,ItemNo,Qty,Expiry,encoder,commontrans) values (@dt,'" + .Item("lotno").ToString + "','" + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString + "'," + Val(.Item("ItemNo")).ToString + "," + Val(.Item("Qty")).ToString + ",@xpire,'" + user + "', " + Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString + ")", conn)
@@ -61,10 +61,7 @@ Inserttopurchases:
                     conn.Close()
                 Catch ex As Exception
                 End Try
-                If recorded_in_purchases(Val(Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("commontrans").ToString), Me.ReceiveDataset.Recev.DefaultView.Item(0).Item("frombranch").ToString, Val(.Item("ItemNo")), Val(.Item("Qty")), xpire.Value, .Item("lotno").ToString) = True Then
-                Else
-                    GoTo Inserttopurchases
-                End If
+
 dontinsert:
             End With
         Next

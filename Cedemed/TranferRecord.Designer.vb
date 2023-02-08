@@ -65,12 +65,15 @@ Partial Class TranferRecord
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.menuu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ChangeQuantityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TranferItemsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TransferTableAdapter = New Cedemed.TransferDatasetTableAdapters.TransferTableAdapter()
         Me.TranferItemsTableAdapter = New Cedemed.TransferDatasetTableAdapters.TranferItemsTableAdapter()
         Me.TableAdapterManager = New Cedemed.TransferDatasetTableAdapters.TableAdapterManager()
         Me.ItemsTableAdapter = New Cedemed.ItemsDatasetTableAdapters.ItemsTableAdapter()
+        Me.DeleteItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         TransdateLabel = New System.Windows.Forms.Label()
         TransactionuserLabel = New System.Windows.Forms.Label()
         TobranchLabel = New System.Windows.Forms.Label()
@@ -85,6 +88,7 @@ Partial Class TranferRecord
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsDatasetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsDataset, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.menuu.SuspendLayout()
         CType(Me.TranferItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -396,6 +400,7 @@ Partial Class TranferRecord
         Me.TranferItemsDataGridView.AutoGenerateColumns = False
         Me.TranferItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.TranferItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
+        Me.TranferItemsDataGridView.ContextMenuStrip = Me.menuu
         Me.TranferItemsDataGridView.DataSource = Me.TranferItemsBindingSource
         Me.TranferItemsDataGridView.Location = New System.Drawing.Point(15, 145)
         Me.TranferItemsDataGridView.Name = "TranferItemsDataGridView"
@@ -461,6 +466,18 @@ Partial Class TranferRecord
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
         Me.DataGridViewTextBoxColumn6.Width = 47
         '
+        'menuu
+        '
+        Me.menuu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeQuantityToolStripMenuItem, Me.DeleteItemToolStripMenuItem})
+        Me.menuu.Name = "menuu"
+        Me.menuu.Size = New System.Drawing.Size(181, 70)
+        '
+        'ChangeQuantityToolStripMenuItem
+        '
+        Me.ChangeQuantityToolStripMenuItem.Name = "ChangeQuantityToolStripMenuItem"
+        Me.ChangeQuantityToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangeQuantityToolStripMenuItem.Text = "Change Quantity"
+        '
         'TranferItemsBindingSource
         '
         Me.TranferItemsBindingSource.DataMember = "TranferItems"
@@ -496,6 +513,12 @@ Partial Class TranferRecord
         '
         Me.ItemsTableAdapter.ClearBeforeFill = True
         '
+        'DeleteItemToolStripMenuItem
+        '
+        Me.DeleteItemToolStripMenuItem.Name = "DeleteItemToolStripMenuItem"
+        Me.DeleteItemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DeleteItemToolStripMenuItem.Text = "Delete Item"
+        '
         'TranferRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -520,6 +543,7 @@ Partial Class TranferRecord
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsDatasetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsDataset, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.menuu.ResumeLayout(False)
         CType(Me.TranferItemsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -568,4 +592,7 @@ Partial Class TranferRecord
     Friend WithEvents TransidTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As Button
+    Friend WithEvents menuu As ContextMenuStrip
+    Friend WithEvents ChangeQuantityToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteItemToolStripMenuItem As ToolStripMenuItem
 End Class

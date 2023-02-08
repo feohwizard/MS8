@@ -51,7 +51,7 @@ WHERE        (YEAR(Purchases.Expiry) = @year) order by Purchases.Expiry,Items.ID
   <xs:element name="NearExpiry" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="NearExpiry" msprop:Generator_UserDSName="NearExpiry">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Items" msprop:Generator_TableClassName="ItemsDataTable" msprop:Generator_TableVarName="tableItems" msprop:Generator_TablePropName="Items" msprop:Generator_RowDeletingName="ItemsRowDeleting" msprop:Generator_UserTableName="Items" msprop:Generator_RowChangingName="ItemsRowChanging" msprop:Generator_RowEvHandlerName="ItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemsRowDeleted" msprop:Generator_RowEvArgName="ItemsRowChangeEvent" msprop:Generator_RowChangedName="ItemsRowChanged" msprop:Generator_RowClassName="ItemsRow">
+        <xs:element name="Items" msprop:Generator_TableClassName="ItemsDataTable" msprop:Generator_TableVarName="tableItems" msprop:Generator_RowChangedName="ItemsRowChanged" msprop:Generator_TablePropName="Items" msprop:Generator_RowDeletingName="ItemsRowDeleting" msprop:Generator_RowChangingName="ItemsRowChanging" msprop:Generator_RowEvHandlerName="ItemsRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemsRowDeleted" msprop:Generator_RowClassName="ItemsRow" msprop:Generator_UserTableName="Items" msprop:Generator_RowEvArgName="ItemsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Expiry" msprop:Generator_ColumnVarNameInTable="columnExpiry" msprop:Generator_ColumnPropNameInRow="Expiry" msprop:Generator_ColumnPropNameInTable="ExpiryColumn" msprop:Generator_UserColumnName="Expiry" type="xs:dateTime" minOccurs="0" />
@@ -69,7 +69,7 @@ WHERE        (YEAR(Purchases.Expiry) = @year) order by Purchases.Expiry,Items.ID
               <xs:element name="IDesc" msprop:Generator_ColumnVarNameInTable="columnIDesc" msprop:Generator_ColumnPropNameInRow="IDesc" msprop:Generator_ColumnPropNameInTable="IDescColumn" msprop:Generator_UserColumnName="IDesc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="75" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

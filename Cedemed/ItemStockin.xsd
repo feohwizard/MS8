@@ -118,14 +118,14 @@ SELECT ItemNo, IDesc, IUnit, BarCode, ProdType, VendCode, Supplier, Manufacturer
   <xs:element name="ItemStockin" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ItemStockin" msprop:Generator_UserDSName="ItemStockin">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ItemStockIn" msprop:Generator_TableClassName="ItemStockInDataTable" msprop:Generator_TableVarName="tableItemStockIn" msprop:Generator_TablePropName="_ItemStockIn" msprop:Generator_RowDeletingName="ItemStockInRowDeleting" msprop:Generator_UserTableName="ItemStockIn" msprop:Generator_RowChangingName="ItemStockInRowChanging" msprop:Generator_RowEvHandlerName="ItemStockInRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemStockInRowDeleted" msprop:Generator_RowEvArgName="ItemStockInRowChangeEvent" msprop:Generator_RowChangedName="ItemStockInRowChanged" msprop:Generator_RowClassName="ItemStockInRow">
+        <xs:element name="ItemStockIn" msprop:Generator_TableClassName="ItemStockInDataTable" msprop:Generator_TableVarName="tableItemStockIn" msprop:Generator_RowChangedName="ItemStockInRowChanged" msprop:Generator_TablePropName="_ItemStockIn" msprop:Generator_RowDeletingName="ItemStockInRowDeleting" msprop:Generator_RowChangingName="ItemStockInRowChanging" msprop:Generator_RowEvHandlerName="ItemStockInRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemStockInRowDeleted" msprop:Generator_RowClassName="ItemStockInRow" msprop:Generator_UserTableName="ItemStockIn" msprop:Generator_RowEvArgName="ItemStockInRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ItemNo" msprop:Generator_ColumnVarNameInTable="columnItemNo" msprop:Generator_ColumnPropNameInRow="ItemNo" msprop:Generator_ColumnPropNameInTable="ItemNoColumn" msprop:Generator_UserColumnName="ItemNo" type="xs:int" />
               <xs:element name="IDesc" msprop:Generator_ColumnVarNameInTable="columnIDesc" msprop:Generator_ColumnPropNameInRow="IDesc" msprop:Generator_ColumnPropNameInTable="IDescColumn" msprop:Generator_UserColumnName="IDesc" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="75" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

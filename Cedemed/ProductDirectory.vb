@@ -37,6 +37,7 @@ Public Class ProductDirectory
         Next
         Me.ItemsDataGridView.FirstDisplayedScrollingRowIndex = Me.ItemsDataGridView.RowCount - 1
         Me.ItemsDataGridView.Rows(Me.ItemsDataGridView.RowCount - 1).Selected = True
+        itype.SelectedIndex = 0
     End Sub
 
     Private Sub ItemsDataGridView_CellEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ItemsDataGridView.CellEnter
@@ -250,75 +251,31 @@ Public Class ProductDirectory
 
     Private Sub worker_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles worker.DoWork
 
-        'Try
-        '    If Me.InvokeRequired Then
-        '        Me.Invoke(New MethodInvoker(AddressOf savee))
-        '    End If
-        'Catch ex As Exception
-        '    MsgBox("An error occured.")
-        '    If Me.InvokeRequired Then
-        '        Me.Invoke(New MethodInvoker(AddressOf closeform))
-        '    Else
-        '        closeform()
-        '    End If
-        '    Exit Sub
-        'End Try
-
-        'updatesv2("wehh")
-        'Try
-
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-
         updatesv2(My.Settings.CedemedConnectionString)
 
-        If residence.Checked = True Then
-
+        If tanedo.Checked = True Then
             Try
                 updatesv2(My.Settings.Branch1)
             Catch ex As Exception
-                ms = ms + "Residence" + vbCrLf
+                ms = ms + "Tanedo" + vbCrLf
             End Try
 
         End If
 
-        If urdaneta.Checked = True Then
+        If sanvicente.Checked = True Then
             Try
                 updatesv2(My.Settings.Branch2)
             Catch ex As Exception
-                ms = ms + "Urdaneta" + vbCrLf
+                ms = ms + "San Vicente" + vbCrLf
             End Try
         End If
 
-        If tarlac.Checked = True Then
-            Try
-                updatesv2(My.Settings.Branch3)
-            Catch ex As Exception
-                ms = ms + "Tarlac" + vbCrLf
-            End Try
-        End If
 
-        If zambales.Checked = True Then
-            Try
-                updatesv2(My.Settings.Branch4)
-            Catch ex As Exception
-                ms = ms + "Zambales" + vbCrLf
-            End Try
-        End If
-
-        If pampanga.Checked = True Then
-            Try
-                updatesv2(My.Settings.Branch5)
-            Catch ex As Exception
-                ms = ms + "Pampanga" + vbCrLf
-            End Try
-        End If
 
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        If idescription.Text = "" Then
+        If idescription.Text = "" Or idescription.Text.Contains("'") Then
             MsgBox("Invalid Entry")
             Exit Sub
         End If
@@ -351,7 +308,7 @@ Public Class ProductDirectory
         End If
 
         query = ""
-        query = query + "Insert into Items (ItemNo,Idesc,IUnit,ProdType,Supplier,Manufacturer,type,BarCode) values (" + mx.ToString + ",@desc,@unit,'" + itype.Text + "',@sup,@manu,'" + TextBox4.Text + "','');"
+        query = query + "Insert into Items (ItemNo,Idesc,IUnit,ProdType,Supplier,Manufacturer,type,BarCode,Vendcode) values (" + mx.ToString + ",@desc,@unit,'" + itype.Text + "',@sup,@manu,'" + TextBox4.Text + "','',0);"
         query = query + "Insert into Inv(ItemNo,Qty,SRP,Date,Clevel,Cost,OldCost) values (" + mx.ToString + ",0,$" + price.ToString + ",@dd,0,$0,$0);"
         sup = New SqlParameter("@sup", SqlDbType.NVarChar)
         desc = New SqlParameter("@desc", SqlDbType.NVarChar)
@@ -396,8 +353,6 @@ Public Class ProductDirectory
         frm.loader = True
         frm.Show()
         ms = ""
-
-
 
         'updatesv2("wehh")
         Button2.Enabled = False

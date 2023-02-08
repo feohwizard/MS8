@@ -58,15 +58,26 @@ Public Class ReturnItem
                 End If
             End With
         Next
-        Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("Total") = total
         Me.Validate()
         Me.SalesBindingSource.EndEdit()
         Me.SalesTableAdapter.Update(Me.TransactionsDataset.Sales)
-        Me.TransBindingSource.EndEdit()
-        Me.TransTableAdapter.Update(Me.TransactionsDataset.Trans)
+
+
+        com = New SqlCommand("UPDATE Trans SET Total=" + total.ToString + " WHERE TransNo=" + Me.TransactionsDataset.Trans.DefaultView.Item(0).Item("TransNo").ToString, conn)
+        Try
+            conn.Open()
+        Catch ex As Exception
+            conn.Close()
+            conn.Open()
+        End Try
+        com.ExecuteNonQuery()
+        conn.Close()
+
         MsgBox("Transaction Completed")
+        retrieve()
         sale.Searchbox.Text = " "
         sale.Searchbox.Text = ""
+
     End Sub
 
     Private Sub SalesDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles SalesDataGridView.CellContentClick
@@ -76,5 +87,9 @@ Public Class ReturnItem
     Private Sub SalesDataGridView_CellEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles SalesDataGridView.CellEnter
         SendKeys.Send("{F2}")
         SendKeys.Send("^A")
+    End Sub
+
+    Private Sub ReturnItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

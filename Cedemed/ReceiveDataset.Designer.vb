@@ -1009,7 +1009,7 @@ Partial Public Class ReceiveDataset
             Me.columnid.Unique = true
             Me.columnlotno.MaxLength = 50
             Me.columninvoice.MaxLength = 50
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

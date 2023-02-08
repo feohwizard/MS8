@@ -56,7 +56,6 @@ Partial Class ProductDirectory
         Me.worker = New System.ComponentModel.BackgroundWorker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.itype = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -74,11 +73,9 @@ Partial Class ProductDirectory
         Me.TableAdapterManager = New Cedemed.ItemsDatasetTableAdapters.TableAdapterManager()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.residence = New System.Windows.Forms.CheckBox()
-        Me.pampanga = New System.Windows.Forms.CheckBox()
-        Me.zambales = New System.Windows.Forms.CheckBox()
-        Me.urdaneta = New System.Windows.Forms.CheckBox()
-        Me.tarlac = New System.Windows.Forms.CheckBox()
+        Me.tanedo = New System.Windows.Forms.CheckBox()
+        Me.sanvicente = New System.Windows.Forms.CheckBox()
+        Me.itype = New System.Windows.Forms.ComboBox()
         CType(Me.ItemsBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ItemsBindingNavigator.SuspendLayout()
         CType(Me.ItemsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -319,8 +316,8 @@ Partial Class ProductDirectory
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.itype)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.TextBox4)
@@ -349,14 +346,6 @@ Partial Class ProductDirectory
         Me.Label7.Size = New System.Drawing.Size(31, 13)
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "Type"
-        '
-        'itype
-        '
-        Me.itype.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.itype.Location = New System.Drawing.Point(338, 32)
-        Me.itype.Name = "itype"
-        Me.itype.Size = New System.Drawing.Size(35, 20)
-        Me.itype.TabIndex = 14
         '
         'Button1
         '
@@ -387,15 +376,15 @@ Partial Class ProductDirectory
         'manufacturercombo
         '
         Me.manufacturercombo.FormattingEnabled = True
-        Me.manufacturercombo.Location = New System.Drawing.Point(664, 32)
+        Me.manufacturercombo.Location = New System.Drawing.Point(700, 32)
         Me.manufacturercombo.Name = "manufacturercombo"
-        Me.manufacturercombo.Size = New System.Drawing.Size(216, 21)
+        Me.manufacturercombo.Size = New System.Drawing.Size(180, 21)
         Me.manufacturercombo.TabIndex = 10
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(661, 16)
+        Me.Label5.Location = New System.Drawing.Point(697, 17)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(70, 13)
         Me.Label5.TabIndex = 9
@@ -404,15 +393,15 @@ Partial Class ProductDirectory
         'suppliercombo
         '
         Me.suppliercombo.FormattingEnabled = True
-        Me.suppliercombo.Location = New System.Drawing.Point(442, 32)
+        Me.suppliercombo.Location = New System.Drawing.Point(509, 32)
         Me.suppliercombo.Name = "suppliercombo"
-        Me.suppliercombo.Size = New System.Drawing.Size(215, 21)
+        Me.suppliercombo.Size = New System.Drawing.Size(187, 21)
         Me.suppliercombo.TabIndex = 8
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(443, 17)
+        Me.Label4.Location = New System.Drawing.Point(507, 17)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 7
@@ -421,7 +410,7 @@ Partial Class ProductDirectory
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(376, 17)
+        Me.Label3.Location = New System.Drawing.Point(446, 17)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 5
@@ -429,7 +418,7 @@ Partial Class ProductDirectory
         '
         'iprice
         '
-        Me.iprice.Location = New System.Drawing.Point(378, 32)
+        Me.iprice.Location = New System.Drawing.Point(448, 32)
         Me.iprice.Name = "iprice"
         Me.iprice.Size = New System.Drawing.Size(58, 20)
         Me.iprice.TabIndex = 4
@@ -483,14 +472,11 @@ Partial Class ProductDirectory
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.Button2)
-        Me.GroupBox2.Controls.Add(Me.residence)
-        Me.GroupBox2.Controls.Add(Me.pampanga)
-        Me.GroupBox2.Controls.Add(Me.zambales)
-        Me.GroupBox2.Controls.Add(Me.urdaneta)
-        Me.GroupBox2.Controls.Add(Me.tarlac)
-        Me.GroupBox2.Location = New System.Drawing.Point(554, 28)
+        Me.GroupBox2.Controls.Add(Me.tanedo)
+        Me.GroupBox2.Controls.Add(Me.sanvicente)
+        Me.GroupBox2.Location = New System.Drawing.Point(763, 28)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(462, 42)
+        Me.GroupBox2.Size = New System.Drawing.Size(253, 42)
         Me.GroupBox2.TabIndex = 24
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Update Branches"
@@ -498,72 +484,45 @@ Partial Class ProductDirectory
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(383, 13)
+        Me.Button2.Location = New System.Drawing.Point(174, 13)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 24
         Me.Button2.Text = "Update"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'residence
+        'tanedo
         '
-        Me.residence.AutoSize = True
-        Me.residence.Checked = True
-        Me.residence.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.residence.Location = New System.Drawing.Point(6, 19)
-        Me.residence.Name = "residence"
-        Me.residence.Size = New System.Drawing.Size(77, 17)
-        Me.residence.TabIndex = 25
-        Me.residence.Text = "Residence"
-        Me.residence.UseVisualStyleBackColor = True
+        Me.tanedo.AutoSize = True
+        Me.tanedo.Checked = True
+        Me.tanedo.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.tanedo.Location = New System.Drawing.Point(13, 17)
+        Me.tanedo.Name = "tanedo"
+        Me.tanedo.Size = New System.Drawing.Size(63, 17)
+        Me.tanedo.TabIndex = 25
+        Me.tanedo.Text = "Tanedo"
+        Me.tanedo.UseVisualStyleBackColor = True
         '
-        'pampanga
+        'sanvicente
         '
-        Me.pampanga.AutoSize = True
-        Me.pampanga.Checked = True
-        Me.pampanga.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.pampanga.Location = New System.Drawing.Point(305, 19)
-        Me.pampanga.Name = "pampanga"
-        Me.pampanga.Size = New System.Drawing.Size(77, 17)
-        Me.pampanga.TabIndex = 19
-        Me.pampanga.Text = "Pampanga"
-        Me.pampanga.UseVisualStyleBackColor = True
+        Me.sanvicente.AutoSize = True
+        Me.sanvicente.Checked = True
+        Me.sanvicente.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.sanvicente.Location = New System.Drawing.Point(84, 17)
+        Me.sanvicente.Name = "sanvicente"
+        Me.sanvicente.Size = New System.Drawing.Size(84, 17)
+        Me.sanvicente.TabIndex = 22
+        Me.sanvicente.Text = "San Vicente"
+        Me.sanvicente.UseVisualStyleBackColor = True
         '
-        'zambales
+        'itype
         '
-        Me.zambales.AutoSize = True
-        Me.zambales.Checked = True
-        Me.zambales.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.zambales.Location = New System.Drawing.Point(89, 19)
-        Me.zambales.Name = "zambales"
-        Me.zambales.Size = New System.Drawing.Size(72, 17)
-        Me.zambales.TabIndex = 22
-        Me.zambales.Text = "Zambales"
-        Me.zambales.UseVisualStyleBackColor = True
-        '
-        'urdaneta
-        '
-        Me.urdaneta.AutoSize = True
-        Me.urdaneta.Checked = True
-        Me.urdaneta.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.urdaneta.Location = New System.Drawing.Point(229, 19)
-        Me.urdaneta.Name = "urdaneta"
-        Me.urdaneta.Size = New System.Drawing.Size(70, 17)
-        Me.urdaneta.TabIndex = 20
-        Me.urdaneta.Text = "Urdaneta"
-        Me.urdaneta.UseVisualStyleBackColor = True
-        '
-        'tarlac
-        '
-        Me.tarlac.AutoSize = True
-        Me.tarlac.Checked = True
-        Me.tarlac.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.tarlac.Location = New System.Drawing.Point(167, 19)
-        Me.tarlac.Name = "tarlac"
-        Me.tarlac.Size = New System.Drawing.Size(56, 17)
-        Me.tarlac.TabIndex = 21
-        Me.tarlac.Text = "Tarlac"
-        Me.tarlac.UseVisualStyleBackColor = True
+        Me.itype.FormattingEnabled = True
+        Me.itype.Items.AddRange(New Object() {"MEDICINES", "AMPULES AND VIALS", "COSMETICS", "MEDICAL SUPPLIES", "BEVERAGES"})
+        Me.itype.Location = New System.Drawing.Point(338, 32)
+        Me.itype.Name = "itype"
+        Me.itype.Size = New System.Drawing.Size(103, 21)
+        Me.itype.TabIndex = 16
         '
         'ProductDirectory
         '
@@ -635,7 +594,6 @@ Partial Class ProductDirectory
     Friend WithEvents idescription As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Label7 As Label
-    Friend WithEvents itype As TextBox
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -646,9 +604,7 @@ Partial Class ProductDirectory
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents residence As CheckBox
-    Friend WithEvents pampanga As CheckBox
-    Friend WithEvents zambales As CheckBox
-    Friend WithEvents urdaneta As CheckBox
-    Friend WithEvents tarlac As CheckBox
+    Friend WithEvents tanedo As CheckBox
+    Friend WithEvents sanvicente As CheckBox
+    Friend WithEvents itype As ComboBox
 End Class

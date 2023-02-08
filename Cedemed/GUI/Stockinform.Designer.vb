@@ -59,10 +59,11 @@ Partial Class Stockinform
         Me.ucost = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.quantitytxt = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.itemnotxt = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.ItemsTableAdapter = New Cedemed.ItemsDatasetTableAdapters.ItemsTableAdapter()
         Me.TableAdapterManager = New Cedemed.ItemsDatasetTableAdapters.TableAdapterManager()
         Me.mennu = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -89,7 +90,8 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemStockInTableAdapter = New Cedemed.ItemStockinTableAdapters.ItemStockInTableAdapter()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +113,7 @@ Partial Class Stockinform
         '
         'MonthCalendar1
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(12, 25)
+        Me.MonthCalendar1.Location = New System.Drawing.Point(12, 15)
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.TabIndex = 0
         '
@@ -120,7 +122,7 @@ Partial Class Stockinform
         Me.GroupBox1.Controls.Add(Me.MonthCalendar1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(270, 201)
+        Me.GroupBox1.Size = New System.Drawing.Size(270, 186)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Purchases For The Month of:"
@@ -152,15 +154,15 @@ Partial Class Stockinform
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.invoicetxt)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 220)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 199)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(252, 161)
+        Me.GroupBox2.Size = New System.Drawing.Size(270, 143)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         '
         'expirydate
         '
-        Me.expirydate.Location = New System.Drawing.Point(101, 125)
+        Me.expirydate.Location = New System.Drawing.Point(101, 113)
         Me.expirydate.Name = "expirydate"
         Me.expirydate.Size = New System.Drawing.Size(138, 20)
         Me.expirydate.TabIndex = 15
@@ -179,7 +181,7 @@ Partial Class Stockinform
         Me.suppliercombotxt.DataSource = Me.SupplierBindingSource
         Me.suppliercombotxt.DisplayMember = "Sup_Name"
         Me.suppliercombotxt.FormattingEnabled = True
-        Me.suppliercombotxt.Location = New System.Drawing.Point(101, 97)
+        Me.suppliercombotxt.Location = New System.Drawing.Point(101, 89)
         Me.suppliercombotxt.Name = "suppliercombotxt"
         Me.suppliercombotxt.Size = New System.Drawing.Size(138, 21)
         Me.suppliercombotxt.TabIndex = 14
@@ -198,7 +200,7 @@ Partial Class Stockinform
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 131)
+        Me.Label6.Location = New System.Drawing.Point(6, 119)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 13)
         Me.Label6.TabIndex = 13
@@ -207,7 +209,7 @@ Partial Class Stockinform
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 100)
+        Me.Label5.Location = New System.Drawing.Point(6, 92)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 11
@@ -215,7 +217,7 @@ Partial Class Stockinform
         '
         'lotnotxt
         '
-        Me.lotnotxt.Location = New System.Drawing.Point(101, 71)
+        Me.lotnotxt.Location = New System.Drawing.Point(101, 65)
         Me.lotnotxt.Name = "lotnotxt"
         Me.lotnotxt.Size = New System.Drawing.Size(138, 20)
         Me.lotnotxt.TabIndex = 10
@@ -223,7 +225,7 @@ Partial Class Stockinform
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 74)
+        Me.Label4.Location = New System.Drawing.Point(6, 68)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 9
@@ -231,7 +233,7 @@ Partial Class Stockinform
         '
         'invoicetxt
         '
-        Me.invoicetxt.Location = New System.Drawing.Point(101, 45)
+        Me.invoicetxt.Location = New System.Drawing.Point(101, 42)
         Me.invoicetxt.Name = "invoicetxt"
         Me.invoicetxt.Size = New System.Drawing.Size(138, 20)
         Me.invoicetxt.TabIndex = 8
@@ -239,7 +241,7 @@ Partial Class Stockinform
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 48)
+        Me.Label3.Location = New System.Drawing.Point(6, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 13)
         Me.Label3.TabIndex = 7
@@ -247,7 +249,7 @@ Partial Class Stockinform
         '
         'recievedtxt
         '
-        Me.recievedtxt.Location = New System.Drawing.Point(113, 239)
+        Me.recievedtxt.Location = New System.Drawing.Point(113, 218)
         Me.recievedtxt.Name = "recievedtxt"
         Me.recievedtxt.Size = New System.Drawing.Size(138, 20)
         Me.recievedtxt.TabIndex = 6
@@ -260,23 +262,23 @@ Partial Class Stockinform
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.vouchertxt)
         Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 387)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 344)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(252, 106)
+        Me.GroupBox3.Size = New System.Drawing.Size(270, 104)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Payment"
         '
         'checkdatetxt
         '
-        Me.checkdatetxt.Location = New System.Drawing.Point(101, 45)
+        Me.checkdatetxt.Location = New System.Drawing.Point(101, 43)
         Me.checkdatetxt.Name = "checkdatetxt"
         Me.checkdatetxt.Size = New System.Drawing.Size(138, 20)
         Me.checkdatetxt.TabIndex = 21
         '
         'checknotxt
         '
-        Me.checknotxt.Location = New System.Drawing.Point(101, 72)
+        Me.checknotxt.Location = New System.Drawing.Point(101, 68)
         Me.checknotxt.Name = "checknotxt"
         Me.checknotxt.Size = New System.Drawing.Size(138, 20)
         Me.checknotxt.TabIndex = 20
@@ -284,7 +286,7 @@ Partial Class Stockinform
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 75)
+        Me.Label9.Location = New System.Drawing.Point(6, 71)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(61, 13)
         Me.Label9.TabIndex = 19
@@ -293,7 +295,7 @@ Partial Class Stockinform
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 48)
+        Me.Label7.Location = New System.Drawing.Point(6, 46)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 13)
         Me.Label7.TabIndex = 17
@@ -368,8 +370,10 @@ Partial Class Stockinform
         Me.GroupBox6.Controls.Add(Me.ucost)
         Me.GroupBox6.Controls.Add(Me.Label12)
         Me.GroupBox6.Controls.Add(Me.quantitytxt)
+        Me.GroupBox6.Controls.Add(Me.Button2)
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.itemnotxt)
+        Me.GroupBox6.Controls.Add(Me.Button1)
         Me.GroupBox6.Controls.Add(Me.Label10)
         Me.GroupBox6.Location = New System.Drawing.Point(288, 320)
         Me.GroupBox6.Name = "GroupBox6"
@@ -400,6 +404,16 @@ Partial Class Stockinform
         Me.quantitytxt.Size = New System.Drawing.Size(169, 20)
         Me.quantitytxt.TabIndex = 20
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(103, 97)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(97, 25)
+        Me.Button2.TabIndex = 27
+        Me.Button2.Text = "Cancel Edit"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -417,6 +431,15 @@ Partial Class Stockinform
         Me.itemnotxt.Size = New System.Drawing.Size(169, 20)
         Me.itemnotxt.TabIndex = 18
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(0, 97)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(97, 25)
+        Me.Button1.TabIndex = 26
+        Me.Button1.Text = "Save"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -425,15 +448,6 @@ Partial Class Stockinform
         Me.Label10.Size = New System.Drawing.Size(50, 13)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Item No.:"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(288, 454)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 39)
-        Me.Button1.TabIndex = 26
-        Me.Button1.Text = "Save"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'ItemsTableAdapter
         '
@@ -490,6 +504,7 @@ Partial Class Stockinform
         'PurchasesDataGridView
         '
         Me.PurchasesDataGridView.AllowUserToAddRows = False
+        Me.PurchasesDataGridView.AllowUserToOrderColumns = True
         Me.PurchasesDataGridView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -498,10 +513,10 @@ Partial Class Stockinform
         Me.PurchasesDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn4, Me.CheckNo, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
         Me.PurchasesDataGridView.ContextMenuStrip = Me.mennu
         Me.PurchasesDataGridView.DataSource = Me.PurchasesBindingSource
-        Me.PurchasesDataGridView.Location = New System.Drawing.Point(12, 508)
+        Me.PurchasesDataGridView.Location = New System.Drawing.Point(12, 486)
         Me.PurchasesDataGridView.Name = "PurchasesDataGridView"
         Me.PurchasesDataGridView.ReadOnly = True
-        Me.PurchasesDataGridView.Size = New System.Drawing.Size(825, 230)
+        Me.PurchasesDataGridView.Size = New System.Drawing.Size(825, 165)
         Me.PurchasesDataGridView.TabIndex = 26
         '
         'DataGridViewTextBoxColumn3
@@ -594,8 +609,9 @@ Partial Class Stockinform
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.ReadOnly = True
         Me.DataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewTextBoxColumn9.ValueMember = "ItemNo"
-        Me.DataGridViewTextBoxColumn9.Width = 66
+        Me.DataGridViewTextBoxColumn9.Width = 85
         '
         'ItemStockInBindingSource
         '
@@ -638,25 +654,31 @@ Partial Class Stockinform
         '
         Me.ItemStockInTableAdapter.ClearBeforeFill = True
         '
-        'Button2
+        'Button3
         '
-        Me.Button2.Location = New System.Drawing.Point(391, 454)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(97, 39)
-        Me.Button2.TabIndex = 27
-        Me.Button2.Text = "Cancel Edit"
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
+        Me.Button3.Location = New System.Drawing.Point(185, 455)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(97, 25)
+        Me.Button3.TabIndex = 28
+        Me.Button3.Text = "Filter"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(10, 457)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(169, 20)
+        Me.TextBox2.TabIndex = 23
         '
         'Stockinform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(849, 750)
-        Me.Controls.Add(Me.Button2)
+        Me.ClientSize = New System.Drawing.Size(849, 663)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PurchasesDataGridView)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -748,6 +770,7 @@ Partial Class Stockinform
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ucost As TextBox
     Friend WithEvents Label12 As Label
+    Friend WithEvents Button2 As Button
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
@@ -759,5 +782,6 @@ Partial Class Stockinform
     Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox2 As TextBox
 End Class

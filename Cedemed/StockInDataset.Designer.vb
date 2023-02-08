@@ -526,7 +526,7 @@ Partial Public Class StockInDataset
             MyBase.Columns.Add(Me.columnremarks)
             Me.columnInvNo.MaxLength = 50
             Me.columnSupplier.MaxLength = 50
-            Me.columnIDesc.MaxLength = 50
+            Me.columnIDesc.MaxLength = 75
             Me.columnIUnit.MaxLength = 50
             Me.columnremarks.ReadOnly = true
             Me.columnremarks.MaxLength = 1
@@ -1439,7 +1439,7 @@ Namespace StockInDatasetTableAdapters
                 " Items.IUnit, Purchases.Qty, Purchases.Expiry, 'Purchase' AS remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
                 "      Purchases INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Purchases.ItemNo ="& _ 
                 " Items.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Items.Itemno=@itemno) AND (Purchases.RecvDT BETWEEN"& _ 
-                " @d1 AND @d2) and Purchases.hold=0"
+                " @d1 AND @d2) "
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@itemno", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d1", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecvDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1461,11 +1461,7 @@ Namespace StockInDatasetTableAdapters
                 "IUnit, 'Sales' AS remarks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Trans INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
                 "      Sales ON Sales.TransNo = Trans.TransNo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
                 "  Items ON Items.ItemNo = Sales.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Items.ItemNo = @itemno) AN"& _ 
-                "D (Trans.TransDate BETWEEN @d1 AND @d2) AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             ((SELE"& _ 
-                "CT        TOP (1) ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 FROM            Purch"& _ 
-                "ases AS Purchases_1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 WHERE        (MRRNo = Sale"& _ 
-                "s.lotno) AND (Expiry = Sales.expiry) AND (ItemNo = Sales.ItemNo)) = Sales.ItemNo"& _ 
-                ") and sales.hold=0"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RecvDT, InvNo"
+                "D (Trans.TransDate BETWEEN @d1 AND @d2)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RecvDT, InvNo"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@itemno", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d1", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecvDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1512,11 +1508,7 @@ Namespace StockInDatasetTableAdapters
                 "                    TranferItems ON TranferItems.transid = Transfer.transid INNE"& _ 
                 "R JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Items ON Items.ItemNo = TranferItems.ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
                 "ERE        (Items.ItemNo = @itemno) AND (Transfer.transdate BETWEEN @d1 AND @d2)"& _ 
-                " AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             ((SELECT        TOP (1) ItemNo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "                    FROM            Purchases"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 "& _ 
-                "WHERE        (ItemNo = TranferItems.ItemNo) AND (MRRNo = TranferItems.lotno) AND"& _ 
-                " (Expiry = TranferItems.Expiry)) = TranferItems.ItemNo) AND (TranferItems.hold ="& _ 
-                " 0)"
+                " "
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@itemno", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ItemNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(8).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@d1", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecvDT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

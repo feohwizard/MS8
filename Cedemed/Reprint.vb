@@ -11,15 +11,18 @@
     Private Sub Reprint_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         Me.DateTimePicker1.Value = Now.Date
-        Me.TransTableAdapter.FillByDate(Me.TransactionsDataset.Trans, Now.Date)
+
         If Me.TransactionsDataset.Trans.DefaultView.Count = 0 Then
         Else
             TransDataGridView.Rows(0).Selected = True
         End If
-        If user = "daisy" Then
+
+        If userlevel = "Administrator" Then
             Button2.Enabled = True
+            Me.TransTableAdapter.FillByDate(Me.TransactionsDataset.Trans, Now.Date)
         Else
             Button2.Enabled = False
+            Me.TransTableAdapter.FillByDateHideTotal(Me.TransactionsDataset.Trans, Now.Date)
         End If
     End Sub
 
@@ -34,7 +37,11 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePicker1.ValueChanged
-        Me.TransTableAdapter.FillByDate(Me.TransactionsDataset.Trans, DateTimePicker1.Value)
+        If userlevel = "Administrator" Then
+            Me.TransTableAdapter.FillByDate(Me.TransactionsDataset.Trans, Now.Date)
+        Else
+            Me.TransTableAdapter.FillByDateHideTotal(Me.TransactionsDataset.Trans, Now.Date)
+        End If
         If Me.TransactionsDataset.Trans.DefaultView.Count = 0 Then
         Else
             TransDataGridView.Rows(0).Selected = True
