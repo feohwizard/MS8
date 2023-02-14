@@ -90,7 +90,7 @@ Public Class ProductDirectory
             adap.Fill(dbset, "a")
 
             If Me.dbset.Tables("a").DefaultView.Count = 0 Then
-                query = query + "Insert into Items (ItemNo,Idesc,IUnit,ProdType,VendCode,Supplier,Manufacturer,type) values (" + itemno.ToString + ",@desc" + cc.ToString + ",@unit" + cc.ToString + ",'" + rw.Cells(3).Value.ToString + "'," + Val(rw.Cells(4).Value).ToString + ",@sup" + cc.ToString + ",@manu" + cc.ToString + ",'" + rw.Cells(7).Value.ToString + "');"
+                query = query + "Insert into Items (ItemNo,Idesc,IUnit,ProdType,VendCode,Supplier,Manufacturer,type) values (" + itemno.ToString + ",@desc" + cc.ToString + ",@unit" + cc.ToString + ",'" + rw.Cells(3).Value.ToString + "',0,@sup" + cc.ToString + ",@manu" + cc.ToString + ",'" + rw.Cells(7).Value.ToString + "');"
                 query = query + "Insert into Inv(ItemNo,Qty,SRP,updated,Clevel,Cost,OldCost) values (" + itemno.ToString + ",0,$0,@dd" + cc.ToString + ",0,$0,$0);"
                 sup = New SqlParameter("@sup" + cc.ToString, SqlDbType.NVarChar)
                 desc = New SqlParameter("@desc" + cc.ToString, SqlDbType.NVarChar)
@@ -109,7 +109,8 @@ Public Class ProductDirectory
                 com.Parameters.Add(manu)
                 com.Parameters.Add(dt)
             Else
-                query = query + "UPDATE Items SET Idesc=@desc" + cc.ToString + ", IUnit=@unit" + cc.ToString + ", ProdType='" + rw.Cells(3).Value.ToString + "', VendCode=" + Val(rw.Cells(4).Value).ToString + ", Supplier=@sup" + cc.ToString + ", Manufacturer=@manu" + cc.ToString + ", type='" + rw.Cells(7).Value.ToString + "' WHERE ItemNo=" + rw.Cells(0).Value.ToString + ";"
+
+                query = query + "UPDATE Items SET Idesc=@desc" + cc.ToString + ", IUnit=@unit" + cc.ToString + ", ProdType='" + rw.Cells(3).Value.ToString + "', VendCode=0, Supplier=@sup" + cc.ToString + ", Manufacturer=@manu" + cc.ToString + ", type='" + rw.Cells(7).Value.ToString + "' WHERE ItemNo=" + rw.Cells(0).Value.ToString + ";"
                 sup = New SqlParameter("@sup" + cc.ToString, SqlDbType.NVarChar)
                 desc = New SqlParameter("@desc" + cc.ToString, SqlDbType.NVarChar)
                 unit = New SqlParameter("@unit" + cc.ToString, SqlDbType.NVarChar)
@@ -136,7 +137,7 @@ Public Class ProductDirectory
                 End If
             End If
         Next
-
+        'MsgBox(query)
         com.CommandText = query
         com.CommandTimeout = 0
         'Clipboard.SetText(query)
@@ -252,9 +253,10 @@ Public Class ProductDirectory
     Private Sub worker_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles worker.DoWork
 
         updatesv2(My.Settings.CedemedConnectionString)
-
+        'MsgBox("test")
         If tanedo.Checked = True Then
             Try
+                'MsgBox("updating tanedo")
                 updatesv2(My.Settings.Branch1)
             Catch ex As Exception
                 ms = ms + "Tanedo" + vbCrLf
@@ -263,6 +265,7 @@ Public Class ProductDirectory
         End If
 
         If sanvicente.Checked = True Then
+            'MsgBox("updating tanedo")
             Try
                 updatesv2(My.Settings.Branch2)
             Catch ex As Exception
